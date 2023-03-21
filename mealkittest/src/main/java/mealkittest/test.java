@@ -6,6 +6,7 @@ public class test {
 		
 		System.out.println("성준 씀");
 		System.out.println("진영 씀");
+		
 	}
 
 }
