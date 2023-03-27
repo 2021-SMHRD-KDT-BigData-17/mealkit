@@ -12,7 +12,7 @@ public class User {
 	private int user_point;
 	private String user_joindate;
 	private char user_type;
-	
+
 	public User(String user_id, String user_pw, String user_name, String user_nick, char user_gender, String user_addr,
 			String user_phone, char user_type) {
 		super();
@@ -24,6 +24,12 @@ public class User {
 		this.user_addr = user_addr;
 		this.user_phone = user_phone;
 		this.user_type = user_type;
+	}
+
+	public User(String user_id, String user_pw) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
 	}
 
 	public String getUser_id() {
@@ -105,9 +111,5 @@ public class User {
 	public void setUser_type(char user_type) {
 		this.user_type = user_type;
 	}
-	
-	
-	
-	
-	
+
 }
