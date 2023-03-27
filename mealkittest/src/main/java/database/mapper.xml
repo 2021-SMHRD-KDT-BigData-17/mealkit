@@ -4,13 +4,16 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="database.mapper">
 	<select id="signUpCheckId" parameterType="domain.User">
-		select id from tbl_user where id =#{id}
+		select user_id from tbl_user where user_id =#{user_id}
 	</select>
 	
-	<insert id="">
+	<insert id="signUp" parameterType="domain.User">
 		insert into values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
 	</insert>
 	
+	<select id="signIn" parameterType="domain.User" resultType="domain.User">
+		select user_id, user_nick from tbl_user where user_id=#{user_id} and user_pw=#{user_pw}
+	</select>
 	
 	
 	
