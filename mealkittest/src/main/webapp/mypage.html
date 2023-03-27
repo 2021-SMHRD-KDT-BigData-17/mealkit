@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .mypage {
+            width: 80%;
+            margin: auto;
+            padding: 30px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        header .thumb {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+        }
+
+        header .thumb-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        header .greeting {
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-top: solid 2px lightgreen;
+            border-bottom: solid 2px lightgreen;
+            border-collapse: collapse;
+            width: 70%;
+            font-size: 14px;
+            margin: auto;
+        }
+
+        tbody {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .memberbtn {
+            background-color: greenyellow;
+            font-size: large;
+            width: 200px;
+            height: 65px;
+            border: none;
+            margin: auto;
+            border-radius: 5px;
+            border: solid 1px black;
+        }
+
+    </style>
+</head>
+<body>
+    <section class = "mypage">
+
+        <h1>마이페이지</h1>
+        
+        <header>
+
+            <div class = "thumb-wrapper">
+                <img class = "thumb" src="./프사기본.jpg" alt="프사" />
+            </div>
+
+            <div class = "text-area">
+                <h2 class = "greeting">사용자님, 환영합니다!</h2>
+            </div>
+        </header>
+        <table>
+            <tbody>
+                <tr class = "saved" height = "100px">
+                    <td>적립금 500원</td>
+                </tr>
+                <tr class = "edit" height = "100px" align="center">
+                    <td bgcolor = "lightcyan"><button class = "memberbtn"><a href="#">회원정보 수정</a></button></td>
+                </tr>
+                <tr class = "shipping" height = "100px" align="center">
+                    <td><button class = "memberbtn"><a href="#">주문배송 현황</a></button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
+
+</body>
+</html>
