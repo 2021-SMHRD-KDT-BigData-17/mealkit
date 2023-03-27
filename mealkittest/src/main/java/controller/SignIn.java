@@ -34,6 +34,7 @@ public class SignIn extends HttpServlet {
 		
 		if(user != null) {
 			HttpSession session = request.getSession();
+			session.setAttribute("sid", user.getUser_id());
 		}else {
 			
 		}
