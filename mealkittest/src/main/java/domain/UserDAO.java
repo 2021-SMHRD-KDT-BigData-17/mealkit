@@ -15,7 +15,7 @@ public class UserDAO {
 		int cnt = sqlSession.selectOne("sighUpCheckId", user);
 		
 		if(cnt > 0) {
-			cnt = 0;
+			cnt = -1;
 		}else {
 			cnt = sqlSession.insert("signUp", user);
 		}

@@ -8,7 +8,7 @@
 	</select>
 	
 	<insert id="">
-		insert into values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},#{user_joindate},#{user_type})
+		insert into values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
 	</insert>
 	
 	

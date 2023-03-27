@@ -1,10 +1,14 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import domain.User;
+import domain.UserDAO;
 
 /**
  * Servlet implementation class SignUp
@@ -24,14 +28,22 @@ public class SignUp extends HttpServlet {
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		String nick = request.getParameter("nick");
-		String gender = request.getParameter("gender");
+		char gender = request.getParameter("gender").charAt(0);
 		String addr = request.getParameter("addr");
 		String phone = request.getParameter("phone");
+		char type = 'u';
 		
 		
+		User user = new User(id, pw, name, nick, gender, addr, phone, type);
+		UserDAO userDao = new UserDAO();
 		
-		User user = new User();
-		UserDAO userdao = new userdao();
+		int cnt = userDao.signUp(user);
+		
+		if(cnt == -1) {
+			response.sendRedirect("SignUP");
+		}else {
+			response.sendRedirect("");
+		}
 		
 		
 		
