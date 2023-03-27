@@ -13,4 +13,67 @@ public class Board {
 	private int bo_likes;
 	private String buy_date;
 	
+	public int getBo_no() {
+		return bo_no;
+	}
+	public void setBo_no(int bo_no) {
+		this.bo_no = bo_no;
+	}
+	public String getBo_title() {
+		return bo_title;
+	}
+	public void setBo_title(String bo_title) {
+		this.bo_title = bo_title;
+	}
+	public String getBo_content() {
+		return bo_content;
+	}
+	public void setBo_content(String bo_content) {
+		this.bo_content = bo_content;
+	}
+	public String getBo_file() {
+		return bo_file;
+	}
+	public void setBo_file(String bo_file) {
+		this.bo_file = bo_file;
+	}
+	public String getBo_date() {
+		return bo_date;
+	}
+	public void setBo_date(String bo_date) {
+		this.bo_date = bo_date;
+	}
+	public int getProd_code() {
+		return prod_code;
+	}
+	public void setProd_code(int prod_code) {
+		this.prod_code = prod_code;
+	}
+	public String getItem() {
+		return item;
+	}
+	public void setItem(String item) {
+		this.item = item;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public int getBo_likes() {
+		return bo_likes;
+	}
+	public void setBo_likes(int bo_likes) {
+		this.bo_likes = bo_likes;
+	}
+	public String getBuy_date() {
+		return buy_date;
+	}
+	public void setBuy_date(String buy_date) {
+		this.buy_date = buy_date;
+	}
+	
+	
+	
 }

@@ -7,7 +7,7 @@
 		select id from tbl_user where id =#{id}
 	</select>
 	
-	<insert id="">
+	<insert id="signUp">
 		insert into values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
 	</insert>
 	
