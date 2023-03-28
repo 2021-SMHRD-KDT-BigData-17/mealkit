@@ -16,9 +16,12 @@
 	</select>
 	
 	<insert id="fillBasket" parameterType="domain.Basket">
-		insert into tbl_basket(user_id, prod_code, prod_cnt) values(#{user_id},#{prod_code},#{prod_cnt})
+		insert into tbl_basket(user_id, prod_code, basket_date, prod_cnt) values(#{user_id},#{prod_code},NOW(),#{prod_cnt})
 	</insert>
 	
+	<select id="searchBasket" parameterType="String" resultType="domain.Basket">
+		select * from tbl_basket where user_id=#{user_id}
+	</select>
 	
 	
 	

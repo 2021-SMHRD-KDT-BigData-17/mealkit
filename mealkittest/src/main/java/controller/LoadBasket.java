@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -27,12 +28,19 @@ public class LoadBasket extends HttpServlet {
 		
 		String identify = (String)session.getAttribute("identify");
 		
-		Basket basket = new Basket();
+//		Basket basket = new Basket();
 		
 		BasketDAO basketDao = new BasketDAO();
 		
 		if(identify != null) {
-			basketDao.loadBasket(identify);
+			List<Basket> list = basketDao.loadBasket(identify);
+			
+			for(Basket l : list) {
+				
+			}
+			
+		}else {
+			System.out.println("EMPTY");
 		}
 		
 	}
