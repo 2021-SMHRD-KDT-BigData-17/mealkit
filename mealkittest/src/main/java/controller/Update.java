@@ -14,16 +14,22 @@ public class Update extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String nick = request.getParameter("nick");
-		char gender = request.getParameter("gender").charAt(0);
-		String addr = request.getParameter("addr");
-		String phone = request.getParameter("phone");
+		String user_pw = request.getParameter("user_pw");
+		String user_nick = request.getParameter("user_nick");
+		String user_addr = request.getParameter("user_addr");
+		String user_phone = request.getParameter("user_phone");
 		
 		
-		User user = new User(pw, name, nick, gender, addr, phone);
+		User user = new User(user_pw, user_nick, user_addr, user_phone);
 		UserDAO userDao = new UserDAO();
+		
+		int cnt = userDao.updateUser(user);
+		
+		if(cnt > 0) {
+			
+		}else {
+			
+		}
 		
 	}
 

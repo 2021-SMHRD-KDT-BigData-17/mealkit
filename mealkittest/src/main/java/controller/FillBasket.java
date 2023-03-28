@@ -5,15 +5,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import domain.User;
-import domain.UserDAO;
+import domain.Basket;
+import domain.BasketDAO;
 
 /**
- * Servlet implementation class SignIn
+ * Servlet implementation class FillBasket
  */
-public class SignIn extends HttpServlet {
+public class FillBasket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -25,19 +24,17 @@ public class SignIn extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+		int prod_code = Integer.parseInt(request.getParameter("prod_code"));
+		int prod_cnt = Integer.parseInt(request.getParameter("prod_cnt"));
 		
-		User user = new User(user_id, user_pw);
-		UserDAO userDao = new UserDAO();
+		Basket basket = new Basket(user_id, prod_code, prod_cnt);
 		
-		user = userDao.signIn(user);
+		BasketDAO basketDao = new BasketDAO();
 		
-		if(user != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("sid", user.getUser_id());
-		}else {
-			
-		}
+		basketDao.fillBasket(basket);
+		
+		response.getWriter().print("<script>history.back()</script>");
+		
 		
 	}
 

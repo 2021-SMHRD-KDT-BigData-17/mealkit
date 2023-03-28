@@ -8,6 +8,15 @@ public class Basket {
 	private String basket_date;
 	private int prod_cnt;
 	
+	
+	
+	public Basket(String user_id, int prod_code, int prod_cnt) {
+		super();
+		this.user_id = user_id;
+		this.prod_code = prod_code;
+		this.prod_cnt = prod_cnt;
+	}
+	
 	public int getBasket_seq() {
 		return basket_seq;
 	}

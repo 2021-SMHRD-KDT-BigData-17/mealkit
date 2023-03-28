@@ -26,6 +26,14 @@ public class User {
 		this.user_type = user_type;
 	}
 
+	public User(String user_pw, String user_nick, String user_addr, String user_phone) {
+		super();
+		this.user_pw = user_pw;
+		this.user_nick = user_nick;
+		this.user_addr = user_addr;
+		this.user_phone = user_phone;
+	}
+
 	public User(String user_id, String user_pw) {
 		super();
 		this.user_id = user_id;

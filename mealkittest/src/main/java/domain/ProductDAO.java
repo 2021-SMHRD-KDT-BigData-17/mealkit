@@ -10,4 +10,6 @@ public class ProductDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
+	
+	
 }

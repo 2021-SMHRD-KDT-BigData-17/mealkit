@@ -10,4 +10,6 @@ public class ReviewDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
+	
+	
 }

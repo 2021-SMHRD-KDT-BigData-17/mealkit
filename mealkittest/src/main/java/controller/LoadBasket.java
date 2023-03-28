@@ -1,19 +1,20 @@
 package controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import domain.User;
-import domain.UserDAO;
+import domain.Basket;
+import domain.BasketDAO;
 
 /**
- * Servlet implementation class SignIn
+ * Servlet implementation class LoadBasket
  */
-public class SignIn extends HttpServlet {
+public class LoadBasket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -22,21 +23,16 @@ public class SignIn extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
 		
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
+		String identify = (String)session.getAttribute("identify");
 		
-		User user = new User(user_id, user_pw);
-		UserDAO userDao = new UserDAO();
+		Basket basket = new Basket();
 		
-		user = userDao.signIn(user);
+		BasketDAO basketDao = new BasketDAO();
 		
-		if(user != null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("sid", user.getUser_id());
-		}else {
-			
+		if(identify != null) {
+			basketDao.loadBasket(identify);
 		}
 		
 	}

@@ -24,17 +24,17 @@ public class SignUp extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String name = request.getParameter("name");
-		String nick = request.getParameter("nick");
-		char gender = request.getParameter("gender").charAt(0);
-		String addr = request.getParameter("addr");
-		String phone = request.getParameter("phone");
-		char type = 'u';
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
+		String user_name = request.getParameter("user_name");
+		String user_nick = request.getParameter("user_nick");
+		char user_gender = request.getParameter("user_gender").charAt(0);
+		String user_addr = request.getParameter("user_addr");
+		String user_phone = request.getParameter("user_phone");
+		char user_type = 'u';
 		
 		
-		User user = new User(id, pw, name, nick, gender, addr, phone, type);
+		User user = new User(user_id, user_pw, user_name, user_nick, user_gender, user_addr, user_phone, user_type);
 		UserDAO userDao = new UserDAO();
 		
 		int cnt = userDao.signUp(user);

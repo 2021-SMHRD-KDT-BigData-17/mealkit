@@ -8,12 +8,16 @@
 	</select>
 	
 	<insert id="signUp" parameterType="domain.User">
-		insert into values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
+		insert into tbl_user values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
 	</insert>
 	
 	<select id="signIn" parameterType="domain.User" resultType="domain.User">
 		select user_id, user_nick from tbl_user where user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
+	
+	<insert id="fillBasket" parameterType="domain.Basket">
+		insert into tbl_basket(user_id, prod_code, prod_cnt) values(#{user_id},#{prod_code},#{prod_cnt})
+	</insert>
 	
 	
 	

@@ -42,4 +42,13 @@ public class UserDAO {
 		return res;
 	}
 
+	public int updateUser(User user) {
+		
+		int cnt;
+		
+		cnt = sqlSession.update("updateUser", user);
+		
+		return cnt;
+	}
+	
 }

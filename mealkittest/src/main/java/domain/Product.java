@@ -2,7 +2,7 @@ package domain;
 
 public class Product {
 
-	private int prod_ciode;
+	private int prod_code;
 	private String prod_name;
 	private int prod_price;
 	private int sale_count;
@@ -13,11 +13,11 @@ public class Product {
 	private String prod_img1;
 	private String prod_img2;
 	
-	public int getProd_ciode() {
-		return prod_ciode;
+	public int getProd_code() {
+		return prod_code;
 	}
-	public void setProd_ciode(int prod_ciode) {
-		this.prod_ciode = prod_ciode;
+	public void setProd_code(int prod_code) {
+		this.prod_code = prod_code;
 	}
 	public String getProd_name() {
 		return prod_name;
