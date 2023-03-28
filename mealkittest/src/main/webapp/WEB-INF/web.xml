@@ -16,6 +16,18 @@
   	<description></description>
   	<servlet-class>controller.SignIn</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LogOut</servlet-name>
+  	<display-name>LogOut</display-name>
+  	<description></description>
+  	<servlet-class>controller.LogOut</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<display-name>UpdateUser</display-name>
+  	<description></description>
+  	<servlet-class>controller.UpdateUser</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignUp</servlet-name>
   	<url-pattern>/SignUp</url-pattern>
@@ -23,5 +35,13 @@
   <servlet-mapping>
   	<servlet-name>SignIn</servlet-name>
   	<url-pattern>/SignIn</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogOut</servlet-name>
+  	<url-pattern>/LogOut</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<url-pattern>/UpdateUser</url-pattern>
   </servlet-mapping>
 </web-app>
