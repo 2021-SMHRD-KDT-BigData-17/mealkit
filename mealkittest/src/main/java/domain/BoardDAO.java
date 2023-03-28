@@ -16,22 +16,24 @@ public class BoardDAO {
 		
 		List<Board> list = sqlSession.selectList("loadBoard", sqlSession);
 		
+		
+		return list;
 	}
 
 	public int writeBoard() {
-		
+		return 1;
 	}
 	
 	public Board viewBoard() {
-		
+		return new Board();
 	}
 	
 	public int updateBoard() {
-		
+		return 1;
 	}
 	
-	public deleteBoard() {
-		
+	public int deleteBoard() {
+		return -1;
 	}
 	
 	
