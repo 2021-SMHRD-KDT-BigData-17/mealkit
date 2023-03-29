@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="detailed_prod_page2.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="detail_pagee.css">
+    <title>한끼줍쇼</title>
     <style>
         @font-face {
             font-family: 'Pretendard-Regular';
@@ -20,7 +20,7 @@
         list-style: none;
         font-family: 'Pretendard-Regular', sans-serif;
         }
-        .basket {
+        .basket { 
         text-align:center;
         }
         .logo{
@@ -46,8 +46,7 @@
             
         </div>
         <div class="logo">
-            <img src="./mainlogo.jpg" width="17%" 
-            alt="logo">
+            <a href = "main.html"><img src="./img/mainlogo.jpg"  width="17%"></a>
         </div>    
     </div>
                 <!-- <div class = "ad" align = "center" >친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div>
@@ -91,7 +90,7 @@
                             <div>
                                 <label for="slide04" class="left"></label>
                                 <label for="slide02" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg"
+                                <a><img src=""
                                     alt="첫번째 사진"></a>
                             </div>
                         </li>
@@ -99,28 +98,28 @@
                             <div>
                                 <label for="slide01" class="left"></label>
                                 <label for="slide03" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="두번째 사진"></a>
+                                <a><img src="" alt="두번째 사진"></a>
                             </div>
                         </li>
                         <li class="slideitem">
                             <div>
                                 <label for="slide02" class="left"></label>
                                 <label for="slide04" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="세번째 사진"></a>
+                                <a><img src="" alt="세번째 사진"></a>
                             </div>
                         </li>
                         <li class="slideitem">
                             <div>
                                 <label for="slide02" class="left"></label>
                                 <label for="slide04" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="네번째 사진"></a>
+                                <a><img src="" alt="네번째 사진"></a>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="prod_option"> <!-- 사진옆에  글 공간 (판매가 , 옵션 등)-->
-                    <h2 style="letter-spacing:0.7px; margin-bottom:20px;">[2代대구 팔공산얼큰이] 비빔칼국수 2팩 - 2인분</h2>
-                    <p style="color:gray" line-height="30px" font-size="25px" font-weight="50px">35년 전통의 대구 팔공산 맛집의 비빔칼국수</p>
+                    <h2 style="letter-spacing:0.7px; margin-bottom:20px;">제품명</h2>
+                    <p style="color:gray" line-height="30px" font-size="25px" font-weight="50px">제품설명</p>
                     <hr style="margin-bottom: 20px; margin-top: 20px;">    
                     <table class="prod_info">
                         <tbody>
@@ -225,10 +224,10 @@
                 <img src="./mainlogo.jpg" width="450" height="250">
             </div>
             <div class="detailimg" align="center">
-                <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_1.jpg">
-                <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_2.jpg">
-                <img src="./prod.jpg" width="1000px" alt="상품구성사진">
-                <img src="./cook.jpg" width="1000px" alt="조리방법사진">
+                <img src="">
+                <img src=""> <!-- 상품 상세 이미지   -->
+                <img src="" width="1000px" alt="상품구성사진">
+                <img src="" width="1000px" alt="조리방법사진">
             </div> <!-- 상품 상세보기 -->
         </div>
         <div id="reviews">
@@ -241,7 +240,7 @@
                     </ul>
                     <br><br>
                     <h2>상품후기
-                        <span>(292)</span>
+                        <span>(리뷰갯수)</span>
                     </h2>
                     <br>
 
