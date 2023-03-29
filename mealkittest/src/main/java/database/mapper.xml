@@ -3,102 +3,201 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="database.mapper">
-	
+
 	<resultMap type="domain.Basket" id="basket">
 		<constructor>
-			<arg column="user_id" javaType="String"/>
-			<arg column="prod_code" javaType="int"/>
-			<arg column="prod_cnt" javaType="int"/>
+			<arg column="user_id" javaType="String" />
+			<arg column="prod_code" javaType="int" />
+			<arg column="prod_cnt" javaType="int" />
 		</constructor>
 		<association property="product" javaType="domain.Product">
-			<result column="prod_code" property="prod_code"/>
-			<result column="prod_name" property="prod_name"/>
-			<result column="prod_img1" property="prod_img1"/>
+			<result column="prod_code" property="prod_code" />
+			<result column="prod_name" property="prod_name" />
+			<result column="prod_img1" property="prod_img1" />
 		</association>
 	</resultMap>
-	
+
 	<resultMap type="domain.Board" id="boardLoad">
-		<constructor>
-			<arg column="bo_title" javaType="String"/>
-			<arg column="bo_content" javaType="String"/>
-			<arg column="bo_file" javaType="String"/>
-			<arg column="user_id" javaType="String"/>
-		</constructor>
-		<result column="bo_no" property="bo_no"/>
-		<result column="bo_title" property="bo_title"/>
-		<result column="bo_date" property="bo_date"/>
+		<result column="bo_no" property="bo_no" />
+		<result column="bo_title" property="bo_title" />
+		<result column="bo_date" property="bo_date" />
+		<result column="bo_likes" property="bo_likes" />
 		<association property="user" javaType="domain.User">
+			<result column="user_nick" property="user_nick" />
+		</association>
+	</resultMap>
+
+	<resultMap type="domain.Board" id="boardView">
+		<result column="bo_no" property="bo_no" />
+		<result column="bo_title" property="bo_title" />
+		<result column="bo_content" property="bo_content" />
+		<result column="bo_file" property="bo_file" />
+		<result column="bo_date" property="bo_date" />
+		<result column="bo_likes" property="bo_likes" />
+		<association property="user" javaType="domain.User">
+			<result column="user_nick" property="user_nick" />
+		</association>
+	</resultMap>
+
+	<resultMap type="domain.Comment" id="comment">
+		<result column="cmt_content" property="cmt_content"/>
+		<result column="cmt_date" property="cmt_date"/>
+		<result column="cmt_likes" property="cmt_likes"/>
+		<association property="" javaType="domain.User">
 			<result column="user_nick" property="user_nick"/>
 		</association>
 	</resultMap>
-	
-	<resultMap type="domain.Board" id="boardView">
-		<constructor>
-			<arg column="bo_title" javaType="String"/>
-			<arg column="bo_content" javaType="String"/>
-			<arg column="bo_file" javaType="String"/>
-			<arg column="user_id" javaType="String"/>
-		</constructor>
-		<result column="bo_no" property="bo_no"/>
-		<result column="bo_title" property="bo_title"/>
-		<result column="bo_content" property="bo_content"/>
-		<result column="bo_date" property="bo_date"/>
-		<result column="bo_likes" property="bo_likes"/>
+
+	<resultMap type="domain.Review" id="review">
+		<result column="review_content" property="review_content" />
+		<result column="review_img1" property="review_img1" />
+		<result column="review_img2" property="review_img2" />
+		<result column="review_rating" property="review_rating" />
+		<result column="review_date" property="review_date" />
 		<association property="user" javaType="domain.User">
-			<result column="user_nick" property="user_nick"/>
+			<result column="user_nick" property="user_nick" />
+
 		</association>
 	</resultMap>
 
 
 	<select id="signUpCheckId" parameterType="domain.User">
-		select user_id from tbl_user where user_id =#{user_id}
+		select user_id from
+		tbl_user where user_id =#{user_id}
 	</select>
-	
+
 	<insert id="signUp" parameterType="domain.User">
-		insert into tbl_user values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point, jdbcType=INTEGER},NOW(),#{user_type})
+		insert into tbl_user
+		values(#{user_id},#{user_pw},#{user_name},#{user_nick},#{user_gender},#{user_addr},#{user_phone},#{user_point,
+		jdbcType=INTEGER},NOW(),#{user_type})
 	</insert>
-	
-	<select id="signIn" parameterType="domain.User" resultType="domain.User">
-		select user_id, user_nick from tbl_user where user_id=#{user_id} and user_pw=#{user_pw}
+
+	<select id="signIn" parameterType="domain.User"
+		resultType="domain.User">
+		select user_id, user_nick from tbl_user where
+		user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
-	
+
 	<insert id="fillBasket" parameterType="domain.Basket">
-		insert into tbl_basket(user_id, prod_code, basket_date, prod_cnt) values(#{user_id},#{prod_code},NOW(),#{prod_cnt})
+		insert into
+		tbl_basket(user_id, prod_code, basket_date, prod_cnt)
+		values(#{user_id},#{prod_code},NOW(),#{prod_cnt})
 	</insert>
-	
-	<select id="searchBasket" parameterType="String" resultMap="basket">
-		select prod_cnt, prod_code, prod_name, prod_img1 from tbl_basket, tbl_product where (tbl_bakset.user_id=#{user_idS}) and (tbl_basket.prod_code = tbl_product.prod_code)
+
+	<select id="searchBasket" parameterType="String"
+		resultMap="basket">
+		select prod_cnt, prod_code, prod_name, prod_img1 from
+		tbl_basket, tbl_product where (tbl_bakset.user_id=#{user_idS}) and
+		(tbl_basket.prod_code = tbl_product.prod_code)
 	</select>
-	
+
 	<select id="loadBasket">
-		select prod_cnt, prod_code, prod_name, prod_img1 from tbl_basket, tbl_product where (tbl_bakset.user_id=#{user_idS}) and (tbl_basket.prod_code = tbl_product.prod_code)
+		select prod_cnt, prod_code, prod_name, prod_img1 from
+		tbl_basket, tbl_product where (tbl_bakset.user_id=#{user_idS}) and
+		(tbl_basket.prod_code = tbl_product.prod_code)
 	</select>
-	
-	<select id="loadBoard" parameterType="int" resultMap="board">
-		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_user.user_nick from tbl_board, tbl_user where user_id = tbl_user.user_id and (ROWNUM between 1 and 10)
+
+	<select id="loadBoard" parameterType="int" resultMap="boardLoad">
+		select
+		tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date,
+		tbl_board.bo_likes, tbl_user.user_nick from tbl_board, tbl_user where
+		(ROWNUM between 1 and 10)
 	</select>
-	
+
 	<insert id="writeBoard" parameterType="domain.Board">
-		insert into tbl_board(bo_title, bo_content, bo_file, bo_date, user_id) values(#{bo_title},#{bo_content},#{bo_file},NOW(),#{user_id})
+		insert into
+		tbl_board(bo_title, bo_content, bo_file, bo_date, user_id)
+		values(#{bo_title},#{bo_content},#{bo_file},NOW(),#{user_id})
 	</insert>
-	
-	<select id="viewBoard" parameterType="domain.Board" resultType="boardView">
-		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_content, tbl_board.bo_file, tbl_board.bo_date, tbl_uesr.user_nick, tbl_board.bo_likes from tbl_board, tbl_uesr where bo_no=#{bo_no}
+
+	<select id="viewBoard" parameterType="domain.Board"
+		resultType="boardView">
+		select tbl_board.bo_no, tbl_board.bo_title,
+		tbl_board.bo_content, tbl_board.bo_file, tbl_board.bo_date,
+		tbl_uesr.user_nick, tbl_board.bo_likes from tbl_board, tbl_uesr where
+		bo_no=#{bo_no}
 	</select>
-	
+
 	<update id="updateBoard" parameterType="domain.Board">
-		update tbl_board set bo_title=#{bo_title},bo_content=#{bo_content},bo_file=#{bo_file} where bo_no=#{bo_no}
+		update tbl_board set
+		bo_title=#{bo_title},bo_content=#{bo_content},bo_file=#{bo_file} where
+		bo_no=#{bo_no}
 	</update>
-	
-	<delete id="deleteBoard">
+
+	<delete id="deleteBoard" parameterType="int">
 		delete from tbl_board where bo_no=#{bo_no}
 	</delete>
-	
+
 	<insert id="insertComment" parameterType="domain.Comment">
-		insert into tbl_commment(bo_seq, cmt_content, cmt_date, user_id) values(#{bo_seq),#{cmt_content},NOW(),#{user_id})
+		insert into
+		tbl_commment(bo_seq, cmt_content, cmt_date, user_id)
+		values(#{bo_seq),#{cmt_content},NOW(),#{user_id})
 	</insert>
-	
-	
-	
-	
+
+	<update id="updateComment" parameterType="domain.Comment">
+		update tbl_comment set
+		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+	</update>
+
+	<delete id="deleteComment" parameterType="domain.Comment">
+		delete from tbl_comment
+		where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+	</delete>
+
+	<select id="loadComment" parameterType="int" resultMap="comment">
+		select
+		tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,
+		tbl_user.user_nick from tbl_comment, tbl_user where
+		tbl_comment.bo_seq={bo_seq}
+	</select>
+
+	<insert id="insertDelivery" parameterType="domain.Delivery">
+		insert into
+		tbl_delivery
+		values(#{order_seq},#{deli_addr},#{deli_name},#{deli_name},#{deli_phone},#{deli_company},NOW())
+	</insert>
+
+	<delete id="deleteDelivery" parameterType="int">
+		delete from
+		tbl_delivery where deli_seq=#{deli_seq}
+	</delete>
+
+	<insert id="insertOrder" parameterType="domain.Order">
+		insert into tbl_order
+		values
+		(#{user_id},NOW(),#{total_amount},#{order_status},#{dicount_amount},#{pay_amount},#{pay_method},#{paid_amount})
+	</insert>
+
+	<delete id="deleteOrder" parameterType="int">
+		delete from tbl_order
+		where order_seq=#{order_seq}
+	</delete>
+
+	<select id="loadProduct" parameterType="int" resultType="domain.Product">
+		select * from tbl_product
+		where prod_code=#{prod_code}
+	</select>
+
+	<select id="loadReview" parameterType="int" resultMap="review">
+		select *
+		from tbl_review
+		where prod_code=#{prod_code} and (ROWNUM between 1 and
+		10)
+	</select>
+
+	<insert id="insertReview" parameterType="domain.Review">
+		insert into tbl_review(prod_code, user_id,
+		review_content, review_img1, review_img2, review_date)
+		values(#{prod_code},#{user_id},#{review_content},#{review_img1},#{review_img2},NOW())
+	</insert>
+
+	<update id="updateReview" parameterType="domain.Review">
+		update tbl_review set
+		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2}
+	</update>
+
+	<delete id="deleteReview" parameterType="domain.Review">
+		delete from tbl_review where review_seq=#{review_seq}
+	</delete>
+
 </mapper>

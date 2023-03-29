@@ -13,12 +13,18 @@ public class Comment {
 	
 
 	
-
 	public Comment(int bo_seq, String cmt_content, String user_id) {
 		super();
 		this.bo_seq = bo_seq;
 		this.cmt_content = cmt_content;
 		this.user_id = user_id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public int getCmt_seq() {
 		return cmt_seq;

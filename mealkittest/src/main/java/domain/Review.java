@@ -9,7 +9,16 @@ public class Review {
 	private String review_img1;
 	private String review_img2;
 	private double review_rating;
+	private User user;
 	
+	
+	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getReview_seq() {
 		return review_seq;
 	}

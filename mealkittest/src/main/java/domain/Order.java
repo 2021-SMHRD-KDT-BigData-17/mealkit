@@ -12,6 +12,20 @@ public class Order {
 	private String pay_method;
 	private int paid_amount;
 	
+	
+	
+	public Order(String user_id, int total_amount, String order_status, int discount_amount, int pay_amount,
+			String pay_method, int paid_amount) {
+		super();
+		this.user_id = user_id;
+		this.total_amount = total_amount;
+		this.order_status = order_status;
+		this.discount_amount = discount_amount;
+		this.pay_amount = pay_amount;
+		this.pay_method = pay_method;
+		this.paid_amount = paid_amount;
+	}
+	
 	public int getOrder_seq() {
 		return order_seq;
 	}

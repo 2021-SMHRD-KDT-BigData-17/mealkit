@@ -10,6 +10,17 @@ public class Delivery {
 	private String deli_company;
 	private String deli_date;
 	
+	
+	
+	public Delivery(int order_seq, String deli_addr, String deli_name, String deli_phone, String deli_company) {
+		super();
+		this.order_seq = order_seq;
+		this.deli_addr = deli_addr;
+		this.deli_name = deli_name;
+		this.deli_phone = deli_phone;
+		this.deli_company = deli_company;
+	}
+	
 	public int getDeli_seq() {
 		return deli_seq;
 	}
