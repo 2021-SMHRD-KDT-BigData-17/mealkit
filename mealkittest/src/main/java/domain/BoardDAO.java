@@ -12,28 +12,39 @@ public class BoardDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 
-	public List<Board> loadBoard() {
+	public List<Board> loadBoard(int page) {
 		
-		List<Board> list = sqlSession.selectList("loadBoard", sqlSession);
-		
+		List<Board> list = sqlSession.selectList("loadBoard", page);
 		
 		return list;
 	}
 
-	public int writeBoard() {
-		return 1;
+	public int writeBoard(Board board) {
+		
+		int cnt = sqlSession.insert("writeBoard", board);
+		
+		return cnt;
 	}
 	
-	public Board viewBoard() {
-		return new Board();
+	public Board viewBoard(int bo_no) {
+		
+		Board board = sqlSession.selectOne("viewBoard", bo_no);
+		
+		return board;
 	}
 	
-	public int updateBoard() {
-		return 1;
+	public int updateBoard(Board board) {
+		
+		int cnt = sqlSession.update("updateBoard", board);
+				
+		return cnt;
 	}
 	
-	public int deleteBoard() {
-		return -1;
+	public int deleteBoard(int bo_no) {
+		
+		int cnt = sqlSession.delete("deleteBoard", bo_no);
+		
+		return cnt;
 	}
 	
 	

@@ -40,6 +40,12 @@
   	<description></description>
   	<servlet-class>controller.LoadBasket</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoadBoard</servlet-name>
+  	<display-name>LoadBoard</display-name>
+  	<description></description>
+  	<servlet-class>controller.LoadBoard</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignUp</servlet-name>
   	<url-pattern>/SignUp</url-pattern>
@@ -63,5 +69,9 @@
   <servlet-mapping>
   	<servlet-name>LoadBasket</servlet-name>
   	<url-pattern>/LoadBasket</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoadBoard</servlet-name>
+  	<url-pattern>/LoadBoard</url-pattern>
   </servlet-mapping>
 </web-app>

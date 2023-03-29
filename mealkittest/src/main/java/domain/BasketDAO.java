@@ -19,11 +19,11 @@ public class BasketDAO {
 		return cnt;
 	}
 	
-	public List loadBasket(String user_id) {
+	public List<Basket> loadBasket(String user_idS) {
 
-		List<Basket> list = sqlSession.selectList("searchBasket", user_id);
+		List<Basket> list = sqlSession.selectList("searchBasket", user_idS);
 		
-		sqlSession.selectList("loadBasket", list);
+//		sqlSession.selectList("loadBasket", list);
 		
 //		List<Product> list = sqlSession.selectList("loadBasket", user_id);
 		

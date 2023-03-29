@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -9,5 +11,41 @@ public class CommentDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
+	
+	public int insertComment(Comment commment) {
+		
+		int cnt = sqlSession.insert("insertComment", commment);
+		
+		if(cnt > 0) {
+			
+		}else {
+			
+		}
+		
+		return cnt;
+	}
+	
+	public int updateComment(Comment comment) {
+		
+		int cnt = sqlSession.update("updateComment", comment);
+		
+		return cnt;
+	}
+	
+	public int deleteComment(Comment comment) {
+		
+		int cnt = sqlSession.delete("deldteComment", comment);
+		
+		return cnt;
+		
+	}
+	
+	public List<Comment> loadComment(int bo_sq){
+		
+		List<Comment> list = sqlSession.selectList("loadComment", bo_sq);
+		
+		return list;		
+				
+	}
 	
 }

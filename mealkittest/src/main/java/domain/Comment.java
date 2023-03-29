@@ -8,7 +8,18 @@ public class Comment {
 	private String cmt_date;
 	private int cmt_likes;
 	private String user_id;
+	private User user;
 	
+	
+
+	
+
+	public Comment(int bo_seq, String cmt_content, String user_id) {
+		super();
+		this.bo_seq = bo_seq;
+		this.cmt_content = cmt_content;
+		this.user_id = user_id;
+	}
 	public int getCmt_seq() {
 		return cmt_seq;
 	}
