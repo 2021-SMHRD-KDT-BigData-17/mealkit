@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="detailed_prod_page2.css">
-    <title>한끼줍쇼</title>
+    <title>Document</title>
     <style>
         @font-face {
             font-family: 'Pretendard-Regular';
@@ -30,8 +32,8 @@
 <body>
     <div class = "ad" align = "center">친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸-->
     
-        <div class="basket" >  
-            <form action="#" method="post">
+        <div class="basket">  
+           
             <!--로그인 -->
             <a href="login.html">로그인 &nbsp;</a>
             <!-- 회원가입 -->
@@ -41,7 +43,7 @@
             <!-- 장바구니 -->
             <a >커뮤니티 &nbsp;</a> 
             <a >장바구니 &nbsp;</a> 
-            </form>
+            
         </div>
         <div class="logo">
             <img src="./mainlogo.jpg" width="17%" 
@@ -163,10 +165,10 @@
                         </tbody>
                     </table>
 
-                    <a href="https://www.naver.com/"><!-- href링크 구매페이지로 보내기 -->
+                    <a href="order.html"><!-- href링크 구매페이지로 보내기 -->
                         <button class='cart_btn1'>바로구매</button>
                     </a>
-                    <a href="https://www.naver.com/"><!-- href링크 장바구니페이지로 보내기 -->
+                    <a href="basket.html"><!-- href링크 장바구니페이지로 보내기 -->
                         <button class='cart_btn2'>장바구니</button>
                     </a>
 
