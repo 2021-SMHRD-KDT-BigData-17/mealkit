@@ -1,0 +1,593 @@
+
+body{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.ad{
+    padding: 0px;
+    background-color: rgb(24, 193, 21);
+    height: 20px;
+    vertical-align: bottom;
+    text-align: center;
+
+    }
+
+
+
+    /* 로그인 */
+    .basket{
+        position: relative;
+        left: 585px; 
+        font-size: 15px;
+       }
+
+       /*  로고 */
+       .logo{
+       
+       position:relative;
+       right: 0%;
+       }
+
+
+
+
+
+
+
+/* .top{
+   padding-left: 20px;
+   padding-right: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
+} */
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: bottom 1px solid rgb(240, 27, 27);
+}
+
+.navi {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+  }
+
+.foodcategory{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+
+
+
+
+/* 여기부터는 메인사진부터 장바구니담는 곳까지 css담기 */
+.container{
+    margin-left: 240px;
+    margin-right: 240px;
+    margin-top: 100px;
+}
+
+
+
+table, td{
+    padding-bottom: 25px;
+    padding-right: 25px;
+}
+
+.button-style{
+    padding-left: 100px;
+}
+
+#price{
+    width: 50px;
+}
+
+
+.prod_option .cart_btn1{
+    align-items: center;
+}
+
+.prod_option .cart_btn2{
+    align-items: center;
+}
+
+
+/* .post img{
+     width:px;
+     height:650px;
+     padding-right: 50px;
+}
+
+.thumbnails img{
+    width: 122px;
+    height: 122px;
+    padding-right: 10px;  
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+} */
+
+
+/* .thumbnails{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right :50px;
+} */
+
+.button{
+border-radius: 10px;
+cursor: pointer;
+}
+
+.button a{
+    padding: 20px 50px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+
+
+#price{
+    width: 50px;
+    height: 150px;
+}
+
+
+.cart{
+padding: 20px;
+margin: 20px;
+}
+
+
+
+.cart_btn1{
+    cursor: pointer;
+    border: none;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom:20px;
+    border-radius: 1em;
+    background-color: rgb(24, 193, 21);
+    color: #fff;
+    font-size: large;
+    border-radius: 5px;
+}
+
+
+.cart_btn2{
+    cursor: pointer;
+    border: none;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(24, 193, 21);
+    color: #fff;
+    font-size: large;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: #1a1b17;
+}
+
+
+.container{
+    margin-left: 240px;
+    margin-right: 240px;
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+
+/* li{
+    list-style: none;
+} */
+
+
+#menu ul li{
+    float: left;
+    text-align: center;
+}
+
+
+.tap_type1 ul{
+    display: flex; border-bottom: 60px; border-bottom: 1px solid rgb(24, 193, 21);
+}
+
+.tap_type1 ul li{
+    flex: 1;
+}
+
+.tap_type1 ul li:first-child a{
+    border-left: 1px solid #ddd;
+}
+
+.tap_type1 ul li a {
+    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none; 
+    font-size: 15px; color:rgba(0, 0, 0, 0.6) 
+    text-align: center; line-height: 59px; text-decoration: none;
+}
+
+.tap_type1 ul li a.on{
+    position:relative; height:58x; border-color: rgb(24, 193, 21); border-top-width: 2px; line-height: 57px; 
+    border-bottom: 1px solid #fff
+}
+
+.tap_type1 ul li a.on:before{
+    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: rgb(24, 193, 21);
+    border-top: 2px solid rgb(24, 193, 21);
+}
+
+
+
+
+.tap_type2 ul{
+    display: flex; border-bottom: 60px; border-bottom: 1px solid olive;
+}
+
+.tap_type2 ul li{
+    flex: 1;
+}
+
+.tap_type2 ul li:first-child a{
+    border-left: 1px solid #ddd;
+}
+
+.tap_type2 ul li a {
+    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none; 
+    font-size: 15px; color:#505050; 
+    text-align: center; line-height: 59px; text-decoration: none;
+}
+
+.tap_type2 ul li a.on{
+    position:relative; height:58x; border-color: olive; border-top-width: 2px; line-height: 57px; 
+    border-bottom: 1px solid #fff
+}
+
+.tap_type2 ul li a.on:before{
+    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: olive; 
+    border-top: 2px solid olive;
+}
+
+
+
+
+
+.tap_type3 ul{
+    display: flex; border-bottom: 60px; border-bottom: 1px solid olive;
+}
+
+.tap_type3 ul li{
+    flex: 1;
+}
+
+.tap_type3 ul li:first-child a{
+    border-left: 1px solid #ddd;
+}
+
+.tap_type3 ul li a {
+
+    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none; 
+    font-size: 15px; color:#505050; 
+    text-align: center; line-height: 59px; text-decoration: none;
+}
+
+.tap_type3 ul li a.on{
+    position:relative; height:58x; border-color: olive; border-top-width: 2px; line-height: 57px; 
+    border-bottom: 1px solid #fff
+}
+
+.tap_type3 ul li a.on:before{
+    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: olive; 
+    border-top: 2px solid olive;
+}
+
+
+
+.logologo {
+    padding-right :500px;
+    padding-left :300px;  
+    padding-top: 200px;
+}
+
+.logologo img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailimg{
+    margin-bottom: 50px;
+}
+
+
+/* 
+
+#reviews ul li{
+    float: left;
+    width: 33%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+
+}
+
+.tap_type2 ul li{
+    flex: 1; border: 1px solid #ddd; border-left:none ;
+}
+
+#delivery-info ul li{
+    float: left;
+    width: 33%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+
+}
+
+.tap_type3 ul li{
+    flex: 1; border: 1px solid #ddd; border-left:none ;
+} */
+
+/* .post{
+    float: left;
+} */
+
+.modu .prod_option{
+    padding-left: 100px;
+}
+
+.prod_info tbody tr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* .modu .text{
+    clear: left;
+} */
+
+.section{
+    margin-left: 240px;
+    margin-right: 240px;
+    clear: both;
+}
+
+/* 슬라이드 */
+
+/* .food-img input[id*="slide"]{
+    display:none;
+}
+
+.food-img .slidewrap{
+    max-width: 1200px;
+    margin:0 auto;
+    overflow: hidden;
+}
+
+.food-img .slidelist{
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.food-img .slidelist > li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+    transition: all .5s;
+}
+
+.food-img .slidelist > li > a {
+    display: block;
+    position: relative;
+}
+
+
+.food-img .slidelist > li > a img{
+    width: 100%;
+}
+
+.food-img .slidelist label{
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    cursor: pointer;
+}
+
+.food-img .slidelist .left{
+    left:30px;
+    background: url('./img/left.png') center center / 100% no-repeat;
+}
+
+.food-img .slidelist .right{
+    right: 30px;
+    background: url('./img/right.png') center center;
+}
+
+
+.food-img [id="slide01"]:checked ~ .slidewrap .slidelist > li {transform:translateX(0%);}
+.food-img [id="slide02"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-100%);}
+.food-img [id="slide03"]:checked ~ .slidewrap .slidelist > li {transform:translateX(-200%);} */
+
+
+/* 슬라이드 */
+
+*{margin: 0; padding: 0;box-sizing:border-box;}
+ ul,li{list-style: none;}
+
+ [name="slide"] {display: none;}
+ .slidebox{max-width: 40%; margin: 0 auto; float: left; margin-right: 100px; margin-bottom: 80px; text-align: right;} 
+ /* width: 1000px; */
+ 
+ .slidebox img{max-width:100%}
+ .slidebox .slidelist{
+   white-space: nowrap;
+   font-size: 0;
+   overflow:hidden;
+}
+
+.slidebox .slideitem{
+   position: relative;
+   display: inline-block;
+   vertical-align: middle;
+   width: auto;
+
+   
+   transition: all .5s;
+}
+
+.slidebox .slideitem label{
+   position:absolute;
+   z-index: 1;
+   top: 50%;
+   transform: translateY(-50%);
+   padding: 20px;
+   border-radius: 50%;
+   cursor: pointer;
+}
+/* label.left{
+   left: 20px;
+   background-color: #5f5f5f;
+   background-image: url();
+   background-position: center center;
+   background-size: 50%;
+   background-repeat:  no-repeat;
+} */
+/* label.right{
+   left: 20px;
+   background-color: #5f5f5f;
+   background-image: url();
+   background-position: center center;
+   background-size: 50%;
+   background-repeat:  no-repeat;
+} */
+.slidelist .slideitem{
+    width: 100%;
+ }
+[id="slide02"]:checked ~ .slidelist .slideitem{transform: translateX(-100%); animation:slide02 20s  infinite}
+[id="slide03"]:checked ~ .slidelist .slideitem{transform: translateX(-200%); animation:slide03 20s  infinite}
+[id="slide04"]:checked ~ .slidelist .slideitem{transform: translateX(-300%); animation:slide04 20s  infinite}
+
+@keyframes slide02 {
+   0%{left: 0%;}
+   23%{left: 0%;}
+   25%{left: -100%;}
+   48%{left: -100%;}
+   50%{left: -200%;}
+   73%{left: -200%;}
+   75%{left: 100%;}
+   98%{left: 100%;}
+   100%{left: 0%;}
+   
+}
+
+@keyframes slide03 {
+   0%{left: 0%;}
+   23%{left: 0%;}
+   25%{left: -100%;}
+   48%{left: -100%;}
+   50%{left: 200%;}
+   73%{left: 200%;}
+   75%{left: 100%;}
+   98%{left: 100%;}
+   100%{left: 0%;}
+   
+}
+
+@keyframes slide04 {
+   0%{left: 0%;}
+   23%{left: 0%;}
+   25%{left: 300%;}
+   48%{left: 300%;}
+   50%{left: 200%;}
+   73%{left: 200%;}
+   75%{left: 100%;}
+   98%{left: 100%;}
+   100%{left: 0%;}
+   
+}
+/* 
+.review_table{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    ;
+} */
+
+#tothetop { 
+    position: fixed;
+     bottom: 1rem; 
+     right: 1rem; 
+     cursor: pointer;
+     background:gold; 
+     width: 60px;
+     height: 60px;
+     border-radius: 50%;
+     justify-content:center;
+     text-align:center;
+     line-height:60px;
+
+    }
+
+
+    table_style{
+        
+    }
+
+.review_head {
+    line-height: 44px;
+    border-top: 2px solid rgb(24, 193, 21);
+    border-bottom: 1px solid #999;
+    vertical-align: middle;
+    align-items: center;
+}
+
+
+
+.star_color{
+    color: gold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
