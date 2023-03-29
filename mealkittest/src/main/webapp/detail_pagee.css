@@ -224,8 +224,8 @@ a{
 }
 
 .tap_type1 ul li a {
-    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none; 
-    font-size: 15px; color:rgba(0, 0, 0, 0.6) 
+    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none;
+    font-size: 15px; color:rgba(0, 0, 0, 0.6);
     text-align: center; line-height: 59px; text-decoration: none;
 }
 
@@ -551,9 +551,6 @@ a{
     }
 
 
-    table_style{
-        
-    }
 
 .review_head {
     line-height: 44px;
