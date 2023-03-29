@@ -12,6 +12,15 @@ public class Product {
 	private String prod_desc;
 	private String prod_img1;
 	private String prod_img2;
+	private String prod_desc2;
+	private String prod_desc3;
+	private String prod_desc4;
+	private String prod_desc5;
+	private String prod_desc6;
+	private String prod_desc7;
+	private String prod_img3;
+	private String prod_img4;
+	private String prod_desc8;
 	
 	public int getProd_code() {
 		return prod_code;
