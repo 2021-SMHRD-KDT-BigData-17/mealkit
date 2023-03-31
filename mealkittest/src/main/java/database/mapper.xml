@@ -114,9 +114,7 @@
 	</select>
 
 	<update id="updateBoard" parameterType="domain.Board">
-		update tbl_board set
-		bo_title=#{bo_title},bo_content=#{bo_content},bo_file=#{bo_file} where
-		bo_no=#{bo_no}
+		update tbl_board <set><if test="bo_title != null">bo_title=#{bo_title},</if><if test="bo_content != null">bo_content=#{bo_content},</if><if test="bo_file != null">bo_file=#{bo_file}</if></set> where bo_no=#{bo_no}
 	</update>
 
 	<delete id="deleteBoard" parameterType="int">

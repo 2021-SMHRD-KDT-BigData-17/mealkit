@@ -14,7 +14,7 @@ public class SqlSessionManager {
 	static {
 		
 		try {
-			String resource = "domain/config.xml";
+			String resource = "database/config.xml";
 			InputStream inputstream = Resources.getResourceAsStream(resource);
 			
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputstream);
