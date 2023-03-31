@@ -17,7 +17,16 @@ public class ReviewDAO {
 
 		// map.put("pord_code", ) map.put("page", )
 		
-		List<Review> list = sqlSession.selectList("loadReview", map);
+		List<Review> list = null;
+		
+		try {
+			list = sqlSession.selectList("loadReview", map);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 
 		return list;
 

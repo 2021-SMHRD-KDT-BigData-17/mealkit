@@ -14,7 +14,16 @@ public class BoardDAO {
 
 	public List<Board> loadBoard(int page) {
 		
-		List<Board> list = sqlSession.selectList("loadBoard", page);
+		List<Board> list = null;
+		
+		try {
+			list = sqlSession.selectList("loadBoard", page);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return list;
 	}

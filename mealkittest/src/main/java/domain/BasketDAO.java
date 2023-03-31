@@ -36,13 +36,22 @@ public class BasketDAO {
 	
 	public List<Basket> loadBasket(String user_idS) {
 
-		List<Basket> list = sqlSession.selectList("searchBasket", user_idS);
+		List<Basket> list = null;
 		
+		try {
+			list = sqlSession.selectList("searchBasket", user_idS);
+			
 //		sqlSession.selectList("loadBasket", list);
-		
+			
 //		List<Product> list = sqlSession.selectList("loadBasket", user_id);
-		
-		// map
+			
+			// map
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return list;
 	}

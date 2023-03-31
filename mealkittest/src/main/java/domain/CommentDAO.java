@@ -84,9 +84,18 @@ public class CommentDAO {
 		
 		// map.put("bo_seq", ) map.put("page", )
 		
-		List<Comment> list = sqlSession.selectList("loadComment", map);
+		List<Comment> list = null;
 		
-		return list;		
+		try {
+			list = sqlSession.selectList("loadComment", map);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return list;
 				
 	}
 	

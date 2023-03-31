@@ -44,15 +44,15 @@ public class UserDAO {
 
 	public User signIn(User user) {
 
-		int cnt = 0;
-
-		User res = sqlSession.selectOne("signIn", user);
-
-		if (res != null) {
-			System.out.println("Login Success.");
-		} else {
-			System.out.println("Login Fail.");
-
+		User res = null;
+		
+		try {
+			res = sqlSession.selectOne("signIn", user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
 		}
 
 		return res;
