@@ -8,7 +8,7 @@
 		<result column="cmt_content" property="cmt_content"/>
 		<result column="cmt_date" property="cmt_date"/>
 		<result column="cmt_likes" property="cmt_likes"/>
-		<association property="" javaType="domain.User">
+		<association property="user" javaType="domain.User">
 			<result column="user_nick" property="user_nick"/>
 		</association>
 	</resultMap>
