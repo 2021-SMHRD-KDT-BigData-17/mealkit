@@ -27,7 +27,7 @@
 	</resultMap>
 	
 	<select id="loadBoard" parameterType="int" resultMap="boardLoad">
-		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select * from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select * from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id order by DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 
 	<insert id="writeBoard" parameterType="domain.Board">

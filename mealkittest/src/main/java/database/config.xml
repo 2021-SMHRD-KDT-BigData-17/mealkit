@@ -7,8 +7,7 @@
 
 	<settings>
     	<setting name="callSettersOnNulls" value="true"/>
-	</settings>	
-
+	</settings>
 
   <environments default="development">
     <environment id="development">
@@ -22,10 +21,9 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="database/mapper.xml"/>
+    <mapper resource="database/mapper1.xml"/>
+    <mapper resource="database/mapper2.xml"/>
+    <mapper resource="database/mapper3.xml"/>
     
   </mappers>
-  
-  	
-  
 </configuration>

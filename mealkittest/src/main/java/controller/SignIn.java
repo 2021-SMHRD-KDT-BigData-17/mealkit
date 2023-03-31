@@ -23,7 +23,7 @@ public class SignIn extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		request.setCharacterEncoding("UTF-8");
-		
+		response.setCharacterEncoding("UTF-8");
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 		
@@ -35,8 +35,10 @@ public class SignIn extends HttpServlet {
 		if(user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("sid", user.getUser_id());
+			response.sendRedirect("Main.html");
 		}else {
-			
+			response.getWriter().print("<script>alert('LogIn Fail')</script>");
+			response.sendRedirect("SignIn.html");
 		}
 		
 	}
