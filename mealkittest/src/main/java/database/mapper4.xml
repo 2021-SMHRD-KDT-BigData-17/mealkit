@@ -32,12 +32,12 @@
 
 	<update id="updateComment" parameterType="domain.Comment">
 		update tbl_comment set
-		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq=#{bo_seq}
 	</update>
 
 	<delete id="deleteComment" parameterType="domain.Comment">
 		delete from tbl_comment
-		where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+		where cmt_seq=#{cmt_seq} and bo_seq=#{bo_seq}
 	</delete>
 
 	<select id="loadComment" parameterType="hashmap" resultMap="comment">
