@@ -14,7 +14,7 @@
     left: 0;
     width: 100%;
     height: 20%;
-    background-color: black;
+    background-color: gold;
     transition: all var(--side-bar__status-ico__transition-duration);
 }
 
@@ -28,7 +28,7 @@
     height calc(var(--side-bar__status-ico__transition-duration) / 2) 0s;
 }
 
-body:hover .side-bar__status-ico > div:nth-child(1) {
+tfoot:hover .side-bar__status-ico > div:nth-child(1) {
     left: 40%;
     right: 40%;
     height: 100%;
@@ -45,7 +45,7 @@ body:hover .side-bar__status-ico > div:nth-child(1) {
     transform-origin: bottom left;
 }
 
-body:hover .side-bar__status-ico > div:nth-child(2){
+tfoot:hover .side-bar__status-ico > div:nth-child(2){
     transform: rotate(45deg);
     width: 70.5%;
 }
@@ -58,7 +58,7 @@ body:hover .side-bar__status-ico > div:nth-child(2){
     transform-origin: bottom right;
 }
 
-body:hover .side-bar__status-ico > div:nth-child(3) {
+tfoot:hover .side-bar__status-ico > div:nth-child(3) {
     transform: rotate(-45deg);
     top: 40%;
     width: 70.5%;

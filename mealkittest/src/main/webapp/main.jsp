@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +14,12 @@
       div {
           text-align:center;
       }
-      @font-face {
-            font-family: 'Pretendard-Regular';
-            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-            font-weight: 400px;
-            font-style: normal;
-        }
-        *{
-          font-family: 'Pretendard-Regular', sans-serif;
-        }
   </style>
+
+</script>  
 </head>
 <body>
+
   <div class = "ad" align = "center" >친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸--> 
 
     <div class="basket" >
@@ -35,39 +31,77 @@
         <!-- 회원가입 -->
         <a href="membership.html">회원가입&nbsp;</a>
         <!-- 마이페이지 -->
-        <a href="mypage.html" >마이페이지 &nbsp;</a>
+        <a  >주문조회 &nbsp;</a>
         <!-- 장바구니 -->
-        <a href="basket_1.html">장바구니 &nbsp;</a> 
+        <a >커뮤니티 &nbsp;</a> 
+        <a >장바구니 &nbsp;</a> 
      
     </div>
-      <div class="logo">
-      <img src="logo.png" width="17%" 
-      alt="로고">
-        </div>
-        
-        <!-- 메뉴바 -->
-        
-        <div id="menu">
-          <ul class="main1">
-            
-              
-            </li>
-            <li><a href="#">국탕</a></li>
-            <li><a href="#">고기류</a></li>
-            <li><a href="#">면</a></li>
-            <li><a href="#">분식</a></li>
-            <li><a href="#">간식</a></li>
-            <li><a href="#">커뮤니티</a>
-              <ul class="main2">
-                <li><a href="boardlist_recipe.html">나만의 레시피</a></li>
-                <li><a href="boardlist_smalltalk.html">잡 담</a></li>
-              </ul></li>
-            
-            <li ><a href="boardlist_hotrecipe.html">인기레시피</a></li>
+    
+
+
+    
+    <div class="logo">
+      <img src="./img/mainlogo.jpg" width="17%" alt="로고">
+  </div>    
+  <br>
+  <br>
+  <br>
+    <hr size="10">
+    
+    
+    <div id="menu">
+        <ul class="main1">
+          <!-- <li style="border: none;"><a href="#"><b style="font-size: 20px;"><span style="font-size: 20px;">≡</span>전체카테고리</b></a>
+            <ul class="main2">
+              <li><a href="#">1</a>
+                <ul class="main3">
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li> -->
+          <li><a href="#tag1">국·탕</a></li>
+          <li><a href="#tag2">고기류</a></li>
+          <li><a href="#tag3">면</a></li>
+          <li><a href="#tag4">분식</a></li>
+          <li><a href="#tag5">간식</a></li>
+
+          
+
+          <li ><a href="#">인기레시피</a>
+          </li>
+          <form action="dd" method="get">
+          <div class="search">
+            <input type="submit" name="search" placeholder="검색어 입력">
+          </div>
+		  </form>
+          <div class="page-indicator">
+            <ul>
+                <li><a href=""><img src="로고.png"width="100px" alt=""></a></li><hr>
+                <li><a href="" style="color: black;">HOME </a></li><hr>
+                <li><a href=""style="color: black;">커뮤니티</a></li><hr>
+                <li><a href=""style="color: black;">장바구니</a></li><hr>
+                <li><a href=""style="color: black;">마이페이지</a></li><hr>
+                <li><a href=""style="color: black;">창업문의</a></li><hr>
+                
             </ul>
         </div>
-  
-     
+          
+          <!-- <div class="search-box">
+            <form action="." method="post">
+              <input class="search-txt" type="text" value="검색어를 입력해 주세요" >
+              <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div> -->
+
+          </ul>
+      </div> 
+      <br>
     <!-- 슬라이드 배너 -->
     <div class="slidebox">
        <input type="radio" name="slide" id="slide01" checked>
@@ -114,7 +148,8 @@
                 </div>
                 <br>
                 <!-- 스크롤 바 -->
-                
+
+               
 
 
 
@@ -123,9 +158,9 @@
                 
 
                  <!-- 탕음식 메뉴바 -->
-                 <a name="tag1"></a>
+
                  <div class="products">
-                  
+                  <a name="tag1"></a>
                   <h3>국·탕 </h3>
                   <h4>한끼 식사로도 훌륭하고, 술한잔과도 어울리는 한국인이 좋아하는 국&탕</h4>
                   <div class="product-list">
@@ -140,7 +175,7 @@
                       <div class="product-price"> <strong>20,000원</strong> </div>
                     </a>
                     
-                    <a href=" detail_pagee.html" class="product">  <!-- 상세페이지-->
+                    <a href="#" class="product">
                       <img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_main_044.jpg" 
                       width="225">
                       <div class="product-name">
@@ -861,6 +896,12 @@
 
     
     
-
+<script>
+function press(f){
+    if(f.keyCode == 13){ //javascript에서는 13이 enter키를 의미함
+        search.submit(); //formname에 사용자가 지정한 form의 name입력
+    }
+}
+</script>
 </body>
 </html>
