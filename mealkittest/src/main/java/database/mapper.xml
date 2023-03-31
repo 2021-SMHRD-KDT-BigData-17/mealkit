@@ -85,7 +85,7 @@
 	</insert>
 
 	<select id="searchBasket" parameterType="String"
-		resultMap="basket">
+		resultMap="basket">		
 		select tbl.prod_cnt, tbl_product.prod_code, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from basket where user_id=#{user_idS}) tbl on tbl_basket.prod_code = tbl.prod_code
 	</select>
 
@@ -96,7 +96,7 @@
 	</select>
 
 	<select id="loadBoard" parameterType="int" resultMap="boardLoad">
-		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select * from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 
 	<insert id="writeBoard" parameterType="domain.Board">
@@ -139,8 +139,8 @@
 		where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
 	</delete>
 
-	<select id="loadComment" parameterType="int" resultMap="comment">
-		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id wheret bl_comment.bo_seq=#{bo_seq}
+	<select id="loadComment" parameterType="hashmap" resultMap="comment">
+		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where bl_comment.bo_seq=#{bo_seq} order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 
 	<insert id="insertDelivery" parameterType="domain.Delivery">
@@ -170,8 +170,8 @@
 		where prod_code=#{prod_code}
 	</select>
 
-	<select id="loadReview" parameterType="int" resultMap="review">
-		select * from (select *from tbl_review where prod_code=#{prod_code}) where (ROWNUM between 1 and 10)
+	<select id="loadReview" parameterType="hashmap" resultMap="review">
+		select * from (select * from tbl_review where prod_code=#{prod_code} order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 
 	<insert id="insertReview" parameterType="domain.Review">

@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -40,9 +41,11 @@ public class CommentDAO {
 		
 	}
 	
-	public List<Comment> loadComment(int bo_sq){
+	public List<Comment> loadComment(HashMap<String, Integer> map){
 		
-		List<Comment> list = sqlSession.selectList("loadComment", bo_sq);
+		// map.put("bo_seq", ) map.put("page", )
+		
+		List<Comment> list = sqlSession.selectList("loadComment", map);
 		
 		return list;		
 				

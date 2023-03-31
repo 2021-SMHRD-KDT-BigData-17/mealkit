@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,9 +13,11 @@ public class ReviewDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 
-	public List<Review> loadReview(int prod_code) {
+	public List<Review> loadReview(HashMap<String, Integer> map) {
 
-		List<Review> list = sqlSession.selectList("loadReview", prod_code);
+		// map.put("pord_code", ) map.put("page", )
+		
+		List<Review> list = sqlSession.selectList("loadReview", map);
 
 		return list;
 
