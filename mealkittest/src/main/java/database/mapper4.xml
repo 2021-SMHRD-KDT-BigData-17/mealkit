@@ -56,7 +56,7 @@
 
 	<update id="updateReview" parameterType="domain.Review">
 		update tbl_review set
-		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2}
+		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2} where
 	</update>
 
 	<delete id="deleteReview" parameterType="domain.Review">
