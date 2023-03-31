@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import domain.User;
 import domain.UserDAO;
 
-@WebServlet("/SignUp")
+@WebServlet("/SignUp2")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
