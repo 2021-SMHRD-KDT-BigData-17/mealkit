@@ -87,7 +87,6 @@ header{
 
 table, td{
     padding-bottom: 25px;
-    padding-right: 25px;
 }
 
 .button-style{
@@ -224,7 +223,7 @@ a{
 }
 
 .tap_type1 ul li a {
-    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none;
+    display: block; height: 59px; border: 1px solid #ddd; border-left:none; border-bottom: none; 
     font-size: 15px; color:rgba(0, 0, 0, 0.6);
     text-align: center; line-height: 59px; text-decoration: none;
 }
@@ -243,7 +242,7 @@ a{
 
 
 .tap_type2 ul{
-    display: flex; border-bottom: 60px; border-bottom: 1px solid olive;
+    display: flex; border-bottom: 60px; border-bottom: 1px solid rgb(24, 193, 21);
 }
 
 .tap_type2 ul li{
@@ -261,13 +260,13 @@ a{
 }
 
 .tap_type2 ul li a.on{
-    position:relative; height:58x; border-color: olive; border-top-width: 2px; line-height: 57px; 
+    position:relative; height:58x; border-color: rgb(24, 193, 21); border-top-width: 2px; line-height: 57px; 
     border-bottom: 1px solid #fff
 }
 
 .tap_type2 ul li a.on:before{
-    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: olive; 
-    border-top: 2px solid olive;
+    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: rgb(24, 193, 21);
+    border-top: 2px solid rgb(24, 193, 21);
 }
 
 
@@ -275,7 +274,7 @@ a{
 
 
 .tap_type3 ul{
-    display: flex; border-bottom: 60px; border-bottom: 1px solid olive;
+    display: flex; border-bottom: 60px; border-bottom: 1px solid rgb(24, 193, 21);
 }
 
 .tap_type3 ul li{
@@ -294,13 +293,13 @@ a{
 }
 
 .tap_type3 ul li a.on{
-    position:relative; height:58x; border-color: olive; border-top-width: 2px; line-height: 57px; 
+    position:relative; height:58x; border-color: rgb(24, 193, 21); border-top-width: 2px; line-height: 57px; 
     border-bottom: 1px solid #fff
 }
 
 .tap_type3 ul li a.on:before{
-    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: olive; 
-    border-top: 2px solid olive;
+    content:""; position:absolute; left: -1px; top:-2px; width:1px; height: 100%; background: rgb(24, 193, 21); 
+    border-top: 2px solid rgb(24, 193, 21);
 }
 
 
@@ -550,15 +549,16 @@ a{
 
     }
 
+/* 원래 테이블 css */
 
 
-.review_head {
+/* .review_head {
     line-height: 44px;
     border-top: 2px solid rgb(24, 193, 21);
     border-bottom: 1px solid #999;
     vertical-align: middle;
     align-items: center;
-}
+} */
 
 
 
@@ -566,6 +566,75 @@ a{
     color: gold;
 }
 
+
+
+
+.board_list {
+    width: 100%;
+    border-top: 1px solid rgb(24, 193, 21);
+    margin: auto;
+}
+
+.board_list th {
+    border-bottom: 1px solid rgb(24, 193, 21);
+    padding: 10px;
+    font-size: 14px;
+}
+
+.board_list th,
+.board_list td {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.board_list td {
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.board_list tbody tr td:nth-child(2) {
+    text-align: center;
+}
+
+.board_list tbody tr td:nth-child(3) {
+    text-align: left;
+}
+
+.board_list .tit:hover {
+    text-decoration: underline;
+}
+
+.board_list_wrap .paging {
+    margin-top: 20px;
+    font-size: 0;
+    text-align: center;
+}
+
+.board_list_wrap .paging a {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 100px;
+    font-size: 12px; 
+}
+
+.board_list_wrap .paging a:first-child {
+    margin-left: 0;
+}
+
+.board_list_wrap .paging a.bt {
+    border: 1px solid gold
+}
+
+.board_list_wrap .paging a.num {
+    border: 1px solid rgb(24, 193, 21);
+    font-weight: 600;
+    color: black;
+}
+
+.board_list_wrap .paging a.num.on {
+    background: white;
+}
 
 
 
