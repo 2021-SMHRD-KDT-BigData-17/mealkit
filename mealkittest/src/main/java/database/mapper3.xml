@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="database.mapper3">
+	
+	<resultMap type="domain.Board" id="boardLoad">
+		<result column="bo_no" property="bo_no" />
+		<result column="bo_title" property="bo_title" />
+		<result column="bo_date" property="bo_date" />
+		<result column="bo_likes" property="bo_likes" />
+		<association property="user" javaType="domain.User">
+			<result column="user_nick" property="user_nick" />
+		</association>
+	</resultMap>
+
+	<resultMap type="domain.Board" id="boardView">
+		<result column="bo_no" property="bo_no" />
+		<result column="bo_title" property="bo_title" />
+		<result column="bo_content" property="bo_content" />
+		<result column="bo_file" property="bo_file" />
+		<result column="bo_date" property="bo_date" />
+		<result column="bo_likes" property="bo_likes" />
+		<association property="user" javaType="domain.User">
+			<result column="user_nick" property="user_nick" />
+		</association>
+	</resultMap>
+	
+	<select id="loadBoard" parameterType="int" resultMap="boardLoad">
+		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select * from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+	</select>
+
+	<insert id="writeBoard" parameterType="domain.Board">
+		insert into
+		tbl_board(bo_title, bo_content, bo_file, bo_date, user_id)
+		values(#{bo_title},#{bo_content},#{bo_file},SYSDATE,#{user_id})
+	</insert>
+
+	<select id="viewBoard" parameterType="domain.Board"
+		resultMap="boardView">
+		select tbl_board.bo_no, tbl_board.bo_title,
+		tbl_board.bo_content, tbl_board.bo_file, tbl_board.bo_date,
+		tbl_uesr.user_nick, tbl_board.bo_likes from tbl_board inner join tbl_uesr on tbl_board.user_id = tbl_user.user_id where
+		bo_no=#{bo_no}
+	</select>
+
+	<update id="updateBoard" parameterType="domain.Board">
+		update tbl_board <set><if test="bo_title != null">bo_title=#{bo_title},</if><if test="bo_content != null">bo_content=#{bo_content},</if><if test="bo_file != null">bo_file=#{bo_file}</if></set> where bo_no=#{bo_no}
+	</update>
+
+	<delete id="deleteBoard" parameterType="int">
+		delete from tbl_board where bo_no=#{bo_no}
+	</delete>
+	
+</mapper>

@@ -12,15 +12,31 @@ public class UserDAO {
 
 	public int signUp(User user) {
 
-		int cnt;
+		int cnt = 0;
+		
+		try {
+			User res = sqlSession.selectOne("signUpCheckId", user);
 
-		String res = sqlSession.selectOne("sighUpCheckId", user);
-
-		if (res != null) {
-			cnt = sqlSession.insert("signUp", user);
-			cnt = 1;
-		} else {
-			cnt = -1;
+			if (res != null) {
+				
+				cnt = -1;
+			
+			} else {
+				
+				cnt = sqlSession.insert("signUp", user);
+				
+				if(cnt > 0) {
+					sqlSession.commit();
+				}else {
+					sqlSession.rollback();
+				}
+				
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
 		}
 
 		return cnt;
@@ -28,7 +44,7 @@ public class UserDAO {
 
 	public User signIn(User user) {
 
-		int cnt;
+		int cnt = 0;
 
 		User res = sqlSession.selectOne("signIn", user);
 
@@ -44,9 +60,22 @@ public class UserDAO {
 
 	public int updateUser(User user) {
 		
-		int cnt;
+		int cnt = 0;
 		
-		cnt = sqlSession.update("updateUser", user);
+		try {
+			cnt = sqlSession.update("updateUser", user);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 	}

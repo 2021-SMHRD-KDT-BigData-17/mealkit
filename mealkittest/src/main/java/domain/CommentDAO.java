@@ -15,12 +15,21 @@ public class CommentDAO {
 	
 	public int insertComment(Comment commment) {
 		
-		int cnt = sqlSession.insert("insertComment", commment);
+		int cnt = 0;
 		
-		if(cnt > 0) {
+		try {
+			cnt = sqlSession.insert("insertComment", commment);
 			
-		}else {
-			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
 		}
 		
 		return cnt;
@@ -28,14 +37,44 @@ public class CommentDAO {
 	
 	public int updateComment(Comment comment) {
 		
-		int cnt = sqlSession.update("updateComment", comment);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.update("updateComment", comment);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 	}
 	
 	public int deleteComment(Comment comment) {
 		
-		int cnt = sqlSession.delete("deldteComment", comment);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.delete("deldteComment", comment);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 		

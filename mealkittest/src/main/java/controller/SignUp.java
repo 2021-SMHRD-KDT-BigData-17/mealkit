@@ -34,12 +34,14 @@ public class SignUp extends HttpServlet {
 		User user = new User(user_id, user_pw, user_name, user_nick, user_gender, user_addr, user_phone, user_type);
 		UserDAO userDao = new UserDAO();
 		
+		System.out.println("this");
+		
 		int cnt = userDao.signUp(user);
 		
 		if(cnt == -1) {
-			response.sendRedirect("SignUP");
+			response.sendRedirect("main.html");
 		}else {
-			response.sendRedirect("");
+			response.sendRedirect("SignUp.html");
 		}
 		
 		

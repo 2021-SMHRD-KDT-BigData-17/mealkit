@@ -25,7 +25,22 @@ public class ReviewDAO {
 
 	public int insertReview(Review review) {
 
-		int cnt = sqlSession.insert("insertReview", review);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.insert("insertReview", review);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 
 		return cnt;
 
@@ -33,7 +48,22 @@ public class ReviewDAO {
 
 	public int updateReview(Review review) {
 
-		int cnt = sqlSession.update("updateReview", review);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.update("updateReview", review);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 
 		return cnt;
 
@@ -41,7 +71,22 @@ public class ReviewDAO {
 
 	public int deleteReview(Review review) {
 
-		int cnt = sqlSession.delete("deleteReview", review);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.delete("deleteReview", review);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 
 		return cnt;
 

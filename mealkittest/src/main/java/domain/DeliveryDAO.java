@@ -14,7 +14,22 @@ public class DeliveryDAO {
 	
 	public int insertDelivery(Delivery delivery) {
 		
-		int cnt = sqlSession.insert("insertDelivery", delivery);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.insert("insertDelivery", delivery);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 				
@@ -24,7 +39,22 @@ public class DeliveryDAO {
 	
 	public int deleteDelivery(int deli_sq) {
 		
-		int cnt = sqlSession.delete("deleteDelivery", deli_sq);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.delete("deleteDelivery", deli_sq);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 		

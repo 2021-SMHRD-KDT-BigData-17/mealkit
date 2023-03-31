@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="database.mapper2">
+
+	<resultMap type="domain.Basket" id="basket">
+		<result column="prod_cnt" property="prod_cnt"/>
+		<association property="product" javaType="domain.Product">
+			<result column="prod_code" property="prod_code" />
+			<result column="prod_name" property="prod_name" />
+			<result column="prod_img1" property="prod_img1" />
+		</association>
+	</resultMap>
+
+	<insert id="fillBasket" parameterType="domain.Basket">
+		insert into
+		tbl_basket(user_id, prod_code, basket_date, prod_cnt)
+		values(#{user_id},#{prod_code},SYSDATE,#{prod_cnt})
+	</insert>
+
+	<select id="searchBasket" parameterType="String"
+		resultMap="basket">		
+		select tbl.prod_cnt, tbl_product.prod_code, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from basket where user_id=#{user_idS}) tbl on tbl_basket.prod_code = tbl.prod_code
+	</select>
+
+	<select id="loadBasket">
+		select prod_cnt, prod_code, prod_name, prod_img1 from
+		tbl_basket, tbl_product where (tbl_bakset.user_id=#{user_idS}) and
+		(tbl_basket.prod_code = tbl_product.prod_code)
+	</select>
+	
+</mapper>

@@ -14,7 +14,22 @@ public class BasketDAO {
 
 	public int fillBasket(Basket basket) {
 		
-		int cnt = sqlSession.insert("fillBasket", basket);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.insert("fillBasket", basket);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 	}

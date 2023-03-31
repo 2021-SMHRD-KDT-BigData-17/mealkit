@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="database.mapper4">
+	
+	<resultMap type="domain.Comment" id="comment">
+		<result column="cmt_content" property="cmt_content"/>
+		<result column="cmt_date" property="cmt_date"/>
+		<result column="cmt_likes" property="cmt_likes"/>
+		<association property="" javaType="domain.User">
+			<result column="user_nick" property="user_nick"/>
+		</association>
+	</resultMap>
+	
+	<resultMap type="domain.Review" id="review">
+		<result column="review_content" property="review_content" />
+		<result column="review_img1" property="review_img1" />
+		<result column="review_img2" property="review_img2" />
+		<result column="review_rating" property="review_rating" />
+		<result column="review_date" property="review_date" />
+		<association property="user" javaType="domain.User">
+			<result column="user_nick" property="user_nick" />
+		</association>
+	</resultMap>
+	
+	<insert id="insertComment" parameterType="domain.Comment">
+		insert into
+		tbl_commment(bo_seq, cmt_content, cmt_date, user_id)
+		values(#{bo_seq),#{cmt_content},SYSDATE,#{user_id})
+	</insert>
+
+	<update id="updateComment" parameterType="domain.Comment">
+		update tbl_comment set
+		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+	</update>
+
+	<delete id="deleteComment" parameterType="domain.Comment">
+		delete from tbl_comment
+		where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+	</delete>
+
+	<select id="loadComment" parameterType="hashmap" resultMap="comment">
+		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where bl_comment.bo_seq=#{bo_seq} order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+	</select>
+	
+	<select id="loadReview" parameterType="hashmap" resultMap="review">
+		select * from (select * from tbl_review where prod_code=#{prod_code} order by desc) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+	</select>
+
+	<insert id="insertReview" parameterType="domain.Review">
+		insert into tbl_review(prod_code, user_id,
+		review_content, review_img1, review_img2, review_date)
+		values(#{prod_code},#{user_id},#{review_content},#{review_img1},#{review_img2},SYSDATE)
+	</insert>
+
+	<update id="updateReview" parameterType="domain.Review">
+		update tbl_review set
+		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2}
+	</update>
+
+	<delete id="deleteReview" parameterType="domain.Review">
+		delete from tbl_review where review_seq=#{review_seq}
+	</delete>
+	
+</mapper>

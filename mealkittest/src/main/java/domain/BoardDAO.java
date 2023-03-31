@@ -21,28 +21,82 @@ public class BoardDAO {
 
 	public int writeBoard(Board board) {
 		
-		int cnt = sqlSession.insert("writeBoard", board);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.insert("writeBoard", board);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 	}
 	
 	public Board viewBoard(int bo_no) {
 		
-		Board board = sqlSession.selectOne("viewBoard", bo_no);
+		Board board = null;
+		
+		try {
+			board = sqlSession.selectOne("viewBoard", bo_no);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return board;
 	}
 	
 	public int updateBoard(Board board) {
 		
-		int cnt = sqlSession.update("updateBoard", board);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.update("updateBoard", board);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 				
 		return cnt;
 	}
 	
 	public int deleteBoard(int bo_no) {
 		
-		int cnt = sqlSession.delete("deleteBoard", bo_no);
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.delete("deleteBoard", bo_no);
+			
+			if(cnt > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		
 		return cnt;
 	}
