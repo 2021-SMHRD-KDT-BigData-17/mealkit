@@ -1,3 +1,10 @@
+<%@page import="domain.User"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%
+User loginMember = (User)session.getAttribute("res");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Document</title>
+    <title>한끼줍쇼</title>
 
     
     <style>
@@ -29,9 +36,20 @@
     <div class="basket" >
         <br>
         
-        
+        <c:choose>
+		<c:when test="${empty res}">
+			<a href="login.html">로그인</a>
+		</c:when>
+		<c:otherwise>
+			<c:if test="${res.user_type eq 'y'}">
+			<a href="select.jsp">회원관리</a>
+			</c:if>
+			<a href="">로그아웃</a>
+			<a href="">개인정보수정</a>
+		</c:otherwise>
+		</c:choose>
         <!--로그인 -->
-        <a href="login.html">로그인 &nbsp;</a>
+        
         <!-- 회원가입 -->
         <a href="membership.html">회원가입&nbsp;</a>
         <!-- 마이페이지 -->
@@ -41,7 +59,7 @@
      
     </div>
       <div class="logo">
-      <img src="logo.png" width="17%" 
+      <img src="./img/mainlogo.jpg" width="17%" 
       alt="로고">
         </div>
         
