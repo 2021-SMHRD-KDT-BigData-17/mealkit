@@ -106,7 +106,7 @@
 	</insert>
 
 	<select id="viewBoard" parameterType="domain.Board"
-		resultType="boardView">
+		resultMap="boardView">
 		select tbl_board.bo_no, tbl_board.bo_title,
 		tbl_board.bo_content, tbl_board.bo_file, tbl_board.bo_date,
 		tbl_uesr.user_nick, tbl_board.bo_likes from tbl_board inner join tbl_uesr on tbl_board.user_id = tbl_user.user_id where

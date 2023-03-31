@@ -6,11 +6,11 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import database.SqlSessionManager;
+import database.SqlSessionManagers;
 
 public class CommentDAO {
 
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManagers.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	public int insertComment(Comment commment) {

@@ -3,11 +3,11 @@ package domain;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import database.SqlSessionManager;
+import database.SqlSessionManagers;
 
 public class DeliveryDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManagers.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	// 입금 완료 상태에서만 같이 insert

@@ -1,13 +1,12 @@
 package database;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class SqlSessionManager {
+public class SqlSessionManagers {
 	
 	static SqlSessionFactory sqlSessionFactory;
 	
@@ -18,7 +17,7 @@ public class SqlSessionManager {
 			InputStream inputstream = Resources.getResourceAsStream(resource);
 			
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputstream);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

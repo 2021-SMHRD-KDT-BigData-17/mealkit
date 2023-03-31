@@ -3,11 +3,11 @@ package domain;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import database.SqlSessionManager;
+import database.SqlSessionManagers;
 
 public class OrderDAO {
 
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessionFactory();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManagers.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	public int insertOrder(Order order) {
