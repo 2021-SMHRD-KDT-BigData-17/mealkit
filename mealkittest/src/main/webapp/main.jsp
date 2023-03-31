@@ -41,7 +41,7 @@ User loginMember = (User)session.getAttribute("res");
 			<a href="login.html">로그인</a>
 		</c:when>
 		<c:otherwise>
-			<c:if test="${res.user_type eq 'y'}">
+			<c:if test="${res.user_id eq 'admin'}">
 			<a href="select.jsp">회원관리</a>
 			</c:if>
 			<a href="">로그아웃</a>

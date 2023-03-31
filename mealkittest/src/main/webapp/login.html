@@ -8,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-	<form action="#"  method="post"> 
     <div class="main-container">
 		<div class="main-wrap">
 		<header>
@@ -17,21 +16,20 @@
 				<img src="logo.png">
 			</div>
 		</header>
+		
+		<form action="SignIn2" method="post">	
 		<section class="login-input-section-wrap">
 			<div class="login-input-wrap">	
-				<input placeholder="아이디" type="text"></input>
+				<input placeholder="아이디" type="text" name="user_id"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input placeholder="비밀번호" type="password"></input>
+				<input placeholder="비밀번호" type="password" name="user_pw"></input>
 			</div>
 			<div class="login-button-wrap">
-			
-				<button>로그인</button>
+				<button type = "submit">로그인</button>
 			</div>
-			
 		</section>
-	</form>
-		
+		</form>	
 		</div>
 	</div>
 </body>

@@ -35,10 +35,10 @@ public class SignIn extends HttpServlet {
 		if(user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("sid", user.getUser_id());
-			response.sendRedirect("Main.html");
+			response.sendRedirect("main.jsp");
 		}else {
 			response.getWriter().print("<script>alert('LogIn Fail')</script>");
-			response.sendRedirect("SignIn.html");
+			response.sendRedirect("login.html");
 		}
 		
 	}
