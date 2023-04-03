@@ -34,46 +34,4 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main/webapp/WEB-INF</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/WEB-INF/web.xml</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/WEB-INF/web.xml</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/logo.png</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/img/logo.png</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/mainlogo.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/img/mainlogo.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/profile.png</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/img/profile.png</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/sampleimg.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/img/sampleimg.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/sampleimg2.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Desktop/webapp/img/sampleimg2.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
