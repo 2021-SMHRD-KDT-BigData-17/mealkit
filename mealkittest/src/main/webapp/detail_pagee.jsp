@@ -1,3 +1,5 @@
+<%@page import="domain.Product"%>
+<%@page import="domain.ProductDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,6 +32,20 @@
 </head>
 
 <body>
+
+<%
+
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+
+int prod_code = Integer.parseInt(request.getParameter("prod_code"));
+
+ProductDAO productDao = new ProductDAO();
+
+Product product = productDao.loadProduct(prod_code);
+
+%>
+
     <div class = "ad" align = "center">친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸-->
         <div class="basket" >  
             <form action="#" method="post" id="#">
@@ -75,7 +91,7 @@
                     <hr> -->
 
     <!-- 상세내용 시작 -->
-
+	
     <div class="modu"><!-- 모든게 다 들어있는 곳 -->
         <section class="container"><!-- 사진, 옵션공간 -->
             <div class="infoArea"> <!-- 사진, 글 공간 (판매가 , 옵션 등)-->
@@ -89,46 +105,45 @@
                             <div>
                                 <label for="slide04" class="left"></label>
                                 <label for="slide02" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg"
-                                    alt="첫번째 사진"></a>
+                                <a><img src=<%=product.getProd_img1() %> alt="첫번째 사진"></a>
                             </div>
                         </li>
                         <li class="slideitem">
                             <div>
                                 <label for="slide01" class="left"></label>
                                 <label for="slide03" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="두번째 사진"></a>
+                                <a><img src=<%=product.getProd_img2() %> alt="두번째 사진"></a>
                             </div>
                         </li>
                         <li class="slideitem">
                             <div>
                                 <label for="slide02" class="left"></label>
                                 <label for="slide04" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="세번째 사진"></a>
+                                <a><img src=<%=product.getProd_img3() %> alt="세번째 사진"></a>
                             </div>
                         </li>
                         <li class="slideitem">
                             <div>
                                 <label for="slide02" class="left"></label>
                                 <label for="slide04" class="right"></label>
-                                <a><img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/21/06/23//1000001088/1000001088_detail_023.jpg" alt="네번째 사진"></a>
+                                <a><img src=<%=product.getProd_img4() %> alt="네번째 사진"></a>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="prod_option"> <!-- 사진옆에  글 공간 (판매가 , 옵션 등)-->
-                    <h2 style="letter-spacing:0.7px; margin-bottom:20px;">[2代대구 팔공산얼큰이] 비빔칼국수 2팩 - 2인분</h2>
-                    <p style="color:gray" line-height="30px" font-size="25px" font-weight="50px">35년 전통의 대구 팔공산 맛집의 비빔칼국수</p>
+                    <h2 style="letter-spacing:0.7px; margin-bottom:20px;"><%=product.getProd_name() %></h2>
+                    <p style="color:gray" line-height="30px" font-size="25px" font-weight="50px">35년 전통의 대구 팔공산 맛집의 <%=product.getProd_name() %></p>
                     <hr style="margin-bottom: 20px; margin-top: 20px;">    
                     <table class="prod_info">
                         <tbody>
                             <tr>
                                 <td>판매가</td>
-                                <td>15,000원</td>
+                                <td><%=product.getProd_price() %>원</td>
                             </tr>
                             <tr>
                                 <td>적립금(5%)</td>
-                                <td>750원</td>
+                                <td><%=product.getProd_price()*0.05 %>원</td>
                             </tr>
                             <tr>
                                 <td>배송비</td>
@@ -158,7 +173,7 @@
                                 </td>
                             </tr>
                             <tr id="price">
-                                <td>총합계금액</td>
+                                <td><%=product.getProd_price() %></td>
                             </tr>
                         </tbody>
                     </table>
@@ -223,16 +238,33 @@
             <div class = "logologo">
                 <img src="./mainlogo.jpg" width="450" height="250">
             </div>
+            <%
+            
+            int cnt = 0;
+            
+            for(Product p : product){
+            	if(p != null){
+            		
+            	}else{
+            		cnt++;
+            	}
+            }
+            
+            
+            %>
+            
             <div class="detailimg" align="center">
-                <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_1.jpg">
+            	<%for(int i = 0; i < ){ %>
+                <img src=<%=product.getProd_desc() %>>
                 <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_2.jpg">
                 <img src="./prod.jpg" width="1000px" alt="상품구성사진">
                 <img src="./cook.jpg" width="1000px" alt="조리방법사진">
+                <%} %>
             </div> <!-- 상품 상세보기 -->
         </div>
 
 
-
+	
 
 
         <div id="reviews">

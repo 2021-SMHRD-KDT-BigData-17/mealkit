@@ -236,7 +236,11 @@ List<Basket> list = basketDao.loadBasket(ID);
 
 
 %>
+<%
+if(list != null){
 
+
+%>
     <!-- <div class = "topbar" action="#" method="post">
         <a href="#">로그아웃 &nbsp;</a>
         <a href="#">마이페이지 &nbsp;</a>
@@ -333,6 +337,9 @@ List<Basket> list = basketDao.loadBasket(ID);
             <button class = "cart__bigorderbtn right" type="submit" onClick = "location.reload();"><a href="payment_2.html">주문하기</a></button>
         </div>
     </section>
+<%}else{ %>
+
+<%} %>
 </body>
 </html>
 </body>

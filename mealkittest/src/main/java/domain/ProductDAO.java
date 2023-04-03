@@ -11,8 +11,16 @@ public class ProductDAO {
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	
 	public Product loadProduct(int prod_code) {
+		Product product = null;
 		
-		Product product = sqlSession.selectOne("loadProduct", prod_code);
+		try {
+			product = sqlSession.selectOne("loadProduct", prod_code);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 	
 		return product;
 	}
