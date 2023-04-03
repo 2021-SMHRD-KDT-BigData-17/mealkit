@@ -1,0 +1,66 @@
+:root {
+    --side-bar__status-ico__transition-duration:.2s;
+}
+
+.side-bar__status-ico {
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.side-bar__status-ico > div {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: gold;
+    transition: all var(--side-bar__status-ico__transition-duration);
+}
+
+.side-bar__status-ico > div:nth-child(1) {
+    width:auto;
+    left: 0;
+    right: 0;
+    transition: all var(--side-bar__status-ico__transition-duration),
+    left calc(var(--side-bar__status-ico__transition-duration) / 2),
+    right calc(var(--side-bar__status-ico__transition-duration) / 2) calc(var(--side-bar__status-ico__transition-duration) / 2),
+    height calc(var(--side-bar__status-ico__transition-duration) / 2) 0s;
+}
+
+tfoot:hover .side-bar__status-ico > div:nth-child(1) {
+    left: 40%;
+    right: 40%;
+    height: 100%;
+    transition: all var(--side-bar__status-ico__transition-duration),
+    left calc(var(--side-bar__status-ico__transition-duration) / 2) 0s,
+    right calc(var(--side-bar__status-ico__transition-duration) / 2) 0s,
+    height calc(var(--side-bar__status-ico__transition-duration) / 2)
+           calc(var(--side-bar__status-ico__transition-duration) / 2 );
+}
+
+/* 사이드바 - 두번째 막대 */
+.side-bar__status-ico > div:nth-child(2) {
+    top: 40%;
+    transform-origin: bottom left;
+}
+
+tfoot:hover .side-bar__status-ico > div:nth-child(2){
+    transform: rotate(45deg);
+    width: 70.5%;
+}
+
+/* 사이드바 - 세번째 막대 */
+.side-bar__status-ico > div:nth-child(3) {
+    top: 80%;
+    left: auto;
+    right: 0;
+    transform-origin: bottom right;
+}
+
+tfoot:hover .side-bar__status-ico > div:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 40%;
+    width: 70.5%;
+}
+/* 사이드바 끝 */

@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,10 +21,11 @@
         <table class = "board_list">
             
             <div class="image">
-            <img src="logo.png" alt="">
+            <img src="./img/mainlogo.jpg" alt="메인로고">
         </div>
             <h1>º회원관리</h1>
             <br>
+            <form action="#" method="post" id="#">
             <thead>
                 <tr>
                     <th>선택</th>
@@ -38,7 +48,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="user_id"></td>
                     <td class="title">
                         <a href="#"></a>
                     </td>
@@ -48,7 +58,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="user_name"></td>
                     <td class="title">
                         <a href="#"></a>
                     </td>
@@ -58,7 +68,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="user_nick"></td>
                     <td class="title">
                         <a href="#"></a>
                     </td>
@@ -68,7 +78,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="user_phone"></td>
                     <td class="title">
                         <a href="#"></a>
                     </td>
@@ -79,7 +89,7 @@
                 </tr>
                 
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" name="user_addr"></td>
                     <td class="title">
                         <a href="#"></a>
                     </td>
@@ -172,9 +182,12 @@
         </div>
 
         <div class="membermagement">
-            <button style="background-color: lightgrey;" >회원취소</button>
-            <button style="background-color: rgb(24,193,21);">회원삭제</button>
+            <button style="background-color: lightgrey;" type="submit">회원취소</button>
+            <button style="background-color: rgb(24,193,21);" type="submit">회원삭제</button>
          </div>
     </div>
+    </form>
+</body>
+</html>
 </body>
 </html>

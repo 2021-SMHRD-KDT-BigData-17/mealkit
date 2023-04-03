@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -90,21 +99,21 @@ h4{
 </style>
 <body>
         <div>
-        <a href="#"><img src="./teamlogo.png" alt="상단로고" width="280" height="150"></a>
+        <a href="#"><img src="./img/mainlogo.jpg" alt="메인로고" width="280" height="150"></a>ㄴ
         <section>
 
         <br>
         
         <br>
-            <form action="post">
+            <form action="#" method="post" id="#">
                 <div class="container">
                     <!-- <h1 class="logo">주문진행</h1> -->
                     <h4 class="same">회원정보와 동일<input type = "checkbox"></h4> 
 
                     <div class="main">
-                    <input type="text" placeholder="주문자이름"   class="account">
-                    <input type="text" placeholder="연락처" id="tel" class="account">
-                    <input type="text" placeholder="주소" id="address" class="account">
+                    <input type="text" placeholder="주문자이름" class="account" required>
+                    <input type="text" placeholder="연락처" id="tel" class="account" required>
+                    <input type="text" placeholder="주소" id="address" class="account" required>
                     <select id = "opt" name = "결제수단" class="account">
                         <option value="option">결제수단선택</option>
                         <option value="creditcard">신용카드</option>
@@ -114,8 +123,8 @@ h4{
                     <br>
                     <table class = "orderbtn" align="center">
                         <tr >
-                        <td><button id="order_left" class="account">주문취소</button></td>
-                        <td><button id="order_right" class="account">주문하기</button></td>
+                        <td><button id="order_left" class="account" type="submit">주문취소</button></td>
+                        <td><button id="order_right" class="account" type="submit">주문하기</button></td>
                         </tr>
                     <table>
                 </div>
@@ -123,5 +132,7 @@ h4{
         </div>
     </section>
     
+</body>
+</html>
 </body>
 </html>

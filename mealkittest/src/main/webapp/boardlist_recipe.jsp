@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,8 +29,8 @@
             <a >커뮤니티 &nbsp;</a> 
             <a >장바구니 &nbsp;</a>
         </form>
-        <a href="#"><img src="./teamlogo.png" alt="상단로고" width="280" height="150"></a>
-        <form action = "post">
+        <a href="#"><img src="./img/mainlogo.jpg" alt="메인로고" width="280" height="150"></a>
+        <form action="#" method="get" id="recipe">
             <table class = "board_list">
                 <caption>게시글 목록</caption>
                 <span class = "talk">
@@ -96,7 +105,7 @@
                 </tbody>
             </table>
 
-           <button class = "btn_3" style="float:right"><a href="write.html"> 게시글 작성</button></a>
+           <button class = "btn_3" style="float:right" type="submit"><a href="write.html">게시글 작성</a></button>
             <br>
             <div class = "paging">
                 <a href="#" class="bt"> << </a>
@@ -110,5 +119,7 @@
 
         </form>
     </div>
+</body>
+</html>
 </body>
 </html>

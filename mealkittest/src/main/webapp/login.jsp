@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,17 +22,17 @@
 		<header>
 			
 			<div class="logo-wrap">
-				<img src="./img/logo.png">
+				<img src="./img/mainlogo.jpg" alt="메인로고">
 			</div>
 		</header>
 		
 		<form action="SignIn2" method="post">	
 		<section class="login-input-section-wrap">
 			<div class="login-input-wrap">	
-				<input placeholder="아이디" type="text" name="user_id"></input>
+				<input placeholder="아이디" type="text" name="user_id" required></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input placeholder="비밀번호" type="password" name="user_pw"></input>
+				<input placeholder="비밀번호" type="password" name="user_pw" required></input>
 			</div>
 			<div class="login-button-wrap">
 				<button type = "submit">로그인</button>
@@ -32,5 +41,7 @@
 		</form>	
 		</div>
 	</div>
+</body>
+</html>
 </body>
 </html>

@@ -1,4 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -8,14 +17,15 @@
 </head>
 <body>
     <div class="image">
-    <img src="logo.png" alt="">
+    <img src="./img/mainlogo.jpg" alt="메인로고">
     </div>  
     <div class="board_wrap">
         <div class="board_title">
-            <strong>나만의 레시피:)</strong>
+            <strong>잡담하세여:)</strong>
             
            
         </div>
+        <form action="#" method="post" id="#">
         <div class="good">
             <h1>추천수: 100</h1>
         </div>
@@ -26,17 +36,14 @@
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
-                        <dd><input type="text" placeholder="제목 입력" > </dd>
-                        
-                        
-                  
-                    
-                </dl>
+                        <dd><input type="text" placeholder="제목 입력" required> </dd>
+                       
+                    </dl>
                    
-                
+                   
                 </div>
                 <div class="cont">
-                    <textarea placeholder="내용 입력"></textarea>
+                    <textarea placeholder="내용 입력" required></textarea>
                 </div>
             </div>
             <div class="bt_wrap">
@@ -44,6 +51,9 @@
                 <a href="" class="a12">👎</a>
             </div>
         </div>
+        </form>
     </div>
+</body>
+</html>
 </body>
 </html>

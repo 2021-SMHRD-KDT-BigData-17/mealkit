@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +17,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="#" method="post" id="Edit_member">
 		<div class="main-container">
 		<div class="main-wrap">
 		<header>
 			
 			<div class="logo-wrap">
-				<img src="logo.png">
+				<img src="./img/mainlogo.jpg">
 			</div>
 		</header>
         
@@ -23,28 +32,28 @@
         
 		<section class="login-input-section-wrap">
 			<div class="login-input-wrap">	
-				<input placeholder="이름" type="text"></input>
+				<input placeholder="이름" type="text" name="uwer_name" required></input>
 			</div>
 
             
 			<div class="login-input-wrap password-wrap">	
-				<input placeholder="전화" type="text"></input>
+				<input placeholder="전화" type="text" name="user_phone" required></input>
 			</div>
             <div class="login-input-wrap password-wrap">	
-				<input placeholder="이메일" type="text"></input>
+				<input placeholder="이메일" type="email" name="#" required></input>
 			</div>
             <div class="login-input-wrap password-wrap">	
-				<input placeholder="닉네임" type="text"></input>
+				<input placeholder="닉네임" type="text" name="user_nick" required></input>
 			</div>
             <div class="login-input-wrap password-wrap">	
-				<input placeholder="배송지" type="text"></input>
+				<input placeholder="배송지" type="text" name="user_addr" required></input>
 			</div>
            
            
                 
 			<div class="login-button-wrap">
 			
-				<button style="background-color: green;">수정하기</button> <button style="background-color: gray;">취소</button>
+				<button style="background-color: green;" type="submit">수정하기</button> <button style="background-color: gray;" type="submit">취소</button>
                
 			</div>
 			
@@ -55,5 +64,7 @@
 </form>
 
     
+</body>
+</html>
 </body>
 </html>
