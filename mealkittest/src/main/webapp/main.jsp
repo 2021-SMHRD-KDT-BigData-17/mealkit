@@ -40,20 +40,20 @@ String ID = (String)session.getAttribute("sid");
 
 		<c:choose>
 			<c:when test="${empty sid}">
-				<a href="login.html">로그인</a>
+				<a href="login.html">로그인&nbsp;</a>
 			</c:when>
 			<c:otherwise>
 				<c:if test="${sid eq 'admin'}">
-					<a href="select.jsp">회원관리</a>
+					<a href="select.jsp">회원관리&nbsp;</a>
 				</c:if>
-					<a href="">로그아웃</a>
-					<a href="">개인정보수정</a>
+					<a href="">로그아웃&nbsp;</a>
+					<a href="">개인정보수정&nbsp;</a>
 			</c:otherwise>
 		</c:choose>
-		<!--로그인 -->
+		<!--로그인  -->
         
         <!-- 회원가입 -->
-        <a href="membership.html">회원가입&nbsp;</a>
+        <a href="membership.html">회원가입 &nbsp;</a>
         <!-- 마이페이지 -->
         <a href="mypage.html" >마이페이지 &nbsp;</a>
         <!-- 장바구니 -->
@@ -61,8 +61,7 @@ String ID = (String)session.getAttribute("sid");
      
     </div>
       <div class="logo">
-      <img src="./img/mainlogo.jpg" width="17%" 
-      alt="로고">
+      <img src="./img/mainlogo.jpg" width="17%" alt="로고">
         </div>
         
         <!-- 메뉴바 -->
