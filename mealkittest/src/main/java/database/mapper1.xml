@@ -6,13 +6,13 @@
 
 	<resultMap type="domain.Order" id="order">
 		<result column="order_status" property="order_status"/>
-		<association property="" javaType="domain.OrderDetail">
+		<association property="orderDetail" javaType="domain.OrderDetail">
 			<result column="prod_count" property="prod_count"/>
 		</association>
-		<association property="" javaType="domain.Product">
-			<result column="prod_name" property=""/>
-			<result column="prod_imag1" property=""/>
-			<result column="prod_price" property=""/>
+		<association property="product" javaType="domain.Product">
+			<result column="prod_name" property="prod_name"/>
+			<result column="prod_imag1" property="prod_imag1"/>
+			<result column="prod_price" property="prod_price"/>
 		</association>
 	</resultMap>
 
