@@ -1,3 +1,8 @@
+<%@page import="domain.Order"%>
+<%@page import="java.util.List"%>
+<%@page import="domain.OrderDAO"%>
+<%@page import="domain.User"%>
+<%@page import="domain.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,7 +22,22 @@
         }
     </style>
 </head>
+<%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
 
+String ID = (String)session.getAttribute("sid");
+
+UserDAO userDao = new UserDAO();
+
+User user = userDao.loadUser(ID);
+
+OrderDAO orderDao = new OrderDAO();
+
+List<Order> list = orderDao.loadOrder(ID);
+
+
+%>
 <body>
 
 <header>
@@ -50,7 +70,7 @@
                 <img src="./profile.png" style = "width:120px;height:75px;" alt="프로필">
             </td>
             <td>
-                <span>(이름)</span>
+                <span><%=user.getUser_name() %></span>
                 <span>님 환영합니다</span>
             </td>
             <td>
@@ -59,7 +79,7 @@
         </tr>
 
         <tr>
-            <td>적립금 : 7800원</td>
+            <td>적립금 : <%=user.getUser_point() %>원</td>
             <td>
                 <button type="submit" class = "cart__list__optionbtn"><b>회원정보탈퇴</b></button>
             </td>
@@ -88,15 +108,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                	<%for(int i =0; i< list.size(); i++){ %>
                     <tr class = "cart__list__detail">
-                        <td>1</td>
-                        <td><a href="#"><img src = "./sampleimg.jpg" alt = "백숙"></a></td>
-                        <td><a href = "#" >[파주 또오리] 닭백숙/ 1인분</a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
+                        <td><%=i+1 %></td>
+                        <td><a href="#"><img src =<%=list.get(i).getProduct().getProd_img1() %> alt =<%=list.get(i).getProduct().getProd_name() %>></a></td>
+                        <td><a href = "#" ><%=list.get(i).getProduct().getProd_name() %><%="/" %><%=list.get(i).getOrderDetail().getProd_count() %></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
                             <br>
-                            <p class="price">20,000원</p>
+                            <p class="price"><%=list.get(i).getProduct().getProd_price() %>원</p>
                         </td>
                         <td class = "cart__list__option">
-                            <p>상품명 : 닭백숙 / 1개 </p>
+                            <p>상품명 : <%=list.get(i).getProduct().getProd_name() %><%=" / " %> <%=list.get(i).getOrderDetail().getProd_count() %>개 </p>
 
 
 
@@ -105,7 +126,7 @@
                                 <a href="#a">닫기</a>
                             </div>
                             <div class="dim"></div>
-
+					
 
 
                             <!-- <button id="go" class="pop_optionbtn">옵션정보</button> -->
@@ -131,36 +152,7 @@
                             <p><button class = "write_review_btn"><b>주문취소</b></button></p>
                         </td>
                     </tr>
-                    <tr class = "cart__list__detail">
-                        <td style = "width: 2%">2</td>
-                        <td style = "width: 13%">
-                            <a href = "#"><img src = "./sampleimg2.jpg" alt = "비빔냉면"></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
-                        </td>
-                        <td style = "width: 27%"><a href = "#">
-                            [2代 대구 팔공산 얼큰이] 비빔칼국수 2인분</a>
-                            <p class = "price">10,000원</p>
-                        </td>
-                        <td class = "cart__list__option" style = "width: 27%">
-                            <p>상품명 : 비빔칼국수 / 1개</p>
-
-                            
-                            <a href="#pop2" class="btn">옵션정보</a>
-                            <div class="popup" id="pop2">
-                                <a href="#a">닫기</a>
-                            </div>
-                            <div class="dim"></div>
-
-
-
-                            
-                            <!-- <button>옵션정보</button> -->
-                        </td>
-                        <td style = "width: 15%"><span class = "price">10,000원</span><br>
-                        </td>
-                        <td style = "width: 15%"><span class = "write_review"></span>배송완료
-                            <p><button class = "write_review_btn"><b>후기작성</b></button></p>
-                        </td>
-                    </tr>
+                    <%} %>
                 </tbody>
                 <tfoot>
                     <tr>

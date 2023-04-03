@@ -80,4 +80,20 @@ public class UserDAO {
 		return cnt;
 	}
 	
+	public User loadUser(String ID) {
+		User user = null;
+		
+		try {
+			user = sqlSession.selectOne("loadUser", ID);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return user;
+	}
+	
 }

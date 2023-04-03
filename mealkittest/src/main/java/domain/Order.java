@@ -11,6 +11,8 @@ public class Order {
 	private int pay_amount;
 	private String pay_method;
 	private int paid_amount;
+	private OrderDetail orderDetail;
+	private Product product;
 
 	public Order(String user_id, int total_amount, String order_status, int discount_amount, int pay_amount,
 			String pay_method, int paid_amount) {
@@ -26,6 +28,22 @@ public class Order {
 
 	public Order() {
 		super();
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public OrderDetail getOrderDetail() {
+		return orderDetail;
+	}
+
+	public void setOrderDetail(OrderDetail orderDetail) {
+		this.orderDetail = orderDetail;
 	}
 
 	public int getOrder_seq() {

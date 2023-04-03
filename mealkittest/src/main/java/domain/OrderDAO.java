@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -53,6 +55,23 @@ public class OrderDAO {
 		}
 		
 		return cnt;
+		
+	}
+	
+	public List<Order> loadOrder(String ID) {
+		
+		List<Order> list = null;
+		
+		try {
+			list = sqlSession.selectList("loadOrder", ID);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return list;
 		
 	}
 	
