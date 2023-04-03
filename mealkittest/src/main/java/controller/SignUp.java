@@ -39,7 +39,7 @@ public class SignUp extends HttpServlet {
 		int cnt = userDao.signUp(user);
 		
 		if(cnt == -1) {
-			response.sendRedirect("main.html");
+			response.sendRedirect("main.jsp");
 		}else {
 			response.sendRedirect("SignUp.html");
 		}

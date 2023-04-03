@@ -27,6 +27,7 @@ public class LogOut extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.print("<script>history.back()</script>");
+		response.sendRedirect("main.jsp");
 		
 	}
 

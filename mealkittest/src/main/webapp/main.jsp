@@ -3,7 +3,7 @@
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <%
-User loginMember = (User)session.getAttribute("res");
+String ID = (String)session.getAttribute("sid");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,27 +35,24 @@ User loginMember = (User)session.getAttribute("res");
 
     <div class="basket" >
         <br>
-        
-        <c:choose>
-		<c:when test="${empty res}">
-			<a href="login.html">로그인</a>
+
+		<c:choose>
+		<c:when test="${empty sid}">
+			<a href="login.jsp">로그인&nbsp;</a>
+			<a href="membership.jsp">회원가입&nbsp;</a>
 		</c:when>
 		<c:otherwise>
-			<c:if test="${res.user_id eq 'admin'}">
-			<a href="select.jsp">회원관리</a>
+			<c:if test="${sid eq 'admin'}">
+			<a href="select.jsp">회원관리&nbsp;</a>
 			</c:if>
-			<a href="">로그아웃</a>
-			<a href="">개인정보수정</a>
+			<a href="LogOut">로그아웃&nbsp;</a>
+			<a href="Edit member information">개인정보수정&nbsp;</a>
+		<c:if test="${!empty sid}">
+			<a href="basket_1.jsp">장바구니&nbsp;</a> 
+			<a href="mypage.jsp" >마이페이지&nbsp;</a>
+		</c:if>
 		</c:otherwise>
 		</c:choose>
-        <!--로그인 -->
-        
-        <!-- 회원가입 -->
-        <a href="membership.html">회원가입&nbsp;</a>
-        <!-- 마이페이지 -->
-        <a href="mypage.html" >마이페이지 &nbsp;</a>
-        <!-- 장바구니 -->
-        <a href="basket_1.html">장바구니 &nbsp;</a> 
      
     </div>
       <div class="logo">
