@@ -5,12 +5,14 @@
 <mapper namespace="database.mapper1">
 
 	<resultMap type="domain.Order" id="order">
-		<result column="" property=""/>
+		<result column="order_status" property="order_status"/>
 		<association property="" javaType="domain.OrderDetail">
-		
+			<result column="prod_count" property="prod_count"/>
 		</association>
 		<association property="" javaType="domain.Product">
-		
+			<result column="prod_name" property=""/>
+			<result column="prod_imag1" property=""/>
+			<result column="prod_price" property=""/>
 		</association>
 	</resultMap>
 
@@ -59,8 +61,8 @@
 		where order_seq=#{order_seq}
 	</delete>
 	
-	<select id="loadorder" parameterType="String" resultMap="order">
-		select tbl_product.prod_name, tbl_product.prod_imag1, tlb_product.prod_pricde, TBLL.prod_count, TBLL.order_status from ((select * from tbl_order where user_id=#{ID}) TBL inner tbl_orderdetail on TBL.order_seq = tbl_orderdetail.order_seq) TBLL inner join tbl_product on tbl_product.prod_code = TBLL.product_code
+	<select id="loadOrder" parameterType="String" resultMap="order">
+		select tbl_product.prod_name, tbl_product.prod_imag1, tbl_product.prod_price, TBLL.prod_count, TBLL.order_status from ((select * from tbl_order where user_id=#{ID}) TBL inner join tbl_orderdetail on TBL.order_seq = tbl_orderdetail.order_seq) TBLL inner join tbl_product on tbl_product.prod_code = TBLL.product_code
 	</select>
 
 	<select id="loadProduct" parameterType="int" resultType="domain.Product">

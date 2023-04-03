@@ -1,3 +1,6 @@
+<%@page import="domain.Basket"%>
+<%@page import="java.util.List"%>
+<%@page import="domain.BasketDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -219,6 +222,21 @@
     </style>
 </head>
 <body>
+<%
+
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+
+String ID = (String)session.getAttribute("sid");
+
+BasketDAO basketDao = new BasketDAO();
+
+List<Basket> list = basketDao.loadBasket(ID);
+
+
+
+%>
+
     <!-- <div class = "topbar" action="#" method="post">
         <a href="#">로그아웃 &nbsp;</a>
         <a href="#">마이페이지 &nbsp;</a>
@@ -248,23 +266,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                	<%for(int i =0; i < list.size(); i++){ %>
                     <tr class = "cart__list__detail">
                         <td><input type="checkbox" checked="checked" name="prod_code"></td>
-                        <td><a class = "chicken" href="#"><img src = "./chicken.jpg" style="width: 100px;height: 100px;  display: block; margin: auto;" alt = "닭갈비"></a></td>
+                        <td><a class = "chicken" href="#"><img src =<%=list.get(i).getProduct().getProd_img1() %> style="width: 100px;height: 100px;  display: block; margin: auto;" alt = "닭갈비"></a></td>
                         <td style="vertical-align: middle;">
-                            <p> [2代 원조 춘천 닭갈비 ]닭갈비 / 2인분 </p>
-                            <span class="price" style="color: gray;">20,000원</span>
+                            <p> <%=list.get(i).getProduct().getProd_name()  %></p>
+                            <span class="price" style="color: gray;"><%=list.get(i).getProduct().getProd_price() %>원</span>
                         </td>
                         <td class = "cart__list__option">
-                            <p>닭갈비 / 1개 </p>
+                            <p><%=list.get(i).getProduct().getProd_name() %><%=" / " %><%=list.get(i).getProd_cnt() %>개 </p>
                             <!-- <button class = "cart__list__optionbtn">상품/옵션정보</button> -->
                             <p>닭고기추가 + 양념추가 + 떡추가</p>
                         </td>
-                        <td><span class = "price">20,000원</span><br>
+                        <td><span class = "price"><%=list.get(i).getProduct().getProd_price()*list.get(i).getProd_cnt() %>원</span><br>
                             <!-- <button class = "cart__list__orderbtn">주문하기</button> -->
                         </td>
-                        <td>400Point</td>
+                        <td><%=list.get(i).getProduct().getProd_price()*0.01 %>Point</td>
                     </tr>
+                    <%} %>
                     <tr class = "cart__list__detail">
                         <td style = "width: 2%"><input type = "checkbox"  checked="checked" name="prod_code"></td>
                         <td style = "width: 13%">

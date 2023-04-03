@@ -7,7 +7,7 @@
 	<resultMap type="domain.Basket" id="basket">
 		<result column="prod_cnt" property="prod_cnt"/>
 		<association property="product" javaType="domain.Product">
-			<result column="prod_code" property="prod_code" />
+			<result column="prod_price" property="prod_price" />
 			<result column="prod_name" property="prod_name" />
 			<result column="prod_img1" property="prod_img1" />
 		</association>
@@ -21,7 +21,7 @@
 
 	<select id="searchBasket" parameterType="String"
 		resultMap="basket">		
-		select TBL.prod_cnt, tbl_product.prod_code, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from basket where user_id=#{user_idS}) TBL on tbl_basket.prod_code = TBL.prod_code
+		select TBL.prod_cnt, tbl_product.prod_price, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from basket where user_id=#{user_idS}) TBL on tbl_basket.prod_code = TBL.prod_code
 	</select>
 
 	<select id="loadBasket">
