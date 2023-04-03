@@ -24,6 +24,7 @@
     <mapper resource="database/mapper1.xml"/>
     <mapper resource="database/mapper2.xml"/>
     <mapper resource="database/mapper3.xml"/>
+    <mapper resource="database/mapper4.xml"/>
     
   </mappers>
 </configuration>

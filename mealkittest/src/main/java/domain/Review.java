@@ -13,6 +13,9 @@ public class Review {
 	
 	
 	
+	public Review() {
+		super();
+	}
 	public User getUser() {
 		return user;
 	}

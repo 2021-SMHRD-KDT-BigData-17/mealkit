@@ -16,6 +16,10 @@ public class Basket {
 		this.prod_cnt = prod_cnt;
 	}
 
+	public Basket() {
+		super();
+	}
+
 	public Product getProduct() {
 		return product;
 	}

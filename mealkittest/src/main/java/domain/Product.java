@@ -22,6 +22,11 @@ public class Product {
 	private String prod_img4;
 	private String prod_desc8;
 	
+	
+	
+	public Product() {
+		super();
+	}
 	public int getProd_code() {
 		return prod_code;
 	}

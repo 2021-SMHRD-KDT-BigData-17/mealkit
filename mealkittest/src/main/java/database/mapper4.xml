@@ -27,25 +27,25 @@
 	<insert id="insertComment" parameterType="domain.Comment">
 		insert into
 		tbl_commment(bo_seq, cmt_content, cmt_date, user_id)
-		values(#{bo_seq),#{cmt_content},SYSDATE,#{user_id})
+		values(#{bo_seq},#{cmt_content},SYSDATE,#{user_id})
 	</insert>
 
 	<update id="updateComment" parameterType="domain.Comment">
 		update tbl_comment set
-		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+		cmt_content=#{cmt_content} where cmt_seq=#{cmt_seq} and bo_seq=#{bo_seq}
 	</update>
 
 	<delete id="deleteComment" parameterType="domain.Comment">
 		delete from tbl_comment
-		where cmt_seq=#{cmt_seq} and bo_seq={bo_seq}
+		where cmt_seq=#{cmt_seq} and bo_seq=#{bo_seq}
 	</delete>
 
 	<select id="loadComment" parameterType="hashmap" resultMap="comment">
-		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where bl_comment.bo_seq=#{bo_seq} order by DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where tbl_comment.bo_seq=#{bo_seq} order by cmt_seq DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 	
 	<select id="loadReview" parameterType="hashmap" resultMap="review">
-		select * from (select * from tbl_review where prod_code=#{prod_code} order by DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select * from (select * from tbl_review where prod_code=#{prod_code} order by review_seq DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 
 	<insert id="insertReview" parameterType="domain.Review">
@@ -56,7 +56,7 @@
 
 	<update id="updateReview" parameterType="domain.Review">
 		update tbl_review set
-		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2}
+		review_content=#{review_content},review_img1=#{review_img1},review_img2=#{review_img2} where review_seq=#{review_seq}
 	</update>
 
 	<delete id="deleteReview" parameterType="domain.Review">
