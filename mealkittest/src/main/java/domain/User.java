@@ -40,6 +40,10 @@ public class User {
 		this.user_pw = user_pw;
 	}
 
+	public User() {
+		super();
+	}
+
 	public String getUser_id() {
 		return user_id;
 	}

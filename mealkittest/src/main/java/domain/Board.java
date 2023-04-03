@@ -20,8 +20,6 @@ public class Board {
 		this.bo_content = bo_content;
 		this.bo_file = bo_file;
 	}
-	
-	
 
 	public Board(int bo_no, String bo_title, String bo_content, String bo_file) {
 		super();
@@ -31,14 +29,16 @@ public class Board {
 		this.bo_file = bo_file;
 	}
 
-
-
 	public Board(String bo_title, String bo_content, String bo_file, String user_id) {
 		super();
 		this.bo_title = bo_title;
 		this.bo_content = bo_content;
 		this.bo_file = bo_file;
 		this.user_id = user_id;
+	}
+
+	public Board() {
+		super();
 	}
 
 	public User getUser() {

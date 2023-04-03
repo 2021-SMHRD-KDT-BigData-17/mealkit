@@ -7,6 +7,11 @@ public class OrderDetail {
 	private int prod_code;
 	private int prod_count;
 	
+	
+	
+	public OrderDetail() {
+		super();
+	}
 	public int getOd_seq() {
 		return od_seq;
 	}
