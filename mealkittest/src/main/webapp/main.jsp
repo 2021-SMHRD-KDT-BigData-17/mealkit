@@ -1,10 +1,12 @@
 <%@page import="domain.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%
 String ID = (String)session.getAttribute("sid");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,20 +35,19 @@ String ID = (String)session.getAttribute("sid");
 </head>
 <body>
   <div class = "ad" align = "center" >친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸--> 
-
     <div class="basket" >
         <br>
 
 		<c:choose>
-			<c:when test="${empty ID}">
+			<c:when test="${empty sid}">
 				<a href="login.html">로그인</a>
 			</c:when>
 			<c:otherwise>
-				<c:if test="${ID eq 'admin'}">
+				<c:if test="${sid eq 'admin'}">
 					<a href="select.jsp">회원관리</a>
 				</c:if>
-				<a href="">로그아웃</a>
-				<a href="">개인정보수정</a>
+					<a href="">로그아웃</a>
+					<a href="">개인정보수정</a>
 			</c:otherwise>
 		</c:choose>
 		<!--로그인 -->
