@@ -19,5 +19,10 @@
 		select user_id, user_nick from tbl_user where
 		user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
+	
+	<update id="updateUser" parameterType="domain.User">
+  	   update tbl_user set user_pw=#{user_pw}, user_phone=#{user_phone]}, user_addr=#{user_addr}
+       where user_id=#{user_id}
+    </update>
 
 </mapper>

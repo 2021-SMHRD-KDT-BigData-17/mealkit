@@ -42,19 +42,19 @@
 			</div>
 			
             <div class="login-input-wrap password-wrap">	
-				<input placeholder="닉네임" type="text" name="user_nick" required></input>
+				<input placeholder="연락처" type="text" name="user_phone" required></input>
 			</div>
 			
        
 			<div class="login-button-wrap">
 			
-				<button style="background-color: green;" type="submit">수정하기</button> <button style="background-color: gray;" href="main.jsp">취소</button>
+				<button style="background-color: green;" type="submit">수정하기</button> <button style="background-color: gray;" type="button" onclick="location.href='main.jsp' ">취소</button>
                
 			</div>
 			
 		</section>
 		</form>
-		
+			
 		</div>
 	</div>
 
