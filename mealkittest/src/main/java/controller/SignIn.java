@@ -38,7 +38,7 @@ public class SignIn extends HttpServlet {
 			response.sendRedirect("main.jsp");
 		}else {
 			response.getWriter().print("<script>alert('LogIn Fail')</script>");
-			response.sendRedirect("login.html");
+			response.sendRedirect("login.jsp");
 		}
 		
 	}
