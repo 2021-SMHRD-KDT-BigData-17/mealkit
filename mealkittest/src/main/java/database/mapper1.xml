@@ -35,6 +35,11 @@
 		user_id=#{user_id} and user_pw=#{user_pw}
 	</select>
 	
+	<update id="updateUser" parameterType="domain.User">
+  	   update tbl_user set user_pw=#{user_pw}, user_phone=#{user_phone}, user_addr=#{user_addr}, user_nick=#{user_nick}
+       where user_id=#{user_id}
+    </update>
+	
 	<select id="loadUser" parameterType="String" resultType="domain.User">
 		select user_name, user_point from tbl_user where user_id=#{ID}
 	</select>
