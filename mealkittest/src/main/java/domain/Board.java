@@ -37,6 +37,16 @@ public class Board {
 		this.user_id = user_id;
 	}
 
+	public Board(String bo_title, String bo_content, String bo_file, int prod_code, String item, String user_id) {
+		super();
+		this.bo_title = bo_title;
+		this.bo_content = bo_content;
+		this.bo_file = bo_file;
+		this.prod_code = prod_code;
+		this.item = item;
+		this.user_id = user_id;
+	}
+
 	public Board() {
 		super();
 	}

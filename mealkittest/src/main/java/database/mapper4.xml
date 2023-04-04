@@ -26,7 +26,7 @@
 	
 	<insert id="insertComment" parameterType="domain.Comment">
 		insert into
-		tbl_commment(bo_seq, cmt_content, cmt_date, user_id)
+		tbl_comment(bo_seq, cmt_content, cmt_date, user_id)
 		values(#{bo_seq},#{cmt_content},SYSDATE,#{user_id})
 	</insert>
 
@@ -50,8 +50,8 @@
 
 	<insert id="insertReview" parameterType="domain.Review">
 		insert into tbl_review(prod_code, user_id,
-		review_content, review_img1, review_img2, review_date)
-		values(#{prod_code},#{user_id},#{review_content},#{review_img1},#{review_img2},SYSDATE)
+		review_content, review_img1, review_img2, review_rating, review_date)
+		values(#{prod_code},#{user_id},#{review_content},#{review_img1, jdbcType=VARCHAR},#{review_img2, jdbcType=VARCHAR},#{review_rating},SYSDATE)
 	</insert>
 
 	<update id="updateReview" parameterType="domain.Review">

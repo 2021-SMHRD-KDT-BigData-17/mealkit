@@ -32,8 +32,8 @@
 
 	<insert id="writeBoard" parameterType="domain.Board">
 		insert into
-		tbl_board(bo_title, bo_content, bo_file, bo_date, user_id)
-		values(#{bo_title},#{bo_content},#{bo_file},SYSDATE,#{user_id})
+		tbl_board(bo_title, bo_content, bo_file, bo_date, prod_code, item, user_id, bo_likes, buy_date)
+		values(#{bo_title},#{bo_content},#{bo_file, jdbcType=String},SYSDATE,#{prod_code},#{item},#{user_id},#{bo_likes, jdbcType=INTEGER},#{buy_date})
 	</insert>
 
 	<select id="viewBoard" parameterType="domain.Board"

@@ -20,7 +20,7 @@
 	</insert>
 
 	<select id="searchBasket" parameterType="String"
-		resultMap="basket">		
+		resultMap="basket">
 		select TBL.prod_cnt, tbl_product.prod_price, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from basket where user_id=#{user_idS}) TBL on tbl_basket.prod_code = TBL.prod_code
 	</select>
 

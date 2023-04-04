@@ -1,3 +1,7 @@
+<%@page import="domain.Review"%>
+<%@page import="java.util.List"%>
+<%@page import="domain.ReviewDAO"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="domain.Product"%>
 <%@page import="domain.ProductDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -39,11 +43,22 @@
 request.setCharacterEncoding("UTF-8");
 response.setCharacterEncoding("UTF-8");
 
-int prod_code = Integer.parseInt(request.getParameter("prod_code"));
+int prod_code = 0;
+
+if(request.getParameter("prod_code") != null){
+	prod_code = Integer.parseInt(request.getParameter("prod_code"));
+	
+}else{
+	prod_code = 1010;
+}
+
 
 ProductDAO productDao = new ProductDAO();
 
 Product product = productDao.loadProduct(prod_code);
+
+pageContext.setAttribute("prod", product);
+
 
 %>
 
@@ -242,11 +257,34 @@ Product product = productDao.loadProduct(prod_code);
           
             
             <div class="detailimg" align="center">
-            	<c:if test="">
-	                <img src=<%=product.getProd_desc() %>>
+            	<c:if test="${not empty pageScope.prod.getProd_desc }">
             	
             	</c:if>
-                <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_2.jpg">
+            	
+				<%if(product.getProd_desc() != null){ %>
+	                <img src=<%=product.getProd_desc() %>>
+            	<%} %>
+            	<%if(product.getProd_desc2() != null){ %>
+	                <img src=<%=product.getProd_desc2() %>>
+            	<%} %>
+            	<%if(product.getProd_desc3() != null){ %>
+	                <img src=<%=product.getProd_desc3() %>>
+            	<%} %>
+            	<%if(product.getProd_desc4() != null){ %>
+	                <img src=<%=product.getProd_desc4() %>>
+            	<%} %>
+            	<%if(product.getProd_desc5() != null){ %>
+	                <img src=<%=product.getProd_desc5() %>>
+            	<%} %>
+            	<%if(product.getProd_desc6() != null){ %>
+	                <img src=<%=product.getProd_desc6() %>>
+            	<%} %>
+            	<%if(product.getProd_desc7() != null){ %>
+	                <img src=<%=product.getProd_desc7() %>>
+            	<%} %>
+            	<%if(product.getProd_desc8() != null){ %>
+	                <img src=<%=product.getProd_desc8() %>>
+            	<%} %>
                 <img src="./prod.jpg" width="1000px" alt="상품구성사진">
                 <img src="./cook.jpg" width="1000px" alt="조리방법사진">
             </div> <!-- 상품 상세보기 -->
@@ -265,6 +303,30 @@ Product product = productDao.loadProduct(prod_code);
                         <li><a href="#tag3">배송정보</a></li>
                     </ul>
                     <br><br>
+
+<%
+
+int reviewPage = 0;
+
+if(reviewPage != 0){
+	reviewPage = Integer.parseInt(request.getParameter("page"));
+	
+}else{
+	reviewPage = 1;
+}
+
+HashMap<String, Integer> hashMap = new HashMap<>();
+
+hashMap.put("prod_code", prod_code);
+hashMap.put("page", reviewPage);
+
+ReviewDAO reviewDao = new ReviewDAO();
+
+List<Review> list = reviewDao.loadReview(hashMap);
+
+
+
+%>
 
 
                     <h2>상품후기
@@ -286,15 +348,17 @@ Product product = productDao.loadProduct(prod_code);
                                     </tr>
                                 </thead>
                                 <tbody>
+                                	<%for(int i = 0; i < list.size(); i++){ %>
                                     <tr>
-                                        <td>22</td>
+                                        <td><%=list.get(i).getReview_seq() %></td>
                                         <td class="star_color">★★★★★</td>
                                         <td class="title">
-                                            <a href="#">맛있어요 지난번에 먹어보고 생각나서 다시 주문했는데 나..</a>
+                                            <a href="#"><%=list.get(i).getReview_content() %></a>
                                         </td>
-                                        <td>김**</td>
-                                        <td>2023-03-29</td>
+                                        <td><%=list.get(i).getUser().getUser_nick() %></td>
                                     </tr>
+                                    <%} %>
+                                    <%if(false){ %>
                                     <tr>
                                         <td>21</td>
                                         <td class="star_color">★★★★★</td>
@@ -484,6 +548,7 @@ Product product = productDao.loadProduct(prod_code);
                                         <td>김**</td>
                                         <td>2023-03-12</td>
                                     </tr>
+                                    <%} %>
                                 </tbody>
                             </table>
 
