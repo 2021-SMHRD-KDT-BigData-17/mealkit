@@ -74,11 +74,11 @@ String ID = (String)session.getAttribute("sid");
             <li><a href="#">간식</a></li>
             <li><a href="#">커뮤니티</a>
               <ul class="main2">
-                <li><a href="boardlist_recipe.html">나만의 레시피</a></li>
-                <li><a href="boardlist_smalltalk.html">잡 담</a></li>
+                <li><a href="boardlist_recipe.jsp">나만의 레시피</a></li>
+                <li><a href="boardlist_smalltalk.jsp">잡 담</a></li>
               </ul></li>
             
-            <li ><a href="boardlist_hotrecipe.html">인기레시피</a></li>
+            <li ><a href="boardlist_hotrecipe.jsp">인기레시피</a></li>
             </ul>
         </div>
   
