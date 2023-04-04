@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,10 +34,15 @@ public class Update extends HttpServlet {
 		User user = new User(user_id, user_pw, user_nick, user_addr, user_phone);
 		UserDAO userDao = new UserDAO();
 		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
+		
 		int cnt = userDao.updateUser(user);
 		
 		if(cnt > 0) {
 			System.out.println("회원정보수정완료");
+			writer.println("<script>alert('회원정보 수정이 완료되었습니다.'); location.href='"+"main.jsp"+"';</script>"); 
+			writer.close();
 			response.sendRedirect("main.jsp");
 		}else {
 

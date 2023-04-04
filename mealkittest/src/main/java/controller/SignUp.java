@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,6 +31,8 @@ public class SignUp extends HttpServlet {
 		String user_phone = request.getParameter("user_phone");
 		char user_type = 'u';
 		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
 		
 		User user = new User(user_id, user_pw, user_name, user_nick, user_gender, user_addr, user_phone, user_type);
 		UserDAO userDao = new UserDAO();
@@ -39,7 +42,8 @@ public class SignUp extends HttpServlet {
 		int cnt = userDao.signUp(user);
 		
 		if(cnt == -1) {
-			response.sendRedirect("main.jsp");
+			writer.println("<script>alert('회원가입이 완료되었습니다. 다시 로그인 해주세요.'); location.href='"+"main.jsp"+"';</script>"); 
+			writer.close();
 		}else {
 			response.sendRedirect("SignUp.html");
 		}

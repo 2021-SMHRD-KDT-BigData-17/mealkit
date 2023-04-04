@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,12 +34,17 @@ public class SignIn extends HttpServlet {
 		
 		user = userDao.signIn(user);
 		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
+		
+		
 		if(user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("sid", user.getUser_id());
-			response.sendRedirect("main.jsp");
+			writer.println("<script>alert('환영합니다!'); location.href='"+"main.jsp"+"';</script>"); 
 		}else {
-			response.getWriter().print("<script>alert('LogIn Fail')</script>");
+			writer.println("<script>alert('로그인 또는 PW가 일치하지 않습니다.'); location.href='"+"login.jsp"+"';</script>"); 
+			writer.close();
 			response.sendRedirect("login.jsp");
 		}
 		

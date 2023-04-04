@@ -48,7 +48,7 @@ String ID = (String)session.getAttribute("sid");
 			<a href="LogOut">로그아웃&nbsp;</a>
 			<a href="Edit member information.jsp">개인정보수정&nbsp;</a>
 		<c:if test="${!empty sid}">
-			<a href="basket_1.jsp">장바구니&nbsp;</a> 
+			<a href="basket.jsp">장바구니&nbsp;</a> 
 			<a href="mypage.jsp" >마이페이지&nbsp;</a>
 		</c:if>	
 		</c:otherwise>
