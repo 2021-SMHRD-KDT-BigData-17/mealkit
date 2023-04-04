@@ -257,7 +257,7 @@ pageContext.setAttribute("prod", product);
           
             
             <div class="detailimg" align="center">
-            	<c:if test="${not empty pageScope.prod.getProd_desc }">
+            	<c:if test="${not empty pageScope.prod.getProd_desc() }">
             	
             	</c:if>
             	
