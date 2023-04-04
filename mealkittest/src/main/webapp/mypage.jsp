@@ -57,7 +57,7 @@ List<Order> list = orderDao.loadOrder(ID);
 
     
 <div class="mainlogo">
-    <a href="#">
+    <a href="main.jsp">
         <img src = "./mainlogo.jpg" style = "width:280px; height:150px;">
     </a>
 </div>

@@ -43,12 +43,12 @@ String ID = (String)session.getAttribute("sid");
 		</c:when>
 		<c:otherwise>
 			<c:if test="${sid eq 'admin'}">
-			<a href="select.jsp">회원관리&nbsp;</a>
+			<a href="Member management.jsp">회원관리&nbsp;</a>
 			</c:if>
 			<a href="LogOut">로그아웃&nbsp;</a>
 			<a href="Edit member information.jsp">개인정보수정&nbsp;</a>
 		<c:if test="${!empty sid}">
-			<a href="basket.jsp">장바구니&nbsp;</a> 
+			<a href="basket.html">장바구니&nbsp;</a> 
 			<a href="mypage.jsp" >마이페이지&nbsp;</a>
 		</c:if>	
 		</c:otherwise>
@@ -56,8 +56,8 @@ String ID = (String)session.getAttribute("sid");
      
     </div>
       <div class="logo">
-      <img src="./img/mainlogo.jpg" width="17%" 
-      alt="로고">
+      <a href="main.jsp"><img src="./img/mainlogo.jpg" width="17%" 
+      alt="로고"></a>
         </div>
         
         <!-- 메뉴바 -->
