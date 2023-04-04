@@ -31,9 +31,10 @@ img {
 
 .topbar {
     position: relative;
-    left: 630px;
-    font-size: 15px;
-    display:inline
+    left:630px;
+    font-size:15px;
+    display:inline;
+    text-align:center;
 }
 
 .btn_1 {
@@ -136,4 +137,11 @@ img {
 
 .board_list_wrap .paging a.num.on {
     background: white;
+}
+
+.topbare{
+   text-align:center;
+   padding-left: 60%;
+   padding-right: auto;
+   
 }

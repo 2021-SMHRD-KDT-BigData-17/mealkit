@@ -11,7 +11,7 @@ String ID = (String)session.getAttribute("sid");
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,26 +21,27 @@ String ID = (String)session.getAttribute("sid");
     <link rel="stylesheet" href="./boardlist_style.css">
 </head>
 <body>
-    <div class="topbar" >  
+   <div class = "board_list_wrap">
+    <div class="topbare" >
         <c:choose>
-		<c:when test="${empty sid}">
-			<a href="login.jsp">로그인&nbsp;</a>
-			<a href="membership.jsp">회원가입&nbsp;</a>
-		</c:when>
-		<c:otherwise>
-			<c:if test="${sid eq 'admin'}">
-			<a href="Member management.jsp">회원관리&nbsp;</a>
-			</c:if>
-			<a href="LogOut">로그아웃&nbsp;</a>
-			<a href="Edit member information.jsp">개인정보수정&nbsp;</a>
-		<c:if test="${!empty sid}">
-			<a href="basket.html">장바구니&nbsp;</a> 
-			<a href="mypage.jsp" >마이페이지&nbsp;</a>
-		</c:if>	
-		</c:otherwise>
-		</c:choose>
+      <c:when test="${empty sid}">
+         <a href="login.jsp">로그인&nbsp;</a>
+         <a href="membership.jsp">회원가입&nbsp;</a>
+      </c:when>
+      <c:otherwise>
+         <c:if test="${sid eq 'admin'}">
+         <a href="Member management.jsp">회원관리&nbsp;</a>
+         </c:if>
+         <a href="LogOut">로그아웃&nbsp;</a>
+         <a href="Edit member information.jsp">개인정보수정&nbsp;</a>
+      <c:if test="${!empty sid}">
+         <a href="basket.html">장바구니&nbsp;</a> 
+         <a href="mypage.jsp" >마이페이지&nbsp;</a>
+      </c:if>   
+      </c:otherwise>
+      </c:choose>
     </div>
-    <div class = "board_list_wrap">
+    
         <a href="main.jsp"><img src="./img/logo.png" alt="메인로고" width="280" height="150"></a>
         <form action = "#" method="get" id="#">
             <table class = "board_list">
