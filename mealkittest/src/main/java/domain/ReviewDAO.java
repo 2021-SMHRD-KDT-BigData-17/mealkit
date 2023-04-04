@@ -31,6 +31,23 @@ public class ReviewDAO {
 		return list;
 
 	}
+	
+	public int pageReview(int prod_code) {
+		
+		int cnt = 0;
+		
+		try {
+			cnt = sqlSession.selectOne("pageReview", prod_code);
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return cnt;
+	}
 
 	public int insertReview(Review review) {
 

@@ -46,6 +46,8 @@ public class Board {
 		this.item = item;
 		this.user_id = user_id;
 	}
+	
+	
 
 	public Board() {
 		super();

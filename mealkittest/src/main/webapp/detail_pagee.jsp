@@ -62,6 +62,51 @@ pageContext.setAttribute("prod", product);
 
 %>
 
+<%
+
+int reviewPage = 0;
+
+if(request.getParameter("page") != null){
+	reviewPage = Integer.parseInt(request.getParameter("page"));
+	
+}else{
+	reviewPage = 1;
+}
+
+HashMap<String, Integer> hashMap = new HashMap<>();
+
+hashMap.put("prod_code", prod_code);
+hashMap.put("page", reviewPage);
+
+ReviewDAO reviewDao = new ReviewDAO();
+
+List<Review> list = reviewDao.loadReview(hashMap);
+
+%>
+
+<%
+
+ReviewDAO reviewDaoa = new ReviewDAO();
+
+
+int totalPage = reviewDaoa.pageReview(prod_code);
+
+int startPage;
+
+int endPage;
+
+totalPage = (totalPage/10 == 0 ? totalPage/10 : totalPage/10 + 1);
+// 총 페이지.
+startPage = ((reviewPage - 1)/10)*10 + 1;
+
+endPage = ((reviewPage - 1)/10 + 1)*10;
+
+if(endPage > totalPage){
+	endPage = totalPage;
+}
+
+%>
+
     <div class = "ad" align = "center">친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸-->
         <div class="basket" >  
             <form action="#" method="post" id="#">
@@ -304,33 +349,11 @@ pageContext.setAttribute("prod", product);
                     </ul>
                     <br><br>
 
-<%
 
-int reviewPage = 0;
-
-if(reviewPage != 0){
-	reviewPage = Integer.parseInt(request.getParameter("page"));
-	
-}else{
-	reviewPage = 1;
-}
-
-HashMap<String, Integer> hashMap = new HashMap<>();
-
-hashMap.put("prod_code", prod_code);
-hashMap.put("page", reviewPage);
-
-ReviewDAO reviewDao = new ReviewDAO();
-
-List<Review> list = reviewDao.loadReview(hashMap);
-
-
-
-%>
 
 
                     <h2>상품후기
-                        <span>(292)</span>
+                        <span>(<%=totalPage %>)</span>
                     </h2>
                     <br>
 
@@ -553,16 +576,30 @@ List<Review> list = reviewDao.loadReview(hashMap);
                                 </tbody>
                             </table>
 
-
+<%=reviewPage %>
                 
                             <div class = "paging">
-                                <a href="#" class="bt"> << </a>
+                            
+                            	<%if(startPage != 1){ %>
+                                <a href=<%="detail_pagee.jsp" + "?page=" + (startPage - 1) %> class="bt"> << </a>
                                 <a href="#" class="bt"> < </a>
-                                <a href="#" class="num on">1</a>
+                            
+                            	<%} %>
+                            	
+                            	<%for(int i = 0; i <= endPage - startPage; i++){ %>
+                                <a href=<%="detail_pagee.jsp" + "?page=" + (startPage + i) %> class="num on"><%=startPage + i %></a>
+                            	
+                            	<%} %>
+                            	
+								<%if(endPage < totalPage){ %>
+                                <a href="#" class="bt"> > </a>
+                                <a href=<%="detail_pagee.jsp" + "?page=" + (endPage + 1) %> class="bt"> >> </a>
+								              
+								<%} %>                            
+                            	<%if(false){ %>
                                 <a href="#" class="num">2</a>
                                 <a href="#" class="num">3</a>
-                                <a href="#" class="bt"> > </a>
-                                <a href="#" class="bt"> >> </a>
+                                <%} %>
                             </div>
                 
                         </form>
