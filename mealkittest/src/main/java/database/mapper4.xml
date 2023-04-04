@@ -14,6 +14,7 @@
 	</resultMap>
 	
 	<resultMap type="domain.Review" id="review">
+		<result column="review_seq" property="review_seq" />
 		<result column="review_content" property="review_content" />
 		<result column="review_img1" property="review_img1" />
 		<result column="review_img2" property="review_img2" />
@@ -41,11 +42,11 @@
 	</delete>
 
 	<select id="loadComment" parameterType="hashmap" resultMap="comment">
-		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes,tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where tbl_comment.bo_seq=#{bo_seq} order by cmt_seq DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select tbl_comment.cmt_content, tbl_comment.cmt_date, tbl_comment.cmt_likes, tbl_user.user_nick from (select * from tbl_comment inner join tbl_user on tbl_comment.user_id = tbl_user.user_id where tbl_comment.bo_seq=#{bo_seq} order by cmt_seq DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
 	</select>
 	
 	<select id="loadReview" parameterType="hashmap" resultMap="review">
-		select * from (select * from tbl_review where prod_code=#{prod_code} order by review_seq DESC) where (ROWNUM between (1 - #{page})+1 and #{page}*10)
+		select TBLL.review_seq, TBLL.review_content, TBLL.review_img1, TBLL.review_img2, TBLL.review_rating, TBLL.review_date, TBLL.user_nick from ( select * from (select * from tbl_review where prod_code=#{prod_code}) TBL inner join tbl_user on TBL.user_id = tbl_user.user_id order by review_seq DESC) TBLL where (ROWNUM between (1 - #{page}+1) and #{page}*10)
 	</select>
 
 	<insert id="insertReview" parameterType="domain.Review">

@@ -356,6 +356,7 @@ List<Review> list = reviewDao.loadReview(hashMap);
                                             <a href="#"><%=list.get(i).getReview_content() %></a>
                                         </td>
                                         <td><%=list.get(i).getUser().getUser_nick() %></td>
+                                        <td><%=list.get(i).getReview_date() %></td>
                                     </tr>
                                     <%} %>
                                     <%if(false){ %>
