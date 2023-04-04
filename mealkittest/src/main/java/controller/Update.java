@@ -24,8 +24,9 @@ public class Update extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		
+		String user_id = (String)session.getAttribute("sid");
 		
-		User user = new User(user_pw, user_nick, user_addr, user_phone);
+		User user = new User(user_id, user_pw, user_nick, user_addr, user_phone);
 		UserDAO userDao = new UserDAO();
 		
 		int cnt = userDao.updateUser(user);

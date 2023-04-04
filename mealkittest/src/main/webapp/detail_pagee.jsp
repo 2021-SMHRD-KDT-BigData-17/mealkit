@@ -1,7 +1,8 @@
 <%@page import="domain.Product"%>
 <%@page import="domain.ProductDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -238,28 +239,16 @@ Product product = productDao.loadProduct(prod_code);
             <div class = "logologo">
                 <img src="./mainlogo.jpg" width="450" height="250">
             </div>
-            <%
-            
-            int cnt = 0;
-            
-            for(Product p : product){
-            	if(p != null){
-            		
-            	}else{
-            		cnt++;
-            	}
-            }
-            
-            
-            %>
+          
             
             <div class="detailimg" align="center">
-            	<%for(int i = 0; i < ){ %>
-                <img src=<%=product.getProd_desc() %>>
+            	<c:if test="">
+	                <img src=<%=product.getProd_desc() %>>
+            	
+            	</c:if>
                 <img src="https://gi.esmplus.com/yorivery/detail/new/palgongsanBBGS_2.jpg">
                 <img src="./prod.jpg" width="1000px" alt="상품구성사진">
                 <img src="./cook.jpg" width="1000px" alt="조리방법사진">
-                <%} %>
             </div> <!-- 상품 상세보기 -->
         </div>
 
@@ -560,4 +549,10 @@ Product product = productDao.loadProduct(prod_code);
         </a>
 
 </body>
+
+<script type="text/javascript">
+
+
+
+</script>
 </html>
