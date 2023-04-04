@@ -9,6 +9,7 @@ public class Review {
 	private String review_img1;
 	private String review_img2;
 	private double review_rating;
+	private String review_date;
 	private User user;
 
 	public Review(int prod_code, String user_id, String review_content, String review_img1, String review_img2,
@@ -24,6 +25,14 @@ public class Review {
 
 	public Review() {
 		super();
+	}
+
+	public String getReview_date() {
+		return review_date;
+	}
+
+	public void setReview_date(String review_date) {
+		this.review_date = review_date;
 	}
 
 	public User getUser() {
