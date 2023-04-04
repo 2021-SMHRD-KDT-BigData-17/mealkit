@@ -27,7 +27,7 @@
 	</resultMap>
 	
 	<select id="loadBoard" parameterType="hashmap" resultMap="boardLoad">
-		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select * from tbl_board inner join tbl_user on tbl_board.user_id = tbl_user.user_id where bo_category=#{bo_category} order by bo_no DESC) where ROWNUM between (#{page} - 1)*10 + 1 and #{page}*10
+		select tbl_board.bo_no, tbl_board.bo_title, tbl_board.bo_date, tbl_board.bo_likes, tbl_user.user_nick from (select ROWNUM RWNM, TBL.* from (select * from tbl_board inner join tbl_user TBL on tbl_board.user_id = tbl_user.user_id where bo_category=#{bo_category} order by bo_no DESC) TBL) where RWNM between (#{page} - 1)*10 + 1 and #{page}*10
 	</select>
 
 	<insert id="writeBoard" parameterType="domain.Board">

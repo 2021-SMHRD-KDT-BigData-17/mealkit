@@ -576,7 +576,6 @@ if(endPage > totalPage){
                                 </tbody>
                             </table>
 
-<%=reviewPage %>
                 
                             <div class = "paging">
                             

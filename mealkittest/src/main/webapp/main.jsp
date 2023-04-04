@@ -878,4 +878,101 @@ String ID = (String)session.getAttribute("sid");
     
 
 </body>
+<script type="text/javascript">
+
+const search = document.getElementById("#search");
+const checkBox = document.getElementById("#checkBox");
+const button = document.getElementById("#button");
+
+search.addEventListener("keyup", function () {
+    $.ajax({
+        url: "",
+        type: "get",
+        dataType:"json",
+        data: {
+            "word":search.value,
+
+        },
+        success:function(res){
+            console.log(res);
+            
+            
+
+        },
+        error:function(){
+            console.log("Error.")
+        },
+
+    })
+})
+
+
+
+checkBox.addEventListener("click", function () {
+    if (checkBox.getAttribute("checked")) {
+        $.ajax({
+            url: "",
+            type: "get",
+            dataType:"json",
+            data: {
+                // no data.
+
+            },
+            success:function(res){
+                console.log(res);
+                for(let r in res){
+                    r[i].user_addr
+                    // name phone addr
+                }
+                
+
+
+            },
+            error:function(){
+    
+            },
+        })
+    } else {
+
+    }
+})
+
+const prod_code = new URLSearchParams(location.search).get("prod_code");
+const bo_seq = new URLSearchParams(location.search).get("bo_seq");
+
+button.addEventListener("click", function (e) {
+    $.ajax({
+        url: "",
+        type: "get",
+        dataType:"json",
+        data: {
+            // page, prod_code, bo_seq
+
+            "page": e.target.innerText,
+            "prod_code" prod_code,
+
+            // "page":"",
+            // "bo_seq":"",
+
+
+        },
+        success:function(res){
+            
+            document.getElementById("#").innerHtml = "";
+
+            for(let r in res){
+                document.getElementById("#").insertAdjacentHTML("")
+
+            }
+
+        },
+        error:function(){
+
+        },
+    })
+})
+
+</script>
+
+
 </html>

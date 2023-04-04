@@ -133,6 +133,40 @@ h4{
     </section>
     
 </body>
+<script type="text/javascript">
+
+const checkBox = document.getElementById("#checkBox");
+
+checkBox.addEventListener("click", function () {
+    if (checkBox.check) {
+        $.ajax({
+            url: "",
+            type: "get",
+            dataType:"json",
+            data: {
+                // no data.
+
+            },
+            success:function(res){
+                console.log(res);
+                for(let r in res){
+                    r[i].user_addr
+                    // name phone addr
+                }
+                
+
+
+            },
+            error:function(){
+    
+            },
+        })
+    } else {
+
+    }
+})
+
+</script>
 </html>
 </body>
 </html>
