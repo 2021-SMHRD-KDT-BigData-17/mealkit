@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,12 +13,14 @@ public class BoardDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManagers.getSqlSessionFactory();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 
-	public List<Board> loadBoard(int page) {
+	public List<Board> loadBoard(HashMap<String, Integer> map) {
+		
+		// map.put(page map.put(bo_category
 		
 		List<Board> list = null;
 		
 		try {
-			list = sqlSession.selectList("loadBoard", page);
+			list = sqlSession.selectList("loadBoard", map);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
