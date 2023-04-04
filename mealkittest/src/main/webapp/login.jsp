@@ -20,7 +20,7 @@
 		<header>
 			
 			<div class="logo-wrap">
-				<img src="./img/logo.png" alt="메인로고">
+				<a href="main.jsp"><img src="./img/logo.png" alt="메인로고"></a>
 			</div>
 		</header>
 		

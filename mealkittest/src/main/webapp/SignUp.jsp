@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +21,7 @@
 		<header>
 			
 			<div class="logo-wrap">
-				<img src="./img/logo.png">
+				<a href = "main.jsp"><img src="./img/logo.png"></a>
 			</div>
 		</header>
 		
@@ -65,7 +63,5 @@
         
 			
     
-</body>
-</html>
 </body>
 </html>

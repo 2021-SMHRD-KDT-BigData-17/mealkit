@@ -151,7 +151,7 @@
 		</div>
 
 		<div class="membermagement">
-			<button style="background-color: lightgrey;" type="submit">회원취소</button>
+			<a href="main.jsp"><button style="background-color: lightgrey;" type="button">회원취소</button></a>
 			<button style="background-color: rgb(24, 193, 21);" type="submit">회원삭제</button>
 		</div>
 	</div>
