@@ -7,9 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
-<html lang="ko">
+<%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");	
 
+int bo_no = 0;
+
+
+%>
 
 <head>
     <meta charset="UTF-8">

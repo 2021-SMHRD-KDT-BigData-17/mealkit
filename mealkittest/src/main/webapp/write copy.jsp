@@ -50,7 +50,7 @@
             </div>
             <div class="bt_wrap">
                 <a href="view.html" class="on" type="submit">등록</a>
-                <a href="list.html">취소</a>
+                <a href="boardlist_smalltalk.jsp">취소</a>
             </div>
          </form>
         </div>
