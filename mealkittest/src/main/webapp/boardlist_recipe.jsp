@@ -1,5 +1,10 @@
+<%@page import="domain.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
+<%
+String ID = (String)session.getAttribute("sid");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,18 +21,26 @@
 </head>
 <body>
     <div class = "board_list_wrap">
-        <form class = "topbar" action="#" method="post">
-            <!--로그인 -->
-            <a href="login.html">로그인 &nbsp;</a>
-            <!-- 회원가입 -->
-            <a href="membership.html">회원가입 &nbsp;</a>
-            <!-- 마이페이지 -->
-            <a>주문조회 &nbsp;</a>
-            <!-- 장바구니 -->
-            <a >커뮤니티 &nbsp;</a> 
-            <a >장바구니 &nbsp;</a>
-        </form>
-        <a href="#"><img src="./img/mainlogo.jpg" alt="메인로고" width="280" height="150"></a>
+       <div class = "topbare">
+       <c:choose>
+      <c:when test="${empty sid}">
+         <a href="login.jsp">로그인&nbsp;</a>
+         <a href="membership.jsp">회원가입&nbsp;</a>
+      </c:when>
+      <c:otherwise>
+         <c:if test="${sid eq 'admin'}">
+         <a href="Member management.jsp">회원관리&nbsp;</a>
+         </c:if>
+         <a href="LogOut">로그아웃&nbsp;</a>
+         <a href="Edit member information.jsp">개인정보수정&nbsp;</a>
+      <c:if test="${!empty sid}">
+         <a href="basket.html">장바구니&nbsp;</a> 
+         <a href="mypage.jsp" >마이페이지&nbsp;</a>
+      </c:if>   
+      </c:otherwise>
+      </c:choose>
+      </div>
+        <a href="main.jsp"><img src="./img/logo.png" alt="메인로고" width="280" height="150"></a>
         <form action="#" method="get" id="recipe">
             <table class = "board_list">
                 <caption>게시글 목록</caption>
