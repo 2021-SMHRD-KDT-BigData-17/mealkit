@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,13 +25,22 @@ public class LoadBoard extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		response.setCharacterEncoding("UTF-8");
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		
+		int page = Integer.parseInt(request.getParameter("page"));
 
-		int page = 0;
-		page = Integer.parseInt(request.getParameter("page"));
-
+		int bo_category = Integer.parseInt(request.getParameter("bo_category"));
+		
+		map.put("page", page);
+		
+		map.put("bo_category", bo_category);
+		
 		BoardDAO boardDao = new BoardDAO();
 
-		List<Board> list = boardDao.loadBoard(page);
+		List<Board> list = boardDao.loadBoard(map);
 
 		for(Board b : list) {
 			System.out.print(b.getBo_no() + "\t");

@@ -12,6 +12,7 @@ public class Board {
 	private String user_id;
 	private int bo_likes;
 	private String buy_date;
+	private int bo_category;
 	private User user;
 
 	public Board(String bo_title, String bo_content, String bo_file) {
@@ -46,11 +47,30 @@ public class Board {
 		this.item = item;
 		this.user_id = user_id;
 	}
-	
-	
+
+	public Board(String bo_title, String bo_content, String bo_file, int prod_code, String item, String user_id,
+			String buy_date, int bo_category) {
+		super();
+		this.bo_title = bo_title;
+		this.bo_content = bo_content;
+		this.bo_file = bo_file;
+		this.prod_code = prod_code;
+		this.item = item;
+		this.user_id = user_id;
+		this.buy_date = buy_date;
+		this.bo_category = bo_category;
+	}
 
 	public Board() {
 		super();
+	}
+
+	public int getBo_category() {
+		return bo_category;
+	}
+
+	public void setBo_category(int bo_category) {
+		this.bo_category = bo_category;
 	}
 
 	public User getUser() {
