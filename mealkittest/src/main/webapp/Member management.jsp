@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +19,7 @@
 		<table class="board_list">
 
 			<div class="image">
-				<img src="./img/mainlogo.jpg" alt="메인로고">
+				<img src="./img/logo.png" alt="메인로고">
 			</div>
 			<h1>º회원관리</h1>
 			<br>
