@@ -1,3 +1,7 @@
+<%@page import="domain.Board"%>
+<%@page import="java.util.List"%>
+<%@page import="domain.BoardDAO"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="domain.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
@@ -20,6 +24,71 @@ String ID = (String) session.getAttribute("sid");
 <link rel="stylesheet" href="boardlist_style.css">
 </head>
 <body>
+<%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+
+int bo_category = 1;
+
+if(request.getParameter("bo_category") != null){
+	bo_category = Integer.parseInt(request.getParameter("bo_category"));
+	
+}else{
+	bo_category = 2;
+}
+
+BoardDAO boardDao = new BoardDAO();
+
+Board board = boardDao.loadBoard(bo_cateogry);
+
+pageContext.setAttribute("bo", board);
+
+%>
+
+<%
+
+int boardPage = 0;
+
+if(request.getParameter("page") != null){
+	boardPage = Integer.parseInt(request.getParameter("page"));
+}else{
+	boardPage = 1;
+}
+
+HashMap<String, Integer> hashMap = new HashMap<>();
+
+hashMap.put("page", boardPage);
+hashMap.put("bo_category", bo_category);
+
+BoardDAO reviewDao = new BoardDAO();
+
+List<Board> list = reviewDao.loadBoard(hashMap);
+
+%>
+
+<%
+
+BoardDAO boardDaoa = new BoardDAO();
+
+int totalPage = boardDaoa.viewBoard(bo_no);
+
+int startPage;
+
+int endPage;
+
+totalPage = (totalPage/10 == 0 ? totalPage/10 : totalPage/10 + 1);
+
+startPage = ((boardPage - 1)/10)*10 + 1;
+
+endPage = ((boardPage - 1)/10 + 1)*10;
+
+if(endPage > totalPage){
+	endPage = totalPage;
+}
+
+
+%>
+
 	<div class="board_list_wrap">
 		<div class="topbare">
 			<c:choose>
@@ -64,6 +133,7 @@ String ID = (String) session.getAttribute("sid");
 					</tr>
 				</thead>
 				<tbody>
+					<% for(int i = 0; i < list.size(); i++){} %>
 					<tr>
 						<td>5</td>
 						<td>레시피</td>
@@ -121,6 +191,6 @@ String ID = (String) session.getAttribute("sid");
 		</form>
 	</div>
 </body>
-</html>
-</body>
+<script type="text/javascript">
+</script>
 </html>
