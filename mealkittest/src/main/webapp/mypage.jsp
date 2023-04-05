@@ -108,16 +108,17 @@ List<Order> list = orderDao.loadOrder(ID);
                     </tr>
                 </thead>
                 <tbody>
+                <%if(list != null){ %>
                 	<%for(int i =0; i< list.size(); i++){ %>
                     <tr class = "cart__list__detail">
                         <td><%=i+1 %></td>
                         <td><a href="#"><img src =<%=list.get(i).getProduct().getProd_img1() %> alt =<%=list.get(i).getProduct().getProd_name() %>></a></td>
-                        <td><a href = "#" ><%=list.get(i).getProduct().getProd_name() %><%="/" %><%=list.get(i).getOrderDetail().getProd_count() %></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
+                        <td><a href = "#" ><%=list.get(i).getProduct().getProd_name() %><%="/" %><%=list.get(i).getOrderDetail().getOrder_count() %></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
                             <br>
                             <p class="price"><%=list.get(i).getProduct().getProd_price() %>원</p>
                         </td>
                         <td class = "cart__list__option">
-                            <p>상품명 : <%=list.get(i).getProduct().getProd_name() %><%=" / " %> <%=list.get(i).getOrderDetail().getProd_count() %>개 </p>
+                            <p>상품명 : <%=list.get(i).getProduct().getProd_name() %><%=" / " %> <%=list.get(i).getOrderDetail().getOrder_count() %>개 </p>
 
 
 
@@ -153,6 +154,7 @@ List<Order> list = orderDao.loadOrder(ID);
                         </td>
                     </tr>
                     <%} %>
+				<%} %>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -164,7 +166,9 @@ List<Order> list = orderDao.loadOrder(ID);
                             </div>
                         </td>
                         <td>총 주문갯수</td>
-                        <td>2개</td>
+                        <td><%if(list != null){ %>
+                        <%=list.size() %>
+                        <%}else{ %> 0 <%} %>개</td>
                         <td></td>
                     </tr>
                 </tfoot>

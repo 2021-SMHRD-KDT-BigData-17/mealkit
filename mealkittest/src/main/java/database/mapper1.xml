@@ -7,11 +7,11 @@
 	<resultMap type="domain.Order" id="order">
 		<result column="order_status" property="order_status"/>
 		<association property="orderDetail" javaType="domain.OrderDetail">
-			<result column="prod_count" property="prod_count"/>
+			<result column="order_count" property="order_count"/>
 		</association>
 		<association property="product" javaType="domain.Product">
 			<result column="prod_name" property="prod_name"/>
-			<result column="prod_imag1" property="prod_imag1"/>
+			<result column="prod_img1" property="prod_img1"/>
 			<result column="prod_price" property="prod_price"/>
 		</association>
 	</resultMap>
@@ -71,7 +71,7 @@
 	</delete>
 	
 	<select id="loadOrder" parameterType="String" resultMap="order">
-		select tbl_product.prod_name, tbl_product.prod_imag1, tbl_product.prod_price, TBLL.prod_count, TBLL.order_status from ((select * from tbl_order where user_id=#{ID}) TBL inner join tbl_orderdetail on TBL.order_seq = tbl_orderdetail.order_seq) TBLL inner join tbl_product on tbl_product.prod_code = TBLL.product_code
+		select tbl_product.prod_name, tbl_product.prod_price, tbl_product.prod_img1, TBLL.order_status, TBLL.order_count from (select * from (select * from tbl_order where user_id=#{ID}) TBL inner join tbl_orderdetail on TBL.order_seq = tbl_orderdetail.order_seq) TBLL inner join tbl_product on tbl_product.prod_code = TBLL.prod_code
 	</select>
 
 	<select id="loadProduct" parameterType="int" resultType="domain.Product">
