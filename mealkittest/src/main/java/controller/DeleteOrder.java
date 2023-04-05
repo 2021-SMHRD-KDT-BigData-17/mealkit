@@ -30,7 +30,7 @@ public class DeleteOrder extends HttpServlet {
 		
 		OrderDAO orderDao = new OrderDAO();
 		
-		orderDao.deleteOrder(0)
+		orderDao.deleteOrder(0);
 		
 	}
 
