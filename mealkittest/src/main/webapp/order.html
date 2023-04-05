@@ -34,6 +34,10 @@
         border-bottom-color: lightgreen;
         
     }
+    
+    #sample6_extraAddress{
+    	display: none;
+    }
 
 </style>
 <body>
@@ -60,8 +64,18 @@
                 <th colspan = "2" align = "left" height = "50px"><h1>배송정보</h1>회원정보와동일<input id="checkBox2" type="checkbox"></th>
             </tr>
             <tr height = "35px">
-                <td>도로명주소</td>
-                <td><button>검색</button></td>
+            
+            
+                <td><input type="text" id="sample6_postcode" placeholder="우편번호"></td>
+                <td><input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"></td>
+            </tr>
+            <tr height = "35px">
+            	<td colspan="2"><input size="50" type="text" id="sample6_address" placeholder="주소"></td>
+            	<td></td>
+            </tr>
+            <tr height = "35px">
+            	<td><input type="text" id="sample6_detailAddress" placeholder="상세주소"></td>
+            	<td><input type="text" id="sample6_extraAddress" placeholder="참고항목"></td>
             </tr>
             <tr height = "35px">
                 <th colspan = "2" align = "left" height = "50px"><h1>결제수단</h1></th>
