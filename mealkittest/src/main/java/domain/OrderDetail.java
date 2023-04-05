@@ -5,10 +5,18 @@ public class OrderDetail {
 	private int od_seq;
 	private int order_seq;
 	private int prod_code;
-	private int prod_count;
+	private int order_count;
 
 	public OrderDetail() {
 		super();
+	}
+
+	public int getOrder_count() {
+		return order_count;
+	}
+
+	public void setOrder_count(int order_count) {
+		this.order_count = order_count;
 	}
 
 	public int getOd_seq() {
@@ -33,14 +41,6 @@ public class OrderDetail {
 
 	public void setProd_code(int prod_code) {
 		this.prod_code = prod_code;
-	}
-
-	public int getProd_count() {
-		return prod_count;
-	}
-
-	public void setProd_count(int prod_count) {
-		this.prod_count = prod_count;
 	}
 
 }

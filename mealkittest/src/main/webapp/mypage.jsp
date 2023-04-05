@@ -108,16 +108,17 @@ List<Order> list = orderDao.loadOrder(ID);
                     </tr>
                 </thead>
                 <tbody>
+                <%if(list != null){ %>
                 	<%for(int i =0; i< list.size(); i++){ %>
                     <tr class = "cart__list__detail">
                         <td><%=i+1 %></td>
                         <td><a href="#"><img src =<%=list.get(i).getProduct().getProd_img1() %> alt =<%=list.get(i).getProduct().getProd_name() %>></a></td>
-                        <td><a href = "#" ><%=list.get(i).getProduct().getProd_name() %><%="/" %><%=list.get(i).getOrderDetail().getProd_count() %></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
+                        <td><a href = "#" ><%=list.get(i).getProduct().getProd_name() %><%="/" %><%=list.get(i).getOrderDetail().getOrder_count() %></a> <!-- 사진 클릭하면 그 상품 상세페이지로 이동-->
                             <br>
                             <p class="price"><%=list.get(i).getProduct().getProd_price() %>원</p>
                         </td>
                         <td class = "cart__list__option">
-                            <p>상품명 : <%=list.get(i).getProduct().getProd_name() %><%=" / " %> <%=list.get(i).getOrderDetail().getProd_count() %>개 </p>
+                            <p>상품명 : <%=list.get(i).getProduct().getProd_name() %><%=" / " %> <%=list.get(i).getOrderDetail().getOrder_count() %>개 </p>
 
 
 
@@ -146,13 +147,14 @@ List<Order> list = orderDao.loadOrder(ID);
 
 
                         </td>
-                        <td><span class = "price">20,000원</span><br>
+                        <td><span class = "price"><%=list.get(i).getProduct().getProd_price() %>원</span><br>
                         </td>
-                        <td style = "width: 15%"><span class = "write_review"></span>배송준비중
-                            <p><button class = "write_review_btn"><b>주문취소</b></button></p>
+                        <td style = "width: 15%"><span class = "write_review"></span><%=list.get(i).getOrder_status().equals("out") ? "배송중" : "배송준비중"%>
+                            <p><button data-seq=<%=list.get(i).getOrder_seq() %> class = "write_review_btn"><b>주문취소</b></button></p>
                         </td>
                     </tr>
                     <%} %>
+				<%} %>
                 </tbody>
                 <tfoot>
                     <tr>
@@ -164,7 +166,9 @@ List<Order> list = orderDao.loadOrder(ID);
                             </div>
                         </td>
                         <td>총 주문갯수</td>
-                        <td>2개</td>
+                        <td><%if(list != null){ %>
+                        <%=list.size() %>
+                        <%}else{ %> 0 <%} %>개</td>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -197,6 +201,17 @@ exit.addEventListener("click",function(){
 
 
 <!-- <script src="./mypage.js"></script> -->
+<script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
+<script type="text/javascript">
+const cancle = document.querySelector(".write_review_btn")
+
+cancle.addEventListener("click", function(){
+	url = "DeleteOrder?" + "order_seq=" + cancel.dataset.seq;
+
+	window.location.href = url
+})
+
+</script>
 
 
 </body>

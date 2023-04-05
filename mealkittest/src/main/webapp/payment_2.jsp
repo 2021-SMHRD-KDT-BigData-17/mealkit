@@ -111,10 +111,10 @@ h4{
                     <h4 class="same">회원정보와 동일<input id="checkBox" type ="checkbox"></h4> 
 
                     <div class="main">
-                    <input type="text" placeholder="주문자이름" id="name" class="account" required>
-                    <input type="text" placeholder="연락처" id="tel" class="account" required>
-                    <input type="text" placeholder="주소" id="address" class="account" required>
-                    <select id = "opt" name = "결제수단" class="account">
+                    <input type="text" name="user_name" placeholder="주문자이름" id="name" class="account" required>
+                    <input type="text" name="user_phone" placeholder="연락처" id="tel" class="account" required>
+                    <input type="text" name="user_addr" placeholder="주소" id="address" class="account" required>
+                    <select id = "opt" name = "payment" class="account">
                         <option value="option">결제수단선택</option>
                         <option value="creditcard">신용카드</option>
                         <option value="cash">무통장입금</option>
@@ -140,8 +140,6 @@ const name = document.getElementById("name");
 const tel = document.getElementById("tel");
 const address = document.getElementById("address");
 
-console.log(checkBox.checked);
-console.log(1);
 
 checkBox.addEventListener("click", function () {
     if (checkBox.checked) {
