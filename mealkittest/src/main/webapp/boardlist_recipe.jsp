@@ -38,13 +38,6 @@ if(request.getParameter("bo_category") != null){
 	bo_category = 2;
 }
 
-
-BoardDAO boardDao = new BoardDAO();
-
-List<Board> board = boardDao.loadBoard(Map);
-
-pageContext.setAttribute("bo", board);
-
 %>
 
 <%
@@ -62,9 +55,9 @@ HashMap<String, Integer> hashMap = new HashMap<>();
 hashMap.put("page", boardPage);
 hashMap.put("bo_category", bo_category);
 
-BoardDAO reviewDao = new BoardDAO();
+BoardDAO boardDao = new BoardDAO();
 
-List<Board> list = reviewDao.loadBoard(hashMap);
+List<Board> list = boardDao.loadBoard(hashMap);
 
 %>
 
@@ -145,6 +138,7 @@ if(endPage > totalPage){
 						<td><%=list.get(i).getBo_likes()%></td>
 					</tr>
 					<%} %>
+					<%if(false){ %>
 					<tr>
 						<td>4</td>
 						<td>레시피</td>
@@ -177,6 +171,7 @@ if(endPage > totalPage){
 						<td>2023-03-29</td>
 						<td>5</td>
 					</tr>
+					<%} %>
 				</tbody>
 			</table>
 
