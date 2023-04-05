@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page import="domain.Board"%>
 <%@page import="java.util.List"%>
 <%@page import="domain.BoardDAO"%>
@@ -40,7 +41,7 @@ if(request.getParameter("bo_category") != null){
 
 BoardDAO boardDao = new BoardDAO();
 
-List<Board> board = boardDao.loadBoard();
+List<Board> board = boardDao.loadBoard(Map);
 
 pageContext.setAttribute("bo", board);
 
@@ -141,7 +142,7 @@ if(endPage > totalPage){
 						<td class="title"><a href="#"><%=list.get(i).getBo_title() %></a></td>
 						<td><%=list.get(i).getUser().getUser_nick() %></td>
 						<td><%=list.get(i).getBo_date()%></td>
-						<td><%=list.get(i).getBo_no()%></td>
+						<td><%=list.get(i).getBo_likes()%></td>
 					</tr>
 					<%} %>
 					<tr>
