@@ -37,9 +37,10 @@ if(request.getParameter("bo_category") != null){
 	bo_category = 2;
 }
 
+
 BoardDAO boardDao = new BoardDAO();
 
-Board board = boardDao.loadBoard(bo_cateogry);
+List<Board> board = boardDao.loadBoard();
 
 pageContext.setAttribute("bo", board);
 
@@ -66,7 +67,7 @@ List<Board> list = reviewDao.loadBoard(hashMap);
 
 %>
 
-<%
+<%-- <%
 
 BoardDAO boardDaoa = new BoardDAO();
 
@@ -84,7 +85,7 @@ endPage = ((boardPage - 1)/10 + 1)*10;
 
 if(endPage > totalPage){
 	endPage = totalPage;
-}
+} --%>
 
 
 %>
@@ -133,15 +134,16 @@ if(endPage > totalPage){
 					</tr>
 				</thead>
 				<tbody>
-					<% for(int i = 0; i < list.size(); i++){} %>
+					<% for(int i = 0; i < list.size(); i++){ %>
 					<tr>
-						<td>5</td>
-						<td>레시피</td>
-						<td class="title"><a href="#">부대찌개레시피</a></td>
-						<td>김진영</td>
-						<td>2023-03-29</td>
-						<td>5</td>
+						<td><%=list.get(i).getBo_no()%></td>
+						<td><%=list.get(i).getBo_category()%></td>
+						<td class="title"><a href="#"><%=list.get(i).getBo_title() %></a></td>
+						<td><%=list.get(i).getUser().getUser_nick() %></td>
+						<td><%=list.get(i).getBo_date()%></td>
+						<td><%=list.get(i).getBo_no()%></td>
 					</tr>
+					<%} %>
 					<tr>
 						<td>4</td>
 						<td>레시피</td>
