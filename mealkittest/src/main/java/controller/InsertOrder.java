@@ -21,10 +21,12 @@ public class InsertOrder extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		Stringrequest.getParameter();
-		request.getParameter();
-		request.getParameter();
-		request.getParameter();
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		String addr = request.getParameter("addr");
+		String payment = request.getParameter("payment");
+		
+		
 		
 		
 	}

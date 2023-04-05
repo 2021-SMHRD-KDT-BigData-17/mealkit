@@ -5,6 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import domain.OrderDAO;
 
 /**
  * Servlet implementation class DeleteOrder
@@ -20,6 +23,14 @@ public class DeleteOrder extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		
+		HttpSession session = request.getSession();
+		
+		String user_id = (String)session.getAttribute("sid");
+		
+		OrderDAO orderDao = new OrderDAO();
+		
+		orderDao.deleteOrder(0)
 		
 	}
 

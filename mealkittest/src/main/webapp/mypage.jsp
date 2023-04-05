@@ -201,6 +201,15 @@ exit.addEventListener("click",function(){
 
 
 <!-- <script src="./mypage.js"></script> -->
+<script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
+<script type="text/javascript">
+const cancle = document.querySelector(".write_review_btn")
+
+cancle.addEventListener("click", function(){
+	
+})
+
+</script>
 
 
 </body>
