@@ -15,6 +15,13 @@ public class Board {
 	private int bo_category;
 	private User user;
 
+	public Board(String bo_title, String bo_content, int bo_category) {
+		super();
+		this.bo_title = bo_title;
+		this.bo_content = bo_content;
+		this.bo_category = bo_category;
+	}
+
 	public Board(String bo_title, String bo_content, String bo_file) {
 		super();
 		this.bo_title = bo_title;
