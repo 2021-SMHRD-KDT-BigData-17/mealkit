@@ -96,4 +96,19 @@ public class UserDAO {
 		return user;
 	}
 	
+	public User loadUserInfo(String user_id) {
+		User user = null;
+		
+		try {
+			user = sqlSession.selectOne("loadUserInfo", user_id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		
+		return user;
+	}
+	
 }

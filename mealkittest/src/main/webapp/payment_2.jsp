@@ -108,10 +108,10 @@ h4{
             <form action="#" method="post" id="#">
                 <div class="container">
                     <!-- <h1 class="logo">주문진행</h1> -->
-                    <h4 class="same">회원정보와 동일<input type = "checkbox"></h4> 
+                    <h4 class="same">회원정보와 동일<input id="checkBox" type ="checkbox"></h4> 
 
                     <div class="main">
-                    <input type="text" placeholder="주문자이름" class="account" required>
+                    <input type="text" placeholder="주문자이름" id="name" class="account" required>
                     <input type="text" placeholder="연락처" id="tel" class="account" required>
                     <input type="text" placeholder="주소" id="address" class="account" required>
                     <select id = "opt" name = "결제수단" class="account">
@@ -126,47 +126,57 @@ h4{
                         <td><button id="order_left" class="account" type="submit">주문취소</button></td>
                         <td><button id="order_right" class="account" type="submit">주문하기</button></td>
                         </tr>
-                    <table>
+                    <table></table>
                 </div>
             </form>
         </div>
     </section>
-    
-</body>
+<script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
 <script type="text/javascript">
 
-const checkBox = document.getElementById("#checkBox");
+const checkBox = document.getElementById("checkBox");
+
+const name = document.getElementById("name");
+const tel = document.getElementById("tel");
+const address = document.getElementById("address");
+
+console.log(checkBox.checked);
+console.log(1);
 
 checkBox.addEventListener("click", function () {
-    if (checkBox.check) {
+    if (checkBox.checked) {
         $.ajax({
-            url: "",
+            url: "LoadUserInfo",
             type: "get",
             dataType:"json",
-            data: {
-                // no data.
-
-            },
             success:function(res){
                 console.log(res);
-                for(let r in res){
-                    r[i].user_addr
-                    // name phone addr
-                }
                 
-
+                name.value = res.user_name;
+                tel.value = res.user_phone;
+                address.value = res.user_addr;
+                
 
             },
             error:function(){
-    
+    			console.log("Error.")
+    			
+    			
+    			
             },
         })
     } else {
-
+		
+    	name.value = "";
+    	tel.value = "";
+    	address.value = "";
+    	
+    	
     }
 })
 
 </script>
-</html>
+    
 </body>
+
 </html>

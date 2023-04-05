@@ -43,6 +43,10 @@
 	<select id="loadUser" parameterType="String" resultType="domain.User">
 		select user_name, user_point from tbl_user where user_id=#{ID}
 	</select>
+	
+	<select id="loadUserInfo" parameterType="String" resultType="domain.User">
+		select user_name, user_phone, user_addr from tbl_user where user_id=#{user_id}
+	</select>
 
 	<insert id="insertDelivery" parameterType="domain.Delivery">
 		insert into

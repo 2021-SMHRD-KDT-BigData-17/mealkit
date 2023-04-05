@@ -70,7 +70,7 @@
 	    <artifactId>jquery</artifactId>
 	    <version>3.5.1</version>
 	</dependency>
-    
+	
     <dependency>
 	    <groupId>servlets.com</groupId>
 	    <artifactId>cos</artifactId>
