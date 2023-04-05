@@ -116,7 +116,7 @@ h4{
                     <input type="text" name="user_addr" placeholder="주소" id="address" class="account" required>
                     <select id = "opt" name = "payment" class="account">
                         <option value="option">결제수단선택</option>
-                        <option value="creditcard">신용카드</option>
+                        <option value="credit">신용카드</option>
                         <option value="cash">무통장입금</option>
                     </select>
                     <br>
