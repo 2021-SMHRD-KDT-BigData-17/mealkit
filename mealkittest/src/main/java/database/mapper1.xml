@@ -73,10 +73,18 @@
 	<select id="loadOrder" parameterType="String" resultMap="order">
 		select tbl_product.prod_name, tbl_product.prod_price, tbl_product.prod_img1, TBLL.order_status, TBLL.order_count from (select * from (select * from tbl_order where user_id=#{ID}) TBL inner join tbl_orderdetail on TBL.order_seq = tbl_orderdetail.order_seq) TBLL inner join tbl_product on tbl_product.prod_code = TBLL.prod_code
 	</select>
+	
+	<select id="selectOrder" parameterType="String" resultType="int">
+		select order_seq from (select order_seq from tbl_order where user_id=#{user_id} order by order_seq) where ROWNUM = 1
+	</select>
 
 	<select id="loadProduct" parameterType="int" resultType="domain.Product">
 		select * from tbl_product
 		where prod_code=#{prod_code}
 	</select>
+	
+	<insert id="insertOrderDetail" parameterType="domain.OrderDetail">
+		insert into tbl_orderdetail(order_seq, prod_code, order_count) values(order_seq=#{order_seq}, prod_code=#{prod_code}, order_count=#{order_count})
+	</insert>
 	
 </mapper>

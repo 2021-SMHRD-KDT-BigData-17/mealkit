@@ -7,6 +7,13 @@ public class OrderDetail {
 	private int prod_code;
 	private int order_count;
 
+	public OrderDetail(int order_seq, int prod_code, int order_count) {
+		super();
+		this.order_seq = order_seq;
+		this.prod_code = prod_code;
+		this.order_count = order_count;
+	}
+
 	public OrderDetail() {
 		super();
 	}

@@ -21,6 +21,11 @@ public class OrderDAO {
 			
 			if(cnt > 0) {
 				sqlSession.commit();
+				
+				String user_id = order.getUser_id();
+				
+				cnt = sqlSession.selectOne("selectOrder", user_id);
+				
 			}else {
 				sqlSession.rollback();
 			}

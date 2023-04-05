@@ -7,7 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import domain.Delivery;
+import domain.DeliveryDAO;
 import domain.Order;
+import domain.OrderDAO;
+import domain.OrderDetail;
+import domain.OrderDetailDAO;
 
 /**
  * Servlet implementation class InsertOrder
@@ -27,22 +32,38 @@ public class InsertOrder extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String user_id = (String)session.getAttribute("sid");
-		
-		String name = request.getParameter("name");
 		int total_amount = 20000;
 		String order_status = "in";
 		int discount_amount = 1000;
-		int pay_amount
-		this.discount_amount = discount_amount;
-		this.pay_amount = pay_amount;
-		this.pay_method = pay_method;
-		this.paid_amount = paid_amount;
-		
-		String phone = request.getParameter("phone");
-		String addr = request.getParameter("addr");
+		int pay_amount = 19000;
 		String pay_method = request.getParameter("payment");
+		int paid_amount	= 19000;
 		
-		Order order = new Order(user_id, phone, addr, pay_method);
+		
+		Order order = new Order(user_id, total_amount, order_status, discount_amount, pay_amount, pay_method, paid_amount);
+		
+		OrderDAO orderDao = new OrderDAO();
+		
+		int order_seq = orderDao.insertOrder(order);
+		
+		
+		int prod_code = 1010;
+		int order_count = 2;
+		
+		OrderDetail orderDetail = new OrderDetail(order_seq, prod_code, order_count);
+		
+		OrderDetailDAO orderDetailDao = new OrderDetailDAO();
+		
+		
+		
+		String deli_name = request.getParameter("name");
+		String deli_phone = request.getParameter("phone");
+		String deli_addr = request.getParameter("addr");
+		String deli_company = "COUPANG";
+		
+		Delivery delivery = new Delivery(order_seq, deli_addr, deli_name, deli_phone, deli_company);
+		
+		DeliveryDAO deliveryDao = new DeliveryDAO();
 		
 		
 	}
