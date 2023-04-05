@@ -87,7 +87,7 @@ endPage = ((boardPage - 1)/10 + 1)*10;
 if(endPage > totalPage){
 	endPage = totalPage;
 } --%>
-
+ 
 
 %>
 
