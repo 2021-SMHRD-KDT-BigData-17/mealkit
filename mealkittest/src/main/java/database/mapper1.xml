@@ -49,7 +49,7 @@
 	</select>
 
 	<insert id="insertDelivery" parameterType="domain.Delivery">
-		insert into
+		insert into(order_seq,deli_addr,deli_name,deli_name,deli_phone,deli_company,deli_date)
 		tbl_delivery
 		values(#{order_seq},#{deli_addr},#{deli_name},#{deli_name},#{deli_phone},#{deli_company},SYSDATE)
 	</insert>
@@ -60,7 +60,7 @@
 	</delete>
 
 	<insert id="insertOrder" parameterType="domain.Order">
-		insert into tbl_order
+		insert into tbl_order(user_id, order_date, total_amount, order_status, dicount_amount, pay_amount, pay_method, paid_amount)
 		values
 		(#{user_id},SYSDATE,#{total_amount},#{order_status},#{dicount_amount},#{pay_amount},#{pay_method},#{paid_amount})
 	</insert>

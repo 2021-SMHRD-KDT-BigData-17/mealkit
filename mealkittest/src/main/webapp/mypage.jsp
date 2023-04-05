@@ -147,10 +147,10 @@ List<Order> list = orderDao.loadOrder(ID);
 
 
                         </td>
-                        <td><span class = "price">20,000원</span><br>
+                        <td><span class = "price"><%=list.get(i).getProduct().getProd_price() %>원</span><br>
                         </td>
-                        <td style = "width: 15%"><span class = "write_review"></span>배송준비중
-                            <p><button class = "write_review_btn"><b>주문취소</b></button></p>
+                        <td style = "width: 15%"><span class = "write_review"></span><%=list.get(i).getOrder_status().equals("out") ? "배송중" : "배송준비중"%>
+                            <p><button data-seq=<%=list.get(i).getOrder_seq() %> class = "write_review_btn"><b>주문취소</b></button></p>
                         </td>
                     </tr>
                     <%} %>
@@ -206,7 +206,9 @@ exit.addEventListener("click",function(){
 const cancle = document.querySelector(".write_review_btn")
 
 cancle.addEventListener("click", function(){
-	
+	url = "DeleteOrder?" + "order_seq=" + cancel.dataset.seq;
+
+	window.location.href = url
 })
 
 </script>
