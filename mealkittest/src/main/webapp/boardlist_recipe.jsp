@@ -82,7 +82,7 @@ if(endPage > totalPage){
 } --%>
  
 
-%>
+
 
 	<div class="board_list_wrap">
 		<div class="topbare">
