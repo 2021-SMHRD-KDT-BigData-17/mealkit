@@ -51,7 +51,7 @@ public class LoadBasket extends HttpServlet {
 		String json = gson.toJson(list);
 		
 		
-		response.getWriter().print("json");
+		response.getWriter().print(json);
 		
 	}
 
