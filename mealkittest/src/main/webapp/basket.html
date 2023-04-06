@@ -319,7 +319,9 @@
     
 <script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
 <script type="text/javascript">
- 
+
+// loadBasket
+
 const basket = document.querySelector("#tbody");
 
 $(function(){
@@ -334,7 +336,7 @@ $(function(){
 
             basket.innerHTML = "";
 
-            for(let i of res){
+            for(let i in res){
 
             	basket.innerHTML += '<tr class = "cart__list__detail">';
                 basket.innerHTML += '<td style = "width: 2%"><input type="checkbox" name="cbox" checked="checked"></td>';
