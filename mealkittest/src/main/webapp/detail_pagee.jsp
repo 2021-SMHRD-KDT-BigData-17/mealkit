@@ -107,6 +107,12 @@ if(endPage > totalPage){
 
 %>
 
+<%
+
+String user_id = (String)session.getAttribute("sid");
+
+%>
+
     <div class = "ad" align = "center">친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸-->
         <div class="basket" >  
             <form action="#" method="post" id="#">
@@ -242,8 +248,8 @@ if(endPage > totalPage){
                     <a href="https://www.naver.com/"><!-- href링크 구매페이지로 보내기 -->
                         <button class='cart_btn1' type='submit'>바로구매</button>
                     </a>
-                    <a href="https://www.naver.com/"><!-- href링크 장바구니페이지로 보내기 -->
-                        <button class='cart_btn2' type='submit'>장바구니</button>
+                    <a href="#"><!-- href링크 장바구니페이지로 보내기 -->
+                        <button class='cart_btn2' type='button'>장바구니</button>
                     </a>
 
                 </div>
@@ -651,9 +657,32 @@ if(endPage > totalPage){
         </a>
 
 </body>
-
+<script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
 <script type="text/javascript">
 
+const btn2 = document.querySelector(".cart_btn2");
+
+btn2.addEventListener("click", function(){
+	$.ajax({
+		url:"FillBasket",
+		type:"get",
+		data:{
+			"user_id": <%=user_id %>,
+			"prod_code": <%=prod_code %>,
+			"prod_cnt": 2,
+			
+		},
+	
+		success:function(){
+			alert("콕");
+		},
+			
+		error:function(){
+			console.log("Error.");		
+		}	
+		
+	})
+})
 
 
 </script>

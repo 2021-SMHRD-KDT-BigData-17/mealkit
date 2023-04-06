@@ -33,7 +33,7 @@ public class FillBasket extends HttpServlet {
 		
 		basketDao.fillBasket(basket);
 		
-		response.getWriter().print("<script>history.back()</script>");
+//		response.getWriter().print("<script>history.back()</script>");
 		
 		
 	}

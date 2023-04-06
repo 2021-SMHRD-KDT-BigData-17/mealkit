@@ -6,6 +6,7 @@
 	
 	<resultMap type="domain.Board" id="boardLoad">
 		<result column="bo_no" property="bo_no" />
+		<result column="bo_category" property="bo_category" />
 		<result column="bo_title" property="bo_title" />
 		<result column="bo_date" property="bo_date" />
 		<result column="bo_likes" property="bo_likes" />
