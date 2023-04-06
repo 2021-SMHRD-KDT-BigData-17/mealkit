@@ -132,7 +132,7 @@ if(endPage > totalPage){
 					<tr>
 						<td><%=list.get(i).getBo_no()%></td>
 						<td>나만의레시피</td>
-						<td class="title"><a href="#"><%=list.get(i).getBo_title() %></a></td>
+						<td class="title"><a href="myselfrecipe.jsp"><%=list.get(i).getBo_title() %></a></td>
 						<td><%=list.get(i).getUser().getUser_nick() %></td>
 						<td><%=list.get(i).getBo_date()%></td>
 						<td><%=list.get(i).getBo_likes()%></td>

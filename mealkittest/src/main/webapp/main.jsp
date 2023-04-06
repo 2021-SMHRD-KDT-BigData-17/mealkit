@@ -39,7 +39,7 @@ String ID = (String)session.getAttribute("sid");
 		<c:choose>
 		<c:when test="${empty sid}">
 			<a href="login.jsp">로그인&nbsp;</a>
-			<a href="membership.jsp">회원가입&nbsp;</a>
+			<a href="SignUp.jsp">회원가입&nbsp;</a>
 		</c:when>
 		<c:otherwise>
 			<c:if test="${sid eq 'admin'}">
@@ -67,17 +67,17 @@ String ID = (String)session.getAttribute("sid");
             
               
             </li>
-            <li><a href="#">국탕</a></li>
-            <li><a href="#">고기류</a></li>
-            <li><a href="#">면</a></li>
-            <li><a href="#">분식</a></li>
-            <li><a href="#">간식</a></li>
-            <li><a href="#">커뮤니티</a>
+            <li><a href="#tag1">국탕</a></li>
+            <li><a href="#tag2">고기류</a></li>
+            <li><a href="#tag3">면</a></li>
+            <li><a href="#tag4">분식</a></li>
+            <li><a href="#tag5">간식</a></li>
+            <li><a href="boardlist_recipe.jsp">커뮤니티</a>
               <ul class="main2">
                 <li><a href="boardlist_recipe.jsp">나만의 레시피</a></li>
                 <li><a href="boardlist_smalltalk.jsp">잡 담</a></li>
               </ul></li>
-            
+            	
             <li ><a href="boardlist_hotrecipe.jsp">인기레시피</a></li>
             </ul>
         </div>

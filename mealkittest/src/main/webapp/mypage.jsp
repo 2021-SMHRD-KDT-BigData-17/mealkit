@@ -5,6 +5,8 @@
 <%@page import="domain.UserDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,17 +44,7 @@ List<Order> list = orderDao.loadOrder(ID);
 
 <header>
 <div class="basket" >  
-            <form action="#" method="post">
-            <!--로그인 -->
-            <a href="login.html">로그인 &nbsp;</a>
-            <!-- 회원가입 -->
-            <a href="membership.html">회원가입 &nbsp;</a>
-            <!-- 마이페이지 -->
-            <a>주문조회 &nbsp;</a>
-            <!-- 장바구니 -->
-            <a >커뮤니티 &nbsp;</a> 
-            <a >장바구니 &nbsp;</a>
-            </form>
+      
 </div>
 
     
@@ -74,7 +66,7 @@ List<Order> list = orderDao.loadOrder(ID);
                 <span>님 환영합니다</span>
             </td>
             <td>
-                <button type="submit" class = "cart__list__optionbtn"><b>회원정보수정</b></button>
+                <a href="Edit member information.jsp"><button type="button" class = "cart__list__optionbtn"><b>회원정보수정</b></button></a>
             </td>
         </tr>
 
@@ -175,8 +167,8 @@ List<Order> list = orderDao.loadOrder(ID);
             </form>
         </table>
         <div class = "cart__mainbtns">
-            <button class = "cart__bigorderbtn left" onclick="location.reload();">메인으로</button><!-- 메인페이지로 이동 -->
-            <button class = "cart__bigorderbtn right" onClick = "location.reload();">쇼핑하기</button><!--  -->
+            <a href="main.jsp"><button class = "cart__bigorderbtn left" onclick="location.reload();">메인으로</button></a><!-- 메인페이지로 이동 -->
+            <a href="main.jsp"><button class = "cart__bigorderbtn right" onClick = "location.reload();">쇼핑하기</button><!--  -->
         </div>
     </section>
 

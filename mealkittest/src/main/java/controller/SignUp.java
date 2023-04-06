@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,12 +36,15 @@ public class SignUp extends HttpServlet {
       UserDAO userDao = new UserDAO();
       
       System.out.println("this");
-      
+      response.setContentType("text/html; charset=UTF-8");
+      PrintWriter writer = response.getWriter();
       int cnt = userDao.signUp(user);
       
       if(cnt == -1) {
-    	  response.sendRedirect("SignUp.html");
+    	  
+    	  response.sendRedirect("SignUp.jsp");
       }else {
+    	  writer.println("<script>alert('환영합니다!'); location.href='"+"main.jsp"+"';</script>"); 
     	  response.sendRedirect("main.jsp");
       }
       

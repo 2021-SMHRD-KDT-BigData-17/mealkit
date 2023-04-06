@@ -49,7 +49,7 @@ if(request.getParameter("prod_code") != null){
 	prod_code = Integer.parseInt(request.getParameter("prod_code"));
 	
 }else{
-	prod_code = 1010;
+	prod_code = 1011;
 }
 
 
@@ -215,11 +215,11 @@ String user_id = (String)session.getAttribute("sid");
                         <tbody>
                             <tr>
                                 <td>판매가</td>
-                                <td><%=product.getProd_price() %>원</td>
+                                <td><%=product.getProd_price()%>원</td>
                             </tr>
                             <tr>
                                 <td>적립금(5%)</td>
-                                <td><%=product.getProd_price()*0.05 %>원</td>
+                                <td><%=product.getProd_price()*0.05%>원</td>
                             </tr>
                             <tr>
                                 <td>배송비</td>
@@ -239,23 +239,29 @@ String user_id = (String)session.getAttribute("sid");
                             <tr height="35px">
                                 <td>옵션선택</td>
                                 <td>
-                                    <select name="옵션선택">
-                                        <option value="option1"> /// 옵션을 선택해주세요 /// </option>
-                                        <option value="option2"> 칼국수면 추가 (+1000원) </option>
-                                        <option value="option3"> 재첩 l00g 추가 (+5000원) </option>
-                                        <option value="option4"> 야채 추가 (+2000원) </option>
-                                        <option value="option5">양념 추가 (+1000원) </option>
+                                    <select id ="select" onchange="selectBoxChange(this.value);">
+                                        <option value=""> /// 옵션을 선택해주세요 /// </option>
+                                        <option value="20900원"> 재첩 추가 100g(+3000원) </option>
+                                        <option value="18900원"> 육수 추가 500g (+1000원) </option>
+                                        <option value="19400원"> 야채 추가 100g (+1500원) </option>
+                                        <option value="18900원"> 라면 1봉지 (+1000원)</option>
+                                        <option value="19400원"> 칼국수면 1봉지 (+1500원)</option>
+                                        <option value="19400원"> 두부면 1봉지 (+1500원)</option>
+                                        <option value="18900원"> 떡 100g (+1000원)</option>
+                                        <option value="18900원"> 만두 100g (+1000원)</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
+                            
                                 <td>총 판매가</td>
-                                <td><%=product.getProd_price() %>원</td>
+                                <td id = "totalprice"></td>
+                                
                             </tr>
                         </tbody>
                     </table>
 
-                    <a href="https://www.naver.com/"><!-- href링크 구매페이지로 보내기 -->
+                    <a href=""><!-- href링크 구매페이지로 보내기 -->
                         <button class='cart_btn1' type='submit'>바로구매</button>
                     </a>
                     <a href="basket.html"><!-- href링크 장바구니페이지로 보내기 -->
@@ -691,6 +697,13 @@ btn2.addEventListener("click", function(){
 		
 	})
 })
+
+var selectBoxChange = function(value){
+	console.log("값변경테스트 : " + value);
+	$('#totalprice').text($('#totalprice').text()+value);
+	}
+
+
 
 
 </script>
