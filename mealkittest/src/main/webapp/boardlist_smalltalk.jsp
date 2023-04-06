@@ -173,9 +173,11 @@ if(endPage > totalPage){
 				</tbody>
 			</table>
 
+			<c:if test="${!empty sid}">
 			<button class="btn_3" style="float: right" type="submit">
 				<a href="write.jsp">게시글 작성</a>
 			</button>
+			</c:if>	
 			<br>
 			<div class="paging">
 				<a href="#" class="bt"> << </a> <a href="#" class="bt"> < </a> <a

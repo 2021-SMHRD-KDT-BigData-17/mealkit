@@ -20,7 +20,7 @@
 		<header>
 			
 			<div class="logo-wrap">
-				<img src="./img/logo.png">
+				 <a href="main.jsp"><img src="./img/logo.png" width="17%"> </a>
 			</div>
 		</header>
         
