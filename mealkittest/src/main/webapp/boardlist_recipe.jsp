@@ -131,7 +131,7 @@ if(endPage > totalPage){
 					<% for(int i = 0; i < list.size(); i++){ %>
 					<tr>
 						<td><%=list.get(i).getBo_no()%></td>
-						<td><%=list.get(i).getBo_category()%></td>
+						<td>나만의레시피</td>
 						<td class="title"><a href="#"><%=list.get(i).getBo_title() %></a></td>
 						<td><%=list.get(i).getUser().getUser_nick() %></td>
 						<td><%=list.get(i).getBo_date()%></td>

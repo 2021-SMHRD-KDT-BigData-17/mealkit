@@ -26,18 +26,20 @@ String ID = (String) session.getAttribute("sid");
 </head>
 <body>
 	<%
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
 
-	int bo_category = 0;
+int bo_category = 1;
 
-	if (request.getParameter("bo_category") != null) {
-		bo_category = Integer.parseInt(request.getParameter("bo_category"));
+if(request.getParameter("bo_category") != null){
+	bo_category = Integer.parseInt(request.getParameter("bo_category"));
+	
+}else{
+	bo_category = 2;
+}
 
-	} else {
-		bo_category = 1;
-	}
-	%>
+%>
+	
 
 	<%
 	int boardPage = 0;
