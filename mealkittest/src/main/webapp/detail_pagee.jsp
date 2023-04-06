@@ -667,7 +667,7 @@ btn2.addEventListener("click", function(){
 		url:"FillBasket",
 		type:"get",
 		data:{
-			"user_id": <%=user_id %>,
+			
 			"prod_code": <%=prod_code %>,
 			"prod_cnt": 2,
 			
