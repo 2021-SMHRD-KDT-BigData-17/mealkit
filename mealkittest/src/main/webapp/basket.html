@@ -238,7 +238,7 @@
                         <td>적립</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                     <tr class = "cart__list__detail">
                         <td><input type="checkbox" name="cbox" checked="checked"></td>
                         <td><a class = "chicken" href="#"><img src = "./chicken.jpg" style="width: 100px;height: 100px;  display: block; margin: auto;" alt = "닭갈비"></a></td>
@@ -320,7 +320,7 @@
 <script src="webjars/jquery/3.5.1/dist/jquery.min.js"></script>
 <script type="text/javascript">
  
-const basket = document.querySelector("tbody");
+const basket = document.querySelector("#tbody");
 
 $(function(){
     $.ajax({
@@ -334,16 +334,16 @@ $(function(){
 
             basket.innerHTML = "";
 
-            for(let i in res){
+            for(let i of res){
 
-            basket.insertAdjacentHTML("beforeend", '<tr class = "cart__list__detail">');
-            basket.insertAdjacentHTM("beforeend", '<td style = "width: 2%"><input type="checkbox" name="cbox" checked="checked"></td>');
-            basket.insertAdjacentHTM("beforeend", '<td style = "width: 13%"><a class = "sosage" href = "#"><img src = ' + i.product.prod_img1 + ' style="width: 100px;height: 100px; display: block; margin: auto;" alt = "부대찌개"></a></td>');
-            basket.insertAdjacentHTM("beforeend", '<td style = "width: 27% ; vertical-align: middle;"> <P> ' + i.product.prod_name + ' / 2~3인분 </P> <span class = "price" style="color: gray;">' + i.product.prod_price + '원</span> </td>');
-            basket.insertAdjacentHTM("beforeend", '<td class = "cart__list__option" style = "width: 27%"> <p>' + i.product.prod_name + ' / ' + 1 + '개</p> <p>햄추가 + 베이크드빈추가 + 라면사리추가</p> </td>');
-            basket.insertAdjacentHTM("beforeend", '<td style = "width: 15%"><span class = "price">' + i.product.prod_price + '원</span> <br> </td>');
-            basket.insertAdjacentHTM("beforeend", '<td style = "width: 15%">' + i.product.prod_price*0.01 + 'Point</td>');
-            basket.insertAdjacentHTM("beforeend", '</tr>');
+            	basket.innerHTML += '<tr class = "cart__list__detail">';
+                basket.innerHTML += '<td style = "width: 2%"><input type="checkbox" name="cbox" checked="checked"></td>';
+                basket.innerHTML += '<td style = "width: 13%"><a class = "sosage" href = "#"><img src = ' + i.product.prod_img1 + ' style="width: 100px;height: 100px; display: block; margin: auto;" alt = "부대찌개"></a></td>';
+                basket.innerHTML += '<td style = "width: 27% ; vertical-align: middle;"> <P> ' + i.product.prod_name + ' / 2~3인분 </P> <span class = "price" style="color: gray;">' + i.product.prod_price + '원</span> </td>';
+                basket.innerHTML += '<td class = "cart__list__option" style = "width: 27%"> <p>' + i.product.prod_name + ' / ' + 1 + '개</p> <p>햄추가 + 베이크드빈추가 + 라면사리추가</p> </td>';
+                basket.innerHTML += '<td style = "width: 15%"><span class = "price">' + i.product.prod_price + '원</span> <br> </td>';
+                basket.innerHTML += '<td style = "width: 15%">' + i.product.prod_price*0.01 + 'Point</td>';
+                basket.innerHTML += '</tr>';
 
             }
             

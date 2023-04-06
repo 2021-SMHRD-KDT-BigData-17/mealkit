@@ -105,7 +105,7 @@ h4{
         <br>
         
         <br>
-            <form action="#" method="post" id="#">
+            <form action="InsertOrder" method="post" id="#">
                 <div class="container">
                     <!-- <h1 class="logo">주문진행</h1> -->
                     <h4 class="same">회원정보와 동일<input id="checkBox" type ="checkbox"></h4> 

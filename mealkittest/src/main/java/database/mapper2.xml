@@ -21,7 +21,7 @@
 
 	<select id="searchBasket" parameterType="String"
 		resultMap="basket">
-		select TBL.prod_cnt, tbl_product.prod_price, tbl_product.prod_name, tbl_product.prod_img1 from tbl_product inner join (select prod_code, prod_cnt from tbl_basket where user_id=#{user_idS}) TBL on tbl_product.prod_code = TBL.prod_code
+		select b.prod_cnt, p.prod_price, p.prod_name, p.prod_img1 from tbl_product p inner join tbl_basket b on p.prod_code = b.prod_code where b.user_id=#{user_ids}
 	</select>
 
 	<select id="loadBasket">

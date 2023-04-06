@@ -49,9 +49,7 @@
 	</select>
 
 	<insert id="insertDelivery" parameterType="domain.Delivery">
-		insert into(order_seq,deli_addr,deli_name,deli_name,deli_phone,deli_company,deli_date)
-		tbl_delivery
-		values(#{order_seq},#{deli_addr},#{deli_name},#{deli_name},#{deli_phone},#{deli_company},SYSDATE)
+		insert into tbl_delivery(order_seq,deli_addr,deli_name,deli_phone,deli_company,deli_date) values(#{order_seq},#{deli_addr},#{deli_name},#{deli_phone},#{deli_company},SYSDATE)
 	</insert>
 
 	<delete id="deleteDelivery" parameterType="int">
@@ -60,9 +58,9 @@
 	</delete>
 
 	<insert id="insertOrder" parameterType="domain.Order">
-		insert into tbl_order(user_id, order_date, total_amount, order_status, dicount_amount, pay_amount, pay_method, paid_amount)
+		insert into tbl_order(user_id, order_date, total_amount, order_status, discount_amount, pay_amount, pay_method, paid_amount)
 		values
-		(#{user_id},SYSDATE,#{total_amount},#{order_status},#{dicount_amount},#{pay_amount},#{pay_method},#{paid_amount})
+		(#{user_id},SYSDATE,#{total_amount},#{order_status},#{discount_amount},#{pay_amount},#{pay_method},#{paid_amount})
 	</insert>
 
 	<delete id="deleteOrder" parameterType="int">
@@ -84,7 +82,7 @@
 	</select>
 	
 	<insert id="insertOrderDetail" parameterType="domain.OrderDetail">
-		insert into tbl_orderdetail(order_seq, prod_code, order_count) values(order_seq=#{order_seq}, prod_code=#{prod_code}, order_count=#{order_count})
+		insert into tbl_orderdetail(order_seq, prod_code, order_count) values(#{order_seq}, #{prod_code}, #{order_count})
 	</insert>
 	
 </mapper>

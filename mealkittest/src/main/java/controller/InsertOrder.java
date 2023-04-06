@@ -56,9 +56,12 @@ public class InsertOrder extends HttpServlet {
 		
 		orderDetailDao.insertOrderDetail(orderDetail);
 		
-		String deli_name = request.getParameter("name");
-		String deli_phone = request.getParameter("phone");
-		String deli_addr = request.getParameter("addr");
+		String deli_name = request.getParameter("user_name");
+		String deli_phone = request.getParameter("user_phone");
+		String deli_addr = request.getParameter("user_addr");
+		
+		System.out.println(deli_addr);
+		
 		String deli_company = "COUPANG";
 		
 		Delivery delivery = new Delivery(order_seq, deli_addr, deli_name, deli_phone, deli_company);
