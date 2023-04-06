@@ -181,8 +181,7 @@ if(endPage > totalPage){
 			<br>
 			<div class="paging">
 				<a href="#" class="bt"> << </a> <a href="#" class="bt"> < </a> <a
-					href="#" class="num on">1</a> <a href="#" class="num">2</a> <a
-					href="#" class="num">3</a> <a href="#" class="bt"> > </a> <a
+					href="#" class="num on">1</a> <a href="#" class="bt"> > </a> <a
 					href="#" class="bt"> >> </a>
 			</div>
 
