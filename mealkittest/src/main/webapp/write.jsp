@@ -26,14 +26,14 @@ int bo_no = 0;
     <div class="board_wrap">
         <div class="board_title">
             <div class="image">
-                <img src="./img/mainlogo.jpg" alt="메인로고" style="width: 280px; height: 150px;">
-                </div>  
+               <a href="main.jsp"><img src="./img/logo.png" alt="메인로고"
+			width="280" height="150"></a></div>  
             <strong>나만의 레시피:)</strong>
             
         </div>
         <div class="board_write_wrap">
             <div class="board_write">
-            <form action="#" method="post" id="#">
+            <form action="write" method="post">
                 <div class="title">
                     <dl>
                         <dt>제목</dt>
@@ -42,27 +42,26 @@ int bo_no = 0;
                 </div>
                 <div class="info">
                     <dl>
-                        <dt>상품목록</dt>
-                        <select name="" id="">
-                       <option value="">상품목록이 없습니다:)</option>
-                       <option value="">상품목록이 없습니다!</option>
-                       <option value="">상품목록이 없습니다😊</option>
+                        <dt>카테고리</dt>
+                      <select name="choice">
+                       <option value="1">잡담</option>
+                       <option value="2">나만의 레시피</option>
                     </select>
                     </dl>
                    
                 </div>
+                </form>
                 <div class="cont">
                     <textarea placeholder="내용 입력" name="bo_content" required></textarea>
                 </div>
             </div>
             <div class="bt_wrap">
-                <a href="view.html" class="on" type="submit">등록</a>
-                <a href="list.html">취소</a>
+                <a href="boardlist_recipe.jsp" class="on" type="submit">등록</a>
+                <a href="boardlist_recipe.jsp">취소</a>
             </div>
-            </form>
+          </form>
         </div>
     </div>
-</body>
-</html>
+    
 </body>
 </html>

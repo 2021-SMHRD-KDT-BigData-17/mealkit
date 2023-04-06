@@ -176,7 +176,7 @@ if(endPage > totalPage){
 			</table>
 
 			<button class="btn_3" style="float: right" type="submit">
-				<a href="write.html">게시글 작성</a>
+				<a href="write.jsp">게시글 작성</a>
 			</button>
 			<br>
 			<div class="paging">
