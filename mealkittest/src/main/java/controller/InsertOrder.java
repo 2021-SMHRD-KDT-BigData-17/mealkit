@@ -54,7 +54,7 @@ public class InsertOrder extends HttpServlet {
 		
 		OrderDetailDAO orderDetailDao = new OrderDetailDAO();
 		
-		
+		orderDetailDao.insertOrderDetail(orderDetail);
 		
 		String deli_name = request.getParameter("name");
 		String deli_phone = request.getParameter("phone");
@@ -64,6 +64,10 @@ public class InsertOrder extends HttpServlet {
 		Delivery delivery = new Delivery(order_seq, deli_addr, deli_name, deli_phone, deli_company);
 		
 		DeliveryDAO deliveryDao = new DeliveryDAO();
+		
+		deliveryDao.insertDelivery(delivery);
+		
+		response.sendRedirect("main.jsp");
 		
 		
 	}
