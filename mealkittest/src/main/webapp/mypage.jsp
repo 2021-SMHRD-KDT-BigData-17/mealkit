@@ -57,8 +57,8 @@ List<Order> list = orderDao.loadOrder(ID);
 
     
 <div class="mainlogo">
-    <a href="main.jsp">
-        <img src = "./mainlogo.jpg" style = "width:280px; height:150px;">
+    
+        <a href="main.jsp"><img src="./img/mainlogo.jpg" style = "width:280px; height:150px;">
     </a>
 </div>
 </header>
@@ -67,7 +67,7 @@ List<Order> list = orderDao.loadOrder(ID);
     <table>
         <tr>
             <td rowspan="2">
-                <img src="./profile.png" style = "width:120px;height:75px;" alt="프로필">
+               <img src="./img/profile.png" style = "width:120px;height:75px;" alt="프로필">
             </td>
             <td>
                 <span><%=user.getUser_name() %></span>

@@ -226,7 +226,7 @@ String ID = (String)session.getAttribute("sid");
                       <div class="product-price"><strong>14,900원 </strong></div>
                     </a>
                     
-                    <a href="#" class="product">
+                    <a href="detail_pagee.jsp" class="product">
                       <img src="https://cdn-pro-web-40-6.cdn-nhncommerce.com/appacompany_godomall_com/data/goods/16/10/43/1000000237/1000000237_main_018.jpg" 
                       width="225">
                       <div class="product-name">
@@ -793,25 +793,6 @@ String ID = (String)session.getAttribute("sid");
 
 
 
-
-
-
-
-                <div class="footer">
-                  <a href="http://facebook.com">
-                    <img src="images/facebook.png"height="20">
-                  </a>
-                  <a href="http://instagram.com">
-                    <img src="images/instagram.png"height="20">
-                  </a>
-                  <a href="http://twitter.com">
-                    <img src="images/twitter.png"height="20">
-                  </a>
-
-                  
-                 
-                  
-                 
                  
 
                 

@@ -114,21 +114,30 @@ String user_id = (String)session.getAttribute("sid");
 %>
 
     <div class = "ad" align = "center">친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div><!--제일 위쪽 광고나 회사소개칸-->
-        <div class="basket" >  
-            <form action="#" method="post" id="#">
-            <!--로그인 -->
-            <a href="login.html">로그인 &nbsp;</a>
-            <!-- 회원가입 -->
-            <a href="membership.html">회원가입&nbsp;</a>
-            <!-- 마이페이지 -->
-            <a  >주문조회 &nbsp;</a>
-            <!-- 장바구니 -->
-            <a >커뮤니티 &nbsp;</a> 
-            <a >장바구니 &nbsp;</a> 
-            </form>
-        </div>
+        <div class="basket" >
+        <br>
+
+		<c:choose>
+		<c:when test="${empty sid}">
+			<a href="login.jsp">로그인&nbsp;</a>
+			<a href="membership.jsp">회원가입&nbsp;</a>
+		</c:when>
+		<c:otherwise>
+			<c:if test="${sid eq 'admin'}">
+			<a href="Member management.jsp">회원관리&nbsp;</a>
+			</c:if>
+			<a href="LogOut">로그아웃&nbsp;</a>
+			<a href="Edit member information.jsp">개인정보수정&nbsp;</a>
+		<c:if test="${!empty sid}">
+			<a href="basket.html">장바구니&nbsp;</a> 
+			<a href="mypage.jsp" >마이페이지&nbsp;</a>
+		</c:if>	
+		</c:otherwise>
+		</c:choose>
+     
+    </div>
         <div class="logo">
-            <img src="./mainlogo.jpg" width="17%" alt="메인로고">
+            <a href="main.jsp"><img src="./img/mainlogo.jpg" width="17%"> </a>
         </div>    
     </div>
                 <!-- <div class = "ad" align = "center" >친환경 커스텀마이징 밀키트 한끼줍쇼! 일괄포장시 구매금액의 5% 적립</div>
@@ -232,15 +241,16 @@ String user_id = (String)session.getAttribute("sid");
                                 <td>
                                     <select name="옵션선택">
                                         <option value="option1"> /// 옵션을 선택해주세요 /// </option>
-                                        <option value="option2"> 면 추가 (+1000원) </option>
-                                        <option value="option3"> 돼지고기l00g 추가 (+2000원) </option>
+                                        <option value="option2"> 칼국수면 추가 (+1000원) </option>
+                                        <option value="option3"> 재첩 l00g 추가 (+5000원) </option>
                                         <option value="option4"> 야채 추가 (+2000원) </option>
                                         <option value="option5">양념 추가 (+1000원) </option>
                                     </select>
                                 </td>
                             </tr>
-                            <tr id="price">
-                                <td><%=product.getProd_price() %></td>
+                            <tr>
+                                <td>총 판매가</td>
+                                <td><%=product.getProd_price() %>원</td>
                             </tr>
                         </tbody>
                     </table>
@@ -248,7 +258,7 @@ String user_id = (String)session.getAttribute("sid");
                     <a href="https://www.naver.com/"><!-- href링크 구매페이지로 보내기 -->
                         <button class='cart_btn1' type='submit'>바로구매</button>
                     </a>
-                    <a href="#"><!-- href링크 장바구니페이지로 보내기 -->
+                    <a href="basket.html"><!-- href링크 장바구니페이지로 보내기 -->
                         <button class='cart_btn2' type='button'>장바구니</button>
                     </a>
 
@@ -303,7 +313,7 @@ String user_id = (String)session.getAttribute("sid");
                 </ul>
             </nav>
             <div class = "logologo">
-                <img src="./mainlogo.jpg" width="450" height="250">
+                <img src="./img/mainlogo.jpg" width="550" height="300">
             </div>
           
             
@@ -336,8 +346,6 @@ String user_id = (String)session.getAttribute("sid");
             	<%if(product.getProd_desc8() != null){ %>
 	                <img src=<%=product.getProd_desc8() %>>
             	<%} %>
-                <img src="./prod.jpg" width="1000px" alt="상품구성사진">
-                <img src="./cook.jpg" width="1000px" alt="조리방법사진">
             </div> <!-- 상품 상세보기 -->
         </div>
 
@@ -674,7 +682,7 @@ btn2.addEventListener("click", function(){
 		},
 	
 		success:function(){
-			alert("콕");
+			
 		},
 			
 		error:function(){

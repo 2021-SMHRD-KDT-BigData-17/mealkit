@@ -131,7 +131,7 @@ if(endPage > totalPage){
 					<% for(int i = 0; i < list.size(); i++){ %>
 					<tr>
 						<td><%=list.get(i).getBo_no()%></td>
-						<td><%=list.get(i).getBo_category()%></td>
+						<td>나만의레시피</td>
 						<td class="title"><a href="#"><%=list.get(i).getBo_title() %></a></td>
 						<td><%=list.get(i).getUser().getUser_nick() %></td>
 						<td><%=list.get(i).getBo_date()%></td>
@@ -174,10 +174,11 @@ if(endPage > totalPage){
 					<%} %>
 				</tbody>
 			</table>
-
+			<c:if test="${!empty sid}">
 			<button class="btn_3" style="float: right" type="submit">
 				<a href="write.jsp">게시글 작성</a>
 			</button>
+			</c:if>	
 			<br>
 			<div class="paging">
 				<a href="#" class="bt"> << </a> <a href="#" class="bt"> < </a> <a

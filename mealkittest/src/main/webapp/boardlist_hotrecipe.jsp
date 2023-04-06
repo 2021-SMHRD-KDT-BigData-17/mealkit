@@ -26,18 +26,20 @@ String ID = (String) session.getAttribute("sid");
 </head>
 <body>
 	<%
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
 
-	int bo_category = 0;
+int bo_category = 1;
 
-	if (request.getParameter("bo_category") != null) {
-		bo_category = Integer.parseInt(request.getParameter("bo_category"));
+if(request.getParameter("bo_category") != null){
+	bo_category = Integer.parseInt(request.getParameter("bo_category"));
+	
+}else{
+	bo_category = 2;
+}
 
-	} else {
-		bo_category = 1;
-	}
-	%>
+%>
+	
 
 	<%
 	int boardPage = 0;
@@ -106,7 +108,7 @@ if(endPage > totalPage){
 				<caption>게시글 목록</caption>
 				<span class="talk">
 					<h1 style="display: inline;">커뮤니티_</h1>
-					<h3 style="display: inline; color: rgb(24, 193, 21);">잡담</h3>
+					<h3 style="display: inline; color: rgb(24, 193, 21);">인기 레시피</h3>
 				</span>
 				<br>
 				<!-- ///<button class = "btn_1" style="float:right">나만의 레시피</button><button class = "btn_2" style="float:right">잡담</button> -->
@@ -175,9 +177,7 @@ if(endPage > totalPage){
 				</tbody>
 			</table>
 
-			<button class="btn_3" style="float: right" type="submit">
-				<a href="write.jsp">게시글 작성</a>
-			</button>
+			
 			<br>
 			<div class="paging">
 				<a href="#" class="bt"> << </a> <a href="#" class="bt"> < </a> <a
